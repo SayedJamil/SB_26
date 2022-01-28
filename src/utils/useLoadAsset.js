@@ -13,7 +13,7 @@ export default function useLoadAsset(Map) {
   const { Sound, setSound } = useContext(SoundContext)
   const { SceneId, setSceneId, isLoading, setisLoading, Assets, setAssets } = useContext(SceneContext)
 
-
+  console.log(Map)
 
   useEffect(() => {
     const newSceneData = {
@@ -22,7 +22,7 @@ export default function useLoadAsset(Map) {
     }
 
     const loadImage = new Promise((resolve, reject) => {
-      LoadImage(Map.Bg)
+      LoadImage(Map?.Bg)
         .then(v => {
           setBg(v)
           resolve(v)
@@ -32,7 +32,7 @@ export default function useLoadAsset(Map) {
         })
     })
 
-    const loadAudio = Promise.all(Map.sounds.map(v => {
+    const loadAudio = Promise.all(Map?.sounds?.map(v => {
       return AudioPlayer(v)
     }))
 
@@ -40,7 +40,7 @@ export default function useLoadAsset(Map) {
       .then(v => { newSceneData["sounds"] = v })
       .catch(err => { console.log(err) })
 
-    const loadSprites = Promise.all(Map.sprites.map(v => {
+    const loadSprites = Promise.all(Map?.sprites?.map(v => {
       return LoadImage(v)
     }))
 
@@ -50,7 +50,7 @@ export default function useLoadAsset(Map) {
 
 
 
-    const loadLottie = Promise.all(Map.lottie.map(v => {
+    const loadLottie = Promise.all(Map?.lottie?.map(v => {
       return LoadJson(v)
     }))
 
@@ -58,7 +58,7 @@ export default function useLoadAsset(Map) {
       .then(v => { newSceneData["lottie"] = v })
       .catch(err => { console.log(err) })
 
-    setAssets({ ...Assets, [Map.id]: newSceneData })
+    setAssets({ ...Assets, [Map?.id]: newSceneData })
 
     Promise.all([loadImage, loadAudio, loadSprites])
       .then(v => {

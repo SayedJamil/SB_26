@@ -1,6 +1,6 @@
 import { useContext, useEffect, useState, Fragment } from 'react'
 import { SceneContext } from '../contexts/SceneContext'
-// import "../styles/Scenes.css"
+import "../styles/app.css"
 // import apple from "./Apple.svg"
 
 export default function Scenes({ sprites, Bg = "" }) {

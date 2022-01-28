@@ -1,0 +1,104 @@
+.iconGirl {
+  height: 45%;
+  left: 5%;
+  position: fixed;
+}
+.armyManSceneIcon {
+  height: 70%;
+  position: fixed;
+  left: 55%;
+  top: 20%;
+}
+
+.dentistSceneIcon {
+  height: 70%;
+  position: fixed;
+  left: 25%;
+  top: 21%;
+}
+
+.doctorSceneIcon {
+  height: 70%;
+  position: fixed;
+  left: 35%;
+  top: 21%;
+}
+.fireFighterSceneIcon {
+  height: 90%;
+  position: fixed;
+  left: 30%;
+  top: 15%;
+}
+
+.floorCleanerSceneIcon {
+  height: 50%;
+  position: fixed;
+  left: 35%;
+  top: 41%;
+}
+
+.garbageCollectorSceneIcon {
+  height: 50%;
+  position: fixed;
+  left: 80%;
+  top: 35%;
+}
+.gardenerSceneIcon {
+  height: 50%;
+  position: fixed;
+  left: 35%;
+  top: 42%;
+}
+
+.guardSceneIcon {
+  height: 60%;
+  position: fixed;
+  left: 35%;
+  top: 42%;
+}
+.policeSceneIcon {
+  height: 70%;
+  position: fixed;
+  left: 35%;
+  top: 25%;
+}
+.teacherSceneIcon {
+  height: 60%;
+  position: fixed;
+  left: 45%;
+  top: 32%;
+}
+
+.next_button {
+  position: fixed;
+  z-index: 999;
+  left: 85%;
+  bottom: 5%;
+  outline: none;
+  width: 10%;
+  height: 6%;
+  border-radius: 100%;
+  box-shadow: 1px 1px 20px 0 #000000;
+  font-weight: 600;
+  transition: all 0.5ms;
+  animation: up_down 1s alternate infinite;
+  cursor: pointer;
+  font-size: 2rem;
+  background: #f63677;
+  background-image: -webkit-linear-gradient(top, #f63677, #a81448);
+  background-image: -moz-linear-gradient(top, #f63677, #a81448);
+  background-image: -ms-linear-gradient(top, #f63677, #a81448);
+  background-image: -o-linear-gradient(top, #f63677, #a81448);
+  background-image: linear-gradient(to bottom, #f63677, #a81448);
+  -webkit-border-radius: 53;
+  -moz-border-radius: 53;
+  border-radius: 100px;
+  font-family: Arial;
+  color: #ffffff;
+  font-size: 30px;
+  border: solid #ffabc8 4px;
+}
+
+.prev_button{
+  
+}

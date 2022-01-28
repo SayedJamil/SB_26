@@ -1,0 +1,70 @@
+.iconGirl {
+  height: 45%;
+  left: 5%;
+  position: fixed;
+}
+.armyManSceneIcon {
+  height: 70%;
+  position: fixed;
+  left: 55%;
+  top: 20%;
+}
+
+.dentistSceneIcon {
+  height: 70%;
+  position: fixed;
+  left: 25%;
+  top: 21%;
+}
+
+.doctorSceneIcon {
+  height: 70%;
+  position: fixed;
+  left: 35%;
+  top: 21%;
+}
+.fireFighterSceneIcon {
+  height: 90%;
+  position: fixed;
+  left: 30%;
+  top: 15%;
+}
+
+.floorCleanerSceneIcon {
+  height: 50%;
+  position: fixed;
+  left: 35%;
+  top: 41%;
+}
+
+.garbageCollectorSceneIcon {
+  height: 50%;
+  position: fixed;
+  left: 80%;
+  top: 35%;
+}
+.gardenerSceneIcon {
+  height: 50%;
+  position: fixed;
+  left: 35%;
+  top: 42%;
+}
+
+.guardSceneIcon {
+  height: 60%;
+  position: fixed;
+  left: 35%;
+  top: 42%;
+}
+.policeSceneIcon {
+  height: 70%;
+  position: fixed;
+  left: 35%;
+  top: 25%;
+}
+.teacherSceneIcon {
+  height: 60%;
+  position: fixed;
+  left: 45%;
+  top: 32%;
+}

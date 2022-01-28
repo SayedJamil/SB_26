@@ -12,7 +12,7 @@ import Image from '../../utils/elements/Image';
 export default function Intro() {
   const { Bg, Loading } = useLoadAsset(IntroMap)
   const { SceneId, setSceneId, isLoading, setisLoading, Assets, setAssets } = useContext(SceneContext);
-  const { intro } = Assets
+  const { intro } = Assets;
 
   const Ref = useRef(null);
 
@@ -29,31 +29,31 @@ export default function Intro() {
     }
   }, [Assets, Loading])
 
-  return <Scenes
-    Bg={Bg}
-    sprites={
-      <>
-        {/* Title */}
+  return (
+    <Scenes
+      Bg={Bg}
+      sprites={
+        <>
 
-        <Image
-          src={intro?.sprites[0]}
-          alt="txt"
-          id="fadeup"
-          className="dressing_txt_img" />
-        {/* {intro?.sprites[0] && <img
-          alt="txt"
-          id="fadeup"
-          className="dressing_txt_img"
-          src={`data:image/svg+xml;utf8,${encodeURIComponent(intro?.sprites[0])}`} />} */}
+          <button
+            className="play_btn"
+            onClick={() => {
+              PlayAudio(intro?.sounds[0])
+              setSceneId("/explain")
+            }}>
+            Play
+          </button>
 
-        <button
-          className="play_btn"
-          onClick={() => { PlayAudio(intro?.sounds[0]) }}>
-          Play
-        </button>
-
-        <div ref={Ref} className="intro_lottie_container"></div>
-      </>
-    }
-  />;
+          <Image src={intro?.sprites[0]} alt="txt" className="armyMan" />
+          <Image src={intro?.sprites[1]} alt="txt" className="doctor" />
+          <Image src={intro?.sprites[2]} alt="txt" className="fireFighter" />
+          <Image src={intro?.sprites[3]} alt="txt" className="garbageCollector" />
+          <Image src={intro?.sprites[4]} alt="txt" className="police" />
+          <Image src={intro?.sprites[5]} alt="txt" className="guard" />
+          <Image src={intro?.sprites[6]} alt="txt" className="title" />
+          {/* <div ref={Ref} className="intro_lottie_container"></div> */}
+        </>
+      }
+    />
+  )
 }

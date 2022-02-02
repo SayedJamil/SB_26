@@ -1,5 +1,5 @@
 import lottie from 'lottie-web';
-import React, { useContext, useEffect, useRef } from 'react';
+import React, { useContext, useEffect, useRef, useState } from 'react';
 import { SceneContext } from '../../contexts/SceneContext';
 import Image from '../../utils/elements/Image';
 import Scenes from '../../utils/Scenes';
@@ -8,20 +8,26 @@ import CharacterSceneMap from './CharacterSceneAssetMap';
 import '../../styles/characterscene.css'
 import PlayAudio from '../../utils/playAudio';
 import { SoundContext } from '../../contexts/SoundContext';
+import { Howl, Howler } from 'howler';
 
 function Police() {
     const { Bg, Loading } = useLoadAsset(CharacterSceneMap.police)
     const { SceneId, setSceneId, isLoading, setisLoading, Assets, setAssets } = useContext(SceneContext);
     const { characterscene } = Assets;
-    const { Sound, setSound } = useContext(SoundContext)
-
+    const { Sound, setSound, muted, setMuted } = useContext(SoundContext)
     const Ref9 = useRef(null);
 
     useEffect(() => {
-        if (characterscene && !Loading && !isLoading) {
-            PlayAudio(characterscene?.sounds[0])
-        }
-    }, [Assets, Loading, isLoading])
+        var sound = new Howl({
+            src: [`/internal/audio/SB_26_Audio_06.mp3`],
+        });
+        sound.play();
+        sound.on('end', () => {
+            setSceneId('/activity01')
+        })
+    }, [])
+
+    const toggle = () => setMuted(!muted)
 
     useEffect(() => {
         if (characterscene && Ref9.current && !Loading) {
@@ -39,34 +45,41 @@ function Police() {
             }
         }
     }, [Assets, Loading])
-    useEffect(() => {
-        setTimeout(() => {
-            setSceneId('/activity01')
-            setSound(null)
-        }, 14000)
-    }, []);
+
 
     return (
         <Scenes
             Bg={Bg}
             sprites={
                 <>
-                    <button
-                        className="prev_button"
-                        onClick={() => {
-                            setSceneId("/teacher")
-                            setSound(null)
-                        }}>
-                        Previous
-                    </button>
-                    <button
-                        className="next_button"
-                        onClick={() => {
-                            setSceneId("/activity01")
-                            setSound(null)
-                        }}>
-                        Next
-                    </button>
+                   
+                    <div onClick={() => {
+                        Howler.stop()
+                        setSceneId("/activity01")
+                    }}>
+                        <Image src={characterscene?.sprites[2]} alt="txt" className="next_button" />
+                    </div>
+                    <div onClick={() => {
+                        Howler.stop()
+                        setSceneId("/teacher")
+                    }}>
+                        <Image src={characterscene?.sprites[3]} alt="txt" className="prev_button" />
+                    </div>
+                    {
+                        muted
+                            ? <div onClick={() => {
+                                Howler.volume(1)
+                                toggle()
+                            }}>
+                                <Image src={characterscene?.sprites[5]} alt="txt" className="music_button" />
+                            </div>
+                            : <div onClick={() => {
+                                Howler.volume(0)
+                                toggle()
+                            }}>
+                                <Image src={characterscene?.sprites[4]} alt="txt" className="music_button" />
+                            </div>
+                    }
                     <Image src={characterscene?.sprites[0]} alt="txt" className="iconGirl" />
                     {/* <Image src={characterscene?.sprites[1]} alt="txt" className="policeSceneIcon" /> */}
 

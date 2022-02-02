@@ -11,29 +11,29 @@
   position: fixed;
 }
 .dentistIcon {
-  left: 28%;
+  left: 27%;
   position: fixed;
   top: 10%;
 }
 
 .doctorIcon {
-  left: 46%;
+  left: 44%;
   top: 10%;
   position: fixed;
 }
 .fireFighterIcon {
-  left: 64%;
+  left: 61%;
   position: fixed;
   top: 10%;
 }
 .floorCleanerIcon {
-  left: 82%;
+  left: 78%;
   top: 10%;
   position: fixed;
 }
 
 .garbageCollectorIcon {
-  left: 37%;
+  left: 36%;
   top: 38%;
   position: fixed;
 }
@@ -60,9 +60,9 @@
 
 .girlIcon {
   position: fixed;
-  height: 60%;
-  left: 10%;
-  top: 40%;
+  height: 70%;
+  left: 15%;
+  top: 30%;
 }
 
 .helperIcon:hover {
@@ -72,6 +72,13 @@
 .activitygirlIcon {
   position: fixed;
   height: 80%;
-  left: 8%;
+  left: 15%;
   top: 10%;
+}
+
+.activityEndGirlIcon {
+  position: fixed;
+  height: 70%;
+  left: 20%;
+  top: 15%;
 }

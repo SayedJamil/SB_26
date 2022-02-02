@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
-
+import '.././styles/app.css'
 export default function GameContainer({ children }) {
-  const ratio = 16 / 9
+  const ratio = 1600 / 768
   const [width, setwidth] = useState(window.innerWidth);
   const [height, setheight] = useState(width / ratio);
 

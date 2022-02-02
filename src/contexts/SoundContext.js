@@ -5,8 +5,8 @@ export const SoundContext = createContext()
 
 export default function SoundContextProvider({ children }) {
   const [Sound, setSound] = useState(null)
-
-  return <SoundContext.Provider value={{ Sound, setSound }}>
+  const [muted, setMuted] = useState(false);
+  return <SoundContext.Provider value={{ Sound, setSound, muted, setMuted }}>
     {children}
   </SoundContext.Provider>
 }

@@ -1,4 +1,4 @@
-import { useContext, useRef, useEffect } from 'react';
+import { useContext, useRef, useEffect, useState } from 'react';
 import { SceneContext } from '../../contexts/SceneContext';
 import Scenes from "../../utils/Scenes"
 import useLoadAsset from '../../utils/useLoadAsset';
@@ -6,13 +6,16 @@ import PlayAudio from "../../utils/playAudio"
 import ExplainMap from './ExplainAssetMap';
 import lottie from "lottie-web"
 import "../../styles/explain.css"
+import "../../styles/characterscene.css"
 import Image from '../../utils/elements/Image';
-
+import { SoundContext } from '../../contexts/SoundContext';
+import { Howler, Howl } from 'howler';
 
 export default function Explain() {
   const { Bg, Loading } = useLoadAsset(ExplainMap)
   const { SceneId, setSceneId, isLoading, setisLoading, Assets, setAssets } = useContext(SceneContext);
   const { explain } = Assets;
+  const { Sound, setSound, muted, setMuted } = useContext(SoundContext)
   const Ref11 = useRef(null);
 
   useEffect(() => {
@@ -22,7 +25,7 @@ export default function Explain() {
           name: "explaingirl",
           container: Ref11.current,
           renderer: "svg",
-          loop: true,
+          loop: false,
           autoplay: true,
           animationData: explain?.lottie[0],
         })
@@ -33,10 +36,16 @@ export default function Explain() {
   }, [Assets, Loading])
 
   useEffect(() => {
-    if (explain && !Loading && !isLoading) {
-      PlayAudio(explain?.sounds[0])
-    }
-  }, [Assets, Loading, isLoading])
+    var sound = new Howl({
+      src: [`/internal/audio/SB_26_Audio_01.mp3`],
+    });
+    sound.play();
+    sound.on('end', () => {
+      setSceneId('/armyman')
+    })
+  }, [])
+
+  const toggle = () => setMuted(!muted)
 
 
 
@@ -45,34 +54,66 @@ export default function Explain() {
       Bg={Bg}
       sprites={
         <>
-          <div onClick={() => setSceneId('/armyman')}>
+          <div onClick={() => {
+            Howler.stop()
+            setSceneId("/armyman")
+          }}>
+            <Image src={explain?.sprites[11]} alt="txt" className="next_button" />
+          </div>
+
+          {
+            muted
+              ? <div onClick={() => {
+                Howler.volume(1)
+                toggle()
+              }}>
+                <Image src={explain?.sprites[14]} alt="txt" className="music_button" />
+              </div>
+              : <div onClick={() => {
+                Howler.volume(0)
+                toggle()
+              }}>
+                <Image src={explain?.sprites[13]} alt="txt" className="music_button" />
+              </div>
+          }
+          {/* <div onClick={() => setSceneId('/armyman')}> */}
+          <div>
             <Image src={explain?.sprites[0]} alt="" id="" className="helperIcon armymanIcon" />
           </div>
-          <div onClick={() => setSceneId('/dentist')}>
+          {/* <div onClick={() => setSceneId('/dentist')}> */}
+          <div>
             <Image src={explain?.sprites[1]} alt="" className="helperIcon dentistIcon" />
           </div>
-          <div onClick={() => setSceneId('/doctor')}>
+          {/* <div onClick={() => setSceneId('/doctor')}> */}
+          <div>
             <Image src={explain?.sprites[2]} alt="" className="helperIcon doctorIcon" />
           </div>
-          <div onClick={() => setSceneId('/firefighter')}>
+          {/* <div onClick={() => setSceneId('/firefighter')}> */}
+          <div>
             <Image src={explain?.sprites[3]} alt="" className="helperIcon fireFighterIcon" />
           </div>
-          <div onClick={() => setSceneId('/floorcleaner')}>
+          {/* <div onClick={() => setSceneId('/floorcleaner')}> */}
+          <div>
             <Image src={explain?.sprites[4]} alt="" className="helperIcon floorCleanerIcon" />
           </div>
-          <div onClick={() => setSceneId('/garbagecollector')}>
+          {/* <div onClick={() => setSceneId('/garbagecollector')}> */}
+          <div>
             <Image src={explain?.sprites[5]} alt="" className="helperIcon garbageCollectorIcon" />
           </div>
-          <div onClick={() => setSceneId('/gardener')}>
+          {/* <div onClick={() => setSceneId('/gardener')}> */}
+          <div>
             <Image src={explain?.sprites[6]} alt="t" className="helperIcon gardenerIcon" />
           </div>
-          <div onClick={() => setSceneId('/police')}>
+          {/* <div onClick={() => setSceneId('/police')}> */}
+          <div>
             <Image src={explain?.sprites[7]} alt="" className="helperIcon policeIcon" />
           </div>
-          <div onClick={() => setSceneId('/guard')}>
+          {/* <div onClick={() => setSceneId('/guard')}> */}
+          <div>
             <Image src={explain?.sprites[8]} alt="" className="helperIcon guardIcon" />
           </div>
-          <div onClick={() => setSceneId('/teacher')}>
+          {/* <div onClick={() => setSceneId('/teacher')}> */}
+          <div>
             <Image src={explain?.sprites[9]} alt="" className="helperIcon teacherIcon" />
           </div>
 

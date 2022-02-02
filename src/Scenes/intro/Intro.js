@@ -14,36 +14,38 @@ export default function Intro() {
   const { SceneId, setSceneId, isLoading, setisLoading, Assets, setAssets } = useContext(SceneContext);
   const { intro } = Assets;
 
-  const Ref = useRef(null);
+  // const Ref = useRef(null);
 
-  useEffect(() => {
-    if (Assets.intro && Ref.current && !Loading) {
-      const ch = lottie.loadAnimation({
-        name: "placeholder",
-        container: Ref.current,
-        renderer: "svg",
-        loop: true,
-        autoplay: true,
-        animationData: intro?.lottie[0],
-      })
-    }
-  }, [Assets, Loading])
+  // useEffect(() => {
+  //   if (Assets.intro && Ref.current && !Loading) {
+  //     const ch = lottie.loadAnimation({
+  //       name: "placeholder",
+  //       container: Ref.current,
+  //       renderer: "svg",
+  //       loop: true,
+  //       autoplay: true,
+  //       animationData: intro?.lottie[0],
+  //     })
+  //   }
+  // }, [Assets, Loading])
 
   return (
     <Scenes
       Bg={Bg}
       sprites={
         <>
-
-          <button
-            className="play_btn"
+          <div onClick={() => setSceneId('/activity01end')}>
+            <Image src={intro?.sprites[7]} alt="" id='' className="play_btn" />
+          </div>
+          {/* <button
+            className="play_btn01"
             onClick={() => {
-              PlayAudio(intro?.sounds[0])
+              // PlayAudio(intro?.sounds[0])
               setSceneId("/explain")
             }}>
             Play
-          </button>
-
+          </button> */}
+          <Image src={intro?.sprites[0]} alt="txt" className="armyMan" />
           <Image src={intro?.sprites[0]} alt="txt" className="armyMan" />
           <Image src={intro?.sprites[1]} alt="txt" className="doctor" />
           <Image src={intro?.sprites[2]} alt="txt" className="fireFighter" />
@@ -51,6 +53,8 @@ export default function Intro() {
           <Image src={intro?.sprites[4]} alt="txt" className="police" />
           <Image src={intro?.sprites[5]} alt="txt" className="guard" />
           <Image src={intro?.sprites[6]} alt="txt" className="title" />
+
+
           {/* <div ref={Ref} className="intro_lottie_container"></div> */}
         </>
       }

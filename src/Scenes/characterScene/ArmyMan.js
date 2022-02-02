@@ -8,29 +8,30 @@ import CharacterSceneMap from './CharacterSceneAssetMap';
 import '../../styles/characterscene.css'
 import PlayAudio from '../../utils/playAudio';
 import { SoundContext } from '../../contexts/SoundContext';
+import { Howl, Howler } from 'howler';
+import loadAudio from '../../utils/loadAudio.js'
+
 
 
 function ArmyMan() {
     const { Bg, Loading } = useLoadAsset(CharacterSceneMap.armyMan)
     const { SceneId, setSceneId, isLoading, setisLoading, Assets, setAssets } = useContext(SceneContext);
     const { characterscene } = Assets;
-    const { Sound, setSound } = useContext(SoundContext)
+    const { Sound, setSound, muted, setMuted } = useContext(SoundContext)
     const [sceneSound, setSceneSound] = useState(null)
-    const [playSound, setPlaySound] = useState(true)
     const Ref1 = useRef(null);
 
     useEffect(() => {
-        if (characterscene && !Loading && !isLoading) {
-            setSceneSound(characterscene?.sounds[0])
-        }
+        var sound = new Howl({
+            src: [`/internal/audio/SB_26_Audio_07.mp3`],
+        });
+        sound.play();
+        sound.on('end', () => {
+            setSceneId('/doctor')
+        })
+    }, [])
 
-    }, [Assets, Loading, isLoading])
-
-    useEffect(() => {
-        if (sceneSound) {
-            PlayAudio(sceneSound, playSound)
-        }
-    }, [sceneSound, playSound])
+    const toggle = () => setMuted(!muted)
 
     useEffect(() => {
         if (characterscene && Ref1.current && !Loading) {
@@ -49,37 +50,47 @@ function ArmyMan() {
         }
     }, [Assets, Loading])
 
-    useEffect(() => {
-        setTimeout(() => {
-            setSceneId('/doctor')
 
-        }, 10000)
-    }, []);
     return (
         <Scenes
             Bg={Bg}
             sprites={
                 <>
-                    <button
-                        className="prev_button"
-                        onClick={() => {
-                            setPlaySound(false)
-                            setSceneId("/explain")
 
-                        }}>
-                        Previous
-                    </button>
-                    <button
-                        className="next_button"
-                        onClick={() => {
-                            setSceneSound(null)
-                            setPlaySound(false)
-                            setSceneId("/doctor")
-                        }}>
-                        Next
-                    </button>
+
+                    <div onClick={() => {
+                        Howler.stop()
+                        setSceneId("/doctor")
+
+                    }}>
+                        <Image src={characterscene?.sprites[2]} alt="txt" className="next_button" />
+                    </div>
+                    <div onClick={() => {
+                        Howler.stop()
+                        setSceneId("/explain")
+
+                    }}>
+                        <Image src={characterscene?.sprites[3]} alt="txt" className="prev_button" />
+                    </div>
+
+                    {
+                        muted
+                            ? <div onClick={() => {
+                                Howler.volume(1)
+                                toggle()
+                            }}>
+                                <Image src={characterscene?.sprites[5]} alt="txt" className="music_button" />
+                            </div>
+                            : <div onClick={() => {
+                                Howler.volume(0)
+                                toggle()
+                            }}>
+                                <Image src={characterscene?.sprites[4]} alt="txt" className="music_button" />
+                            </div>
+                    }
+
                     <Image src={characterscene?.sprites[0]} alt="txt" className="iconGirl" />
-                    {/* <Image src={characterscene?.sprites[1]} alt="txt" className="armyManSceneIcon" /> */}
+
 
                     <div ref={Ref1} className="armyManSceneIcon" id="armyman"></div>
                 </>

@@ -1,60 +1,59 @@
 .armyMan {
-  left: 5%;
+  left: 10%;
   height: 35%;
   top: 3%;
   position: fixed;
 }
 
 .doctor {
-  left: 88%;
+  left: 82%;
   height: 35%;
   top: 53%;
   position: fixed;
 }
 
 .fireFighter {
-  left: 3%;
+  left: 8%;
   height: 35%;
   top: 55%;
   position: fixed;
 }
 
 .guard {
-  left: 23%;
+  left: 26%;
   height: 35%;
   top: 65%;
   position: fixed;
 }
 
 .police {
-  left: 88%;
+  left: 82%;
   height: 35%;
   top: 3%;
   position: fixed;
 }
 
 .garbageCollector {
-  left: 67%;
+  left: 65%;
   height: 35%;
   top: 65%;
   position: fixed;
 }
 
 .title {
-  top: 0%;
-  left: 5%;
+  top: -14%;
+  left: 1%;
   position: fixed;
-  height: 90%;
+  height: 120%;
 }
 
-.play_btn {
+/* .play_btn01 {
   position: fixed;
-  z-index: 999;
   left: 38%;
   bottom: 20%;
   outline: none;
   width: 20%;
-  height: 15%;
+  height: 12%;
   border-radius: 100%;
   box-shadow: 1px 1px 20px 0 #ffffff;
   font-weight: 600;
@@ -75,6 +74,15 @@
   color: #ffffff;
   font-size: 60px;
   border: solid #ffabc8 4px;
+} */
+
+.play_btn {
+  position: fixed;
+  height: 25%;
+  left: 43%;
+  top: 50%;
+  z-index: 1;
+  cursor: pointer;
 }
 
 /* .intro_lottie_container{

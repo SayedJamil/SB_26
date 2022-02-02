@@ -8,7 +8,11 @@ export default function SceneContextProvider({ children }) {
   const [isLoading, setisLoading] = useState(true)
   // state to manage sounds and images for each scene
   const [Assets, setAssets] = useState({})
-
+  const [character, setCharacter] = useState('doctor')
+  const [num, setNum] = useState('09')
+  const [charNum, setCharNum] = useState(8)
+  const [toolNum, setToolNum] = useState(15)
+  const [stars, setStars] = useState(0)
 
   // loading part
   useEffect(() => {
@@ -19,7 +23,7 @@ export default function SceneContextProvider({ children }) {
   }, [isLoading])
 
   return (
-    <SceneContext.Provider value={{ SceneId, setSceneId, isLoading, setisLoading, Assets, setAssets }}>
+    <SceneContext.Provider value={{ SceneId, setSceneId, isLoading, setisLoading, Assets, setAssets, character, setCharacter, num, setNum, charNum, setCharNum, toolNum, setToolNum, stars, setStars }}>
       {children}
     </SceneContext.Provider>
   )

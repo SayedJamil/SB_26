@@ -34,17 +34,9 @@ export default function Intro() {
       Bg={Bg}
       sprites={
         <>
-          <div onClick={() => setSceneId('/activity01end')}>
+          <div onClick={() => setSceneId('/explain')}>
             <Image src={intro?.sprites[7]} alt="" id='' className="play_btn" />
           </div>
-          {/* <button
-            className="play_btn01"
-            onClick={() => {
-              // PlayAudio(intro?.sounds[0])
-              setSceneId("/explain")
-            }}>
-            Play
-          </button> */}
           <Image src={intro?.sprites[0]} alt="txt" className="armyMan" />
           <Image src={intro?.sprites[0]} alt="txt" className="armyMan" />
           <Image src={intro?.sprites[1]} alt="txt" className="doctor" />

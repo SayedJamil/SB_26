@@ -17,8 +17,9 @@ export default function useLoadAsset(Map) {
 
   useEffect(() => {
     const newSceneData = {
-      sounds: ["xyz"],
-      sprites: []
+      sounds: [],
+      sprites: [],
+      lottie: [],
     }
 
     const loadImage = new Promise((resolve, reject) => {

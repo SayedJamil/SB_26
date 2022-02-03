@@ -1,40 +1,40 @@
 .armyMan {
-  left: 10%;
+  left: 4%;
   height: 35%;
   top: 3%;
   position: fixed;
 }
 
 .doctor {
-  left: 82%;
+  left: 87%;
   height: 35%;
   top: 53%;
   position: fixed;
 }
 
 .fireFighter {
-  left: 8%;
+  left: 3%;
   height: 35%;
   top: 55%;
   position: fixed;
 }
 
 .guard {
-  left: 26%;
+  left: 23%;
   height: 35%;
   top: 65%;
   position: fixed;
 }
 
 .police {
-  left: 82%;
+  left: 88%;
   height: 35%;
   top: 3%;
   position: fixed;
 }
 
 .garbageCollector {
-  left: 65%;
+  left: 68%;
   height: 35%;
   top: 65%;
   position: fixed;
@@ -42,7 +42,7 @@
 
 .title {
   top: -14%;
-  left: 1%;
+  left: -8%;
   position: fixed;
   height: 120%;
 }

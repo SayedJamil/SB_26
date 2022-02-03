@@ -10,7 +10,7 @@
   font-size: 10vw;
   height: max-content;
   margin: auto;
-  margin-top: 12%;
+  margin-top: 20%;
 }
 
 .intro_Loading_screen > div {
@@ -37,10 +37,11 @@
 }
 .Bg_Image {
   position: fixed;
-  height: 100vh;
-  width: 100vw;
+  height: 100%;
+  width: 100%;
   top: 0%;
   left: 0%;
+  margin: auto;
   /* Center and scale the image nicely */
   background-position: center;
   background-repeat: no-repeat;

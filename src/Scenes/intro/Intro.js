@@ -14,27 +14,14 @@ export default function Intro() {
   const { SceneId, setSceneId, isLoading, setisLoading, Assets, setAssets } = useContext(SceneContext);
   const { intro } = Assets;
 
-  // const Ref = useRef(null);
 
-  // useEffect(() => {
-  //   if (Assets.intro && Ref.current && !Loading) {
-  //     const ch = lottie.loadAnimation({
-  //       name: "placeholder",
-  //       container: Ref.current,
-  //       renderer: "svg",
-  //       loop: true,
-  //       autoplay: true,
-  //       animationData: intro?.lottie[0],
-  //     })
-  //   }
-  // }, [Assets, Loading])
 
   return (
     <Scenes
       Bg={Bg}
       sprites={
         <>
-          <div onClick={() => setSceneId('/explain')}>
+          <div onClick={() => setSceneId('/doctoractivity')}>
             <Image src={intro?.sprites[7]} alt="" id='' className="play_btn" />
           </div>
           <Image src={intro?.sprites[0]} alt="txt" className="armyMan" />

@@ -1,0 +1,84 @@
+.helperIcon {
+  height: 30%;
+  position: fixed;
+  z-index: 10;
+  cursor: pointer;
+}
+
+.armymanIcon {
+  left: 10%;
+  top: 5%;
+  position: fixed;
+}
+.dentistIcon {
+  left: 27%;
+  position: fixed;
+  top: 5%;
+}
+
+.doctorIcon {
+  left: 44%;
+  top: 5%;
+  position: fixed;
+}
+.fireFighterIcon {
+  left: 61%;
+  position: fixed;
+ top: 5%;
+}
+.floorCleanerIcon {
+  left: 78%;
+  top: 10%;
+  position: fixed;
+}
+
+.garbageCollectorIcon {
+  left: 36%;
+  top: 38%;
+  position: fixed;
+}
+.gardenerIcon {
+  left: 55%;
+  top: 38%;
+  position: fixed;
+}
+.guardIcon {
+  left: 73%;
+  position: fixed;
+  top: 38%;
+}
+.policeIcon {
+  left: 46%;
+  top: 66%;
+  position: fixed;
+}
+.teacherIcon {
+  left: 64%;
+  position: fixed;
+  top: 66%;
+}
+
+.girlIcon {
+  position: fixed;
+  height: 70%;
+  left: 10%;
+  top: 30%;
+}
+
+.helperIcon:hover {
+  transform: scale(1.1);
+}
+
+.activitygirlIcon {
+  position: fixed;
+  height: 80%;
+  left: 15%;
+  top: 10%;
+}
+
+.activityEndGirlIcon {
+  position: fixed;
+  height: 70%;
+  left: 20%;
+  top: 15%;
+}

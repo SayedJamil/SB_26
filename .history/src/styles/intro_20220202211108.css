@@ -1,0 +1,94 @@
+.armyMan {
+  left: 4%;
+  height: 35%;
+  top: 3%;
+  position: fixed;
+}
+
+.doctor {
+  left: 82%;
+  height: 35%;
+  top: 53%;
+  position: fixed;
+}
+
+.fireFighter {
+  left: 8%;
+  height: 35%;
+  top: 55%;
+  position: fixed;
+}
+
+.guard {
+  left: 26%;
+  height: 35%;
+  top: 65%;
+  position: fixed;
+}
+
+.police {
+  left: 82%;
+  height: 35%;
+  top: 3%;
+  position: fixed;
+}
+
+.garbageCollector {
+  left: 65%;
+  height: 35%;
+  top: 65%;
+  position: fixed;
+}
+
+.title {
+  top: -14%;
+  left: 1%;
+  position: fixed;
+  height: 120%;
+}
+
+/* .play_btn01 {
+  position: fixed;
+  left: 38%;
+  bottom: 20%;
+  outline: none;
+  width: 20%;
+  height: 12%;
+  border-radius: 100%;
+  box-shadow: 1px 1px 20px 0 #ffffff;
+  font-weight: 600;
+  transition: all 0.5ms;
+  animation: up_down 1s alternate infinite;
+  cursor: pointer;
+  font-size: 2rem;
+  background: #f63677;
+  background-image: -webkit-linear-gradient(top, #f63677, #a81448);
+  background-image: -moz-linear-gradient(top, #f63677, #a81448);
+  background-image: -ms-linear-gradient(top, #f63677, #a81448);
+  background-image: -o-linear-gradient(top, #f63677, #a81448);
+  background-image: linear-gradient(to bottom, #f63677, #a81448);
+  -webkit-border-radius: 53;
+  -moz-border-radius: 53;
+  border-radius: 100px;
+  font-family: Arial;
+  color: #ffffff;
+  font-size: 60px;
+  border: solid #ffabc8 4px;
+} */
+
+.play_btn {
+  position: fixed;
+  height: 25%;
+  left: 43%;
+  top: 50%;
+  z-index: 1;
+  cursor: pointer;
+}
+
+/* .intro_lottie_container{
+  position: fixed;
+  bottom: 0%;
+  z-index: 0;
+  width: 100%;
+  height: 100%;
+} */

@@ -3,14 +3,14 @@ import { SceneContext } from '../../contexts/SceneContext';
 import Scenes from "../../utils/Scenes"
 import useLoadAsset from '../../utils/useLoadAsset';
 import PlayAudio from "../../utils/playAudio"
-import IntroMap from './AssetMap';
 import lottie from "lottie-web"
 import "../../styles/intro.css"
 import Image from '../../utils/elements/Image';
+import AssetsMap from '../../Assets';
 
 
 export default function Intro() {
-  const { Bg, Loading } = useLoadAsset(IntroMap)
+  const { Bg, Loading } = useLoadAsset(AssetsMap.intro)
   const { SceneId, setSceneId, isLoading, setisLoading, Assets, setAssets } = useContext(SceneContext);
   const { intro } = Assets;
 
@@ -21,7 +21,7 @@ export default function Intro() {
       Bg={Bg}
       sprites={
         <>
-          <div onClick={() => setSceneId('/doctoractivity')}>
+          <div onClick={() => setSceneId('/explain')}>
             <Image src={intro?.sprites[7]} alt="" id='' className="play_btn" />
           </div>
           <Image src={intro?.sprites[0]} alt="txt" className="armyMan" />

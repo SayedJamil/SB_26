@@ -84,6 +84,14 @@
   z-index: 1;
   cursor: pointer;
 }
+.replay_btn {
+  position: fixed;
+  height: 20%;
+  left: 43%;
+  top: 75%;
+  z-index: 1;
+  cursor: pointer;
+}
 
 /* .intro_lottie_container{
   position: fixed;

@@ -7,49 +7,46 @@ import useLoadAsset from '../../utils/useLoadAsset';
 import '../../styles/characterscene.css'
 import PlayAudio from '../../utils/playAudio';
 import { SoundContext } from '../../contexts/SoundContext';
-import { Howl, Howler } from 'howler';
-import loadAudio from '../../utils/loadAudio.js'
+import { Howler, Howl } from 'howler';
 import AssetsMap from '../../Assets';
 
-
-
-function ArmyMan() {
-    const { Bg, Loading } = useLoadAsset(AssetsMap.armyMan)
+function Doctor() {
+    const { Bg, Loading } = useLoadAsset(AssetsMap.doctor)
     const { SceneId, setSceneId, isLoading, setisLoading, Assets, setAssets } = useContext(SceneContext);
     const { characteractivity } = Assets;
     const { Sound, setSound, muted, setMuted } = useContext(SoundContext)
-    const [sceneSound, setSceneSound] = useState(null)
-    const Ref1 = useRef(null);
-    const Ref40 = useRef(null);
+    const Ref3 = useRef(null);
+    const Ref42 = useRef(null);
     const sound = new Howl({
-        src: [`internal/audio/SB_26_Audio_07.mp3`],
+        src: [`internal/audio/SB_26_Audio_03.mp3`],
     });
     const [playSound, setPlaySound] = useState(sound)
+
     useEffect(() => {
         playSound.play()
         playSound.on('end', () => {
-            setSceneId('/doctor')
+            setSceneId('/gardener')
         })
         // transition.play()
     }, [])
-    // var transition = lottie.loadAnimation({
-    //     name: "transition",
-    //     container: Ref40.current,
-    //     renderer: "svg",
-    //     loop: false,
-    //     autoplay: true,
-    //     animationData: characteractivity?.lottie[1],
-    // })
 
+    var transition = lottie.loadAnimation({
+        name: "transition",
+        container: Ref42.current,
+        renderer: "svg",
+        loop: false,
+        autoplay: true,
+        animationData: characteractivity?.lottie[1],
+    })
 
     const toggle = () => setMuted(!muted)
 
     useEffect(() => {
-        if (characteractivity?.lottie[0] && Ref1.current && !Loading) {
+        if (characteractivity?.lottie[0] && Ref3.current && !Loading) {
             try {
                 lottie.loadAnimation({
-                    name: "armyman",
-                    container: Ref1.current,
+                    name: "doctor",
+                    container: Ref3.current,
                     renderer: "svg",
                     loop: true,
                     autoplay: true,
@@ -59,31 +56,27 @@ function ArmyMan() {
                 console.log(err)
             }
         }
-
     }, [Assets, Loading])
+
+
     return (
         <Scenes
             Bg={Bg}
             sprites={
                 <>
 
-
                     <div onClick={() => {
-                        playSound.stop()
-                        // transition.play()
-                        setSceneId("/doctor")
+                        Howler.stop()
+                        setSceneId("/gardener")
                     }}>
                         <Image src={characteractivity?.sprites[2]} alt="txt" className="next_button" />
                     </div>
                     <div onClick={() => {
-                        playSound.stop()
-                        // transition.play()
-                        setSceneId("/explain")
-
+                        Howler.stop()
+                        setSceneId("/armyman")
                     }}>
                         <Image src={characteractivity?.sprites[3]} alt="txt" className="prev_button" />
                     </div>
-
                     {
                         muted
                             ? <div onClick={() => {
@@ -99,19 +92,16 @@ function ArmyMan() {
                                 <Image src={characteractivity?.sprites[4]} alt="txt" className="music_button" />
                             </div>
                     }
-
                     <Image src={characteractivity?.sprites[0]} alt="txt" className="iconGirl" />
+                    {/* <Image src={characterscene?.sprites[1]} alt="txt" className="doctorSceneIcon" /> */}
 
-
-                    <div ref={Ref1} className="armyManSceneIcon" id="armyman"></div>
-                    {/* <div ref={Ref40} className="transitionStyle" id="transition"></div> */}
+                    <div ref={Ref3} className="doctorSceneIcon" id="doctor"></div>
+                    {/* <div ref={Ref42} className="transitionStyle" id="transition"></div> */}
 
                 </>
             }
         />
     );
-
-
 }
 
-export default ArmyMan;
+export default Doctor;

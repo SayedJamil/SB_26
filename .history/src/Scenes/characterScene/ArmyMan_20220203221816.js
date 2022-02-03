@@ -104,7 +104,7 @@ function ArmyMan() {
 
 
                     <div ref={Ref1} className="armyManSceneIcon" id="armyman"></div>
-                    {/* <div ref={Ref40} className="transitionStyle" id="transition"></div> */}
+                    <div ref={Ref40} className="transitionStyle" id="transition"></div>
 
                 </>
             }

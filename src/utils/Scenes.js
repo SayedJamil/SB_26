@@ -21,6 +21,13 @@ export default function Scenes({ sprites, Bg = "" }) {
     }
 
   }, [transition, isLoading]);
+  useEffect(() => {
+    if (isLoading) {
+      setTimeout(() => {
+        setisLoading(false)
+      }, 2000)
+    }
+  }, [isLoading])
   return (
     <div id="vision">
       {Bg !== "" && <img
@@ -29,20 +36,21 @@ export default function Scenes({ sprites, Bg = "" }) {
         alt="background"
         src={`data:image/svg+xml;utf8,${encodeURIComponent(Bg)}`} />}
 
-      {isLoading &&
-        <div
-          className="transition_style"
-          ref={containerRef2}
-          id='placeholder'
-          style={{
-            zIndex: 9999,
-            width: "200%",
-            top: "50%",
-            left: "50%",
-            transform: "translate(-50%,-50%)",
-          }}
-        ></div>
-      }
+
+      <div
+        className="transition_style"
+        ref={containerRef2}
+        id='placeholder'
+        style={{
+          opacity: isLoading ? 1 : 0,
+          zIndex: isLoading ? 9999 : 0,
+          width: "200%",
+          top: "50%",
+          left: "50%",
+          transform: "translate(-50%,-50%)",
+        }}
+      ></div>
+
       {sprites}
     </div>
   )

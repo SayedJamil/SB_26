@@ -1,6 +1,5 @@
 import { Howl, Howler } from 'howler';
-import React, { useEffect, useRef, useState } from 'react';
-import { useContext } from 'react/cjs/react.development';
+import React, { useEffect, useRef, useState, useContext } from 'react';
 import { SceneContext } from '../../../contexts/SceneContext';
 import { SoundContext } from '../../../contexts/SoundContext';
 import Image from '../../../utils/elements/Image';
@@ -70,6 +69,7 @@ function FloorCleanerActivity() {//change here
             });
             sound.play();
             sound.on('end', () => {
+                setisLoading(true)
                 setSceneId('/activity02end')
             })
             setCorrect(true)

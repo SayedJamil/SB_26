@@ -25,6 +25,7 @@ function Police() {
     useEffect(() => {
         playSound.play()
         playSound.on('end', () => {
+            setisLoading(true)
             setSceneId('/activity01')
         })
     }, [])
@@ -56,13 +57,15 @@ function Police() {
                 <>
                    
                     <div onClick={() => {
-                        Howler.stop()
+                        playSound.stop()
+                        setisLoading(true)
                         setSceneId("/activity01")
                     }}>
                         <Image src={policeScene?.sprites[2]} alt="txt" className="next_button" />
                     </div>
                     <div onClick={() => {
-                        Howler.stop()
+                        playSound.stop()
+                        setisLoading(true)
                         setSceneId("/teacher")
                     }}>
                         <Image src={policeScene?.sprites[3]} alt="txt" className="prev_button" />

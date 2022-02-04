@@ -16,49 +16,22 @@ function Doctor() {
     const { doctorScene } = Assets;
     const { Sound, setSound, muted, setMuted } = useContext(SoundContext)
     const Ref3 = useRef(null);
-    const Ref42 = useRef(null);
+
     const sound = new Howl({
         src: [`internal/audio/SB_26_Audio_03.mp3`],
     });
     const [playSound, setPlaySound] = useState(sound)
+
     useEffect(() => {
-        setTimeout(() => {
-            setisLoading(false);
-        }, 2000);
-    }, []);
-    useEffect(() => {
-        // transition.play()
+
         playSound.play()
         playSound.on('end', () => {
+            setisLoading(true)
             setSceneId('/gardener')
         })
-        // transition.play()
+
     }, [])
 
-
-    const containerRef2 = useRef(null);
-    useEffect(() => {
-        if (transition && containerRef2.current && isLoading) {
-            const ch = lottie.loadAnimation({
-                name: "placeholder",
-                container: containerRef2.current,
-                renderer: "svg",
-                loop: true,
-                autoplay: true,
-                animationData: transition,
-            });
-            ch.play()
-        }
-
-    }, [transition, isLoading]);
-    // var transition = lottie.loadAnimation({
-    //     name: "transition",
-    //     container: Ref42.current,
-    //     renderer: "svg",
-    //     loop: false,
-    //     autoplay: true,
-    //     animationData: doctorScene?.lottie[1],
-    // })
 
     const toggle = () => setMuted(!muted)
 
@@ -79,73 +52,54 @@ function Doctor() {
         }
     }, [Assets, Loading])
 
-    if (isLoading) {
-        return (
-            <>
-                {
-                    isLoading && (
-                        <div
-                            className="transition_style"
-                            ref={containerRef2}
-                            id='placeholder'
-                            style={{
-                                zIndex: 9999,
-                                width: "200%",
-                                top: "50%",
-                                left: "50%",
-                                transform: "translate(-50%,-50%)",
-                            }}
-                        ></div>
-                    )
-                }
-            </>
-        )
-    } else {
-        return (
-            <Scenes
-                Bg={Bg}
-                sprites={
-                    <>
+
+    return (
+        <Scenes
+            Bg={Bg}
+            sprites={
+                <>
 
 
-                        <div onClick={() => {
-                            Howler.stop()
-                            setSceneId("/gardener")
-                        }}>
-                            <Image src={doctorScene?.sprites[2]} alt="txt" className="next_button" />
-                        </div>
-                        <div onClick={() => {
-                            Howler.stop()
-                            setSceneId("/armyman")
-                        }}>
-                            <Image src={doctorScene?.sprites[3]} alt="txt" className="prev_button" />
-                        </div>
-                        {
-                            muted
-                                ? <div onClick={() => {
-                                    Howler.volume(1)
-                                    toggle()
-                                }}>
-                                    <Image src={doctorScene?.sprites[5]} alt="txt" className="music_button" />
-                                </div>
-                                : <div onClick={() => {
-                                    Howler.volume(0)
-                                    toggle()
-                                }}>
-                                    <Image src={doctorScene?.sprites[4]} alt="txt" className="music_button" />
-                                </div>
-                        }
-                        <Image src={doctorScene?.sprites[0]} alt="txt" className="iconGirl" />
-                        {/* <Image src={characterscene?.sprites[1]} alt="txt" className="doctorSceneIcon" /> */}
+                    <div onClick={() => {
+                        playSound.stop()
+                        setisLoading(true)
+                        setSceneId("/gardener")
+                    }}>
+                        <Image src={doctorScene?.sprites[2]} alt="txt" className="next_button" />
+                    </div>
+                    <div onClick={() => {
+                        playSound.stop()
+                        setisLoading(true)
+                        setSceneId("/armyman")
+                    }}>
+                        <Image src={doctorScene?.sprites[3]} alt="txt" className="prev_button" />
+                    </div>
+                    {
+                        muted
+                            ? <div onClick={() => {
+                                Howler.volume(1)
+                                toggle()
+                            }}>
+                                <Image src={doctorScene?.sprites[5]} alt="txt" className="music_button" />
+                            </div>
+                            : <div onClick={() => {
+                                Howler.volume(0)
+                                toggle()
+                            }}>
+                                <Image src={doctorScene?.sprites[4]} alt="txt" className="music_button" />
+                            </div>
+                    }
+                    <Image src={doctorScene?.sprites[0]} alt="txt" className="iconGirl" />
 
-                        <div ref={Ref3} className="doctorSceneIcon" id="doctor"></div>
-                        <div ref={Ref42} className="transitionStyle" id="transition"></div>
 
-                    </>
-                }
-            />
-        );
-    }
+                    <div ref={Ref3} className="doctorSceneIcon" id="doctor"></div>
+
+
+                </>
+            }
+        />
+    );
+
 
 
 }

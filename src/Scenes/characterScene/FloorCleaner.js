@@ -26,6 +26,7 @@ function FloorCleaner() {
     useEffect(() => {
         playSound.play()
         playSound.on('end', () => {
+            setisLoading(true)
             setSceneId('/dentist')
         })
     }, [])
@@ -58,13 +59,15 @@ function FloorCleaner() {
                 <>
 
                     <div onClick={() => {
-                        Howler.stop()
+                        playSound.stop()
+                        setisLoading(true)
                         setSceneId("/dentist")
                     }}>
                         <Image src={floorCleanerScene?.sprites[2]} alt="txt" className="next_button" />
                     </div>
                     <div onClick={() => {
-                        Howler.stop()
+                        playSound.stop()
+                        setisLoading(true)
                         setSceneId("/firefighter")
                     }}>
                         <Image src={floorCleanerScene?.sprites[3]} alt="txt" className="prev_button" />

@@ -1,6 +1,5 @@
 import { Howl, Howler } from 'howler';
-import React, { useEffect, useRef, useState } from 'react';
-import { useContext } from 'react/cjs/react.development';
+import React, { useContext, useEffect, useRef, useState } from 'react';
 import { SceneContext } from '../../../contexts/SceneContext';
 import { SoundContext } from '../../../contexts/SoundContext';
 import Image from '../../../utils/elements/Image';
@@ -76,6 +75,7 @@ function ArmyManActivity() {//change here
                 setNum('20')//change here for audio "Tap the character"
                 setCharNum(15)//change here from choosecharacterassetmap character icon
                 setToolNum(6)//change here from choosecharacterassetmap character tool
+                setisLoading(true)
                 setSceneId('/activity01end')
             })
             setCorrect(true)

@@ -23,6 +23,7 @@ function Activity01End() {
         });
         sound.play();
         sound.on('end', () => {
+            setisLoading(true)
             setSceneId('/firefighter')
         })
     }, [])

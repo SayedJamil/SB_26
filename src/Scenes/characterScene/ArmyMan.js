@@ -21,46 +21,19 @@ function ArmyMan() {
     const [sceneSound, setSceneSound] = useState(null)
     const Ref1 = useRef(null);
 
-    useEffect(() => {
-        setTimeout(() => {
-            setisLoading(false);
-        }, 1000);
-    }, []);
-    const containerRef2 = useRef(null);
-    useEffect(() => {
-        if (transition && containerRef2.current && isLoading) {
-            const ch = lottie.loadAnimation({
-                name: "placeholder",
-                container: containerRef2.current,
-                renderer: "svg",
-                loop: true,
-                autoplay: true,
-                animationData: transition,
-            });
-            ch.play()
-        }
 
-    }, [transition, isLoading]);
-    const Ref41 = useRef(null);
     const sound = new Howl({
         src: [`internal/audio/SB_26_Audio_07.mp3`],
     });
 
     const [playSound, setPlaySound] = useState(sound)
-    // var transition = lottie.loadAnimation({
-    //     name: "transition",
-    //     container: Ref41.current,
-    //     renderer: "svg",
-    //     loop: false,
-    //     autoplay: true,
-    //     animationData: characteractivity?.lottie[1],
-    // })
-    const [playTransition, setPlayTransition] = useState(transition)
+
     useEffect(() => {
-        // playTransition.play()
         playSound.play()
         playSound.on('end', () => {
+            setisLoading(true)
             setSceneId('/doctor')
+           
         })
 
     }, [])
@@ -90,33 +63,17 @@ function ArmyMan() {
             Bg={Bg}
             sprites={
                 <>
-                    {isLoading && (
-                        <div
-                            className="transition_style"
-                            ref={containerRef2}
-                            id='placeholder'
-                            style={{
-                                zIndex: 9999,
-                                width: "200%",
-                                top: "50%",
-                                left: "50%",
-                                transform: "translate(-50%,-50%)",
-                            }}
-                        ></div>
-                    )}
-
-                    {/* <div ref={Ref41} className="transitionStyle" id="transition"></div> */}
-
+                  
                     <div onClick={() => {
                         playSound.stop()
-
+                        setisLoading(true)
                         setSceneId("/doctor")
                     }}>
                         <Image src={armyManScene?.sprites[2]} alt="txt" className="next_button" />
                     </div>
                     <div onClick={() => {
                         playSound.stop()
-
+                        setisLoading(true)
                         setSceneId("/explain")
 
                     }}>

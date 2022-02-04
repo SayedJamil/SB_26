@@ -104,6 +104,7 @@ function Activity02End() {
                     <Image src={activityend?.sprites[6]} alt="txt" className="replay_btn" onClick={() => {
                         if (enableButton) {
                             playSound.stop()
+                            setisLoading(true)
                             setSceneId('/explain')
                         }
                     }} />

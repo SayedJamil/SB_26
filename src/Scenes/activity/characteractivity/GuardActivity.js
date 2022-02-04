@@ -1,6 +1,6 @@
 import { Howl, Howler } from 'howler';
-import React, { useEffect, useRef, useState } from 'react';
-import { useContext } from 'react/cjs/react.development';
+import React, { useEffect, useRef, useState, useContext } from 'react';
+
 import { SceneContext } from '../../../contexts/SceneContext';
 import { SoundContext } from '../../../contexts/SoundContext';
 import Image from '../../../utils/elements/Image';
@@ -74,6 +74,7 @@ function GuardActivity() {//change here
                 setNum('45')//change here for audio "Tap the character"
                 setCharNum(10)//change here from choosecharacterassetmap character icon
                 setToolNum(11)//change here from choosecharacterassetmap character tool
+                setisLoading(true)
                 setSceneId('/choosecharacter')
             })
             setCorrect(true)

@@ -25,6 +25,7 @@ function FireFighter() {
     useEffect(() => {
         playSound.play()
         playSound.on('end', () => {
+            setisLoading(true)
             setSceneId('/floorcleaner')
         })
     }, [])
@@ -55,7 +56,7 @@ function FireFighter() {
                 <>
 
                     <div onClick={() => {
-                        Howler.stop()
+                        playSound.stop()
                         setSceneId("/floorcleaner")                      
                     }}>
                         <Image src={fireFighterScene?.sprites[2]} alt="txt" className="next_button" />

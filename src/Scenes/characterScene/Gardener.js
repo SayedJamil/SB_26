@@ -17,37 +17,7 @@ function Gardener() {
     const { gardenerScene } = Assets;
     const { Sound, setSound, muted, setMuted } = useContext(SoundContext)
     const Ref7 = useRef(null);
-    const Ref42 = useRef(null);
-
-    useEffect(() => {
-        setTimeout(() => {
-            setisLoading(false);
-        }, 1000);
-    }, []);
-    const containerRef2 = useRef(null);
-    useEffect(() => {
-        if (transition && containerRef2.current && isLoading) {
-            const ch = lottie.loadAnimation({
-                name: "placeholder",
-                container: containerRef2.current,
-                renderer: "svg",
-                loop: true,
-                autoplay: true,
-                animationData: transition,
-            });
-            ch.play()
-        }
-
-    }, [transition, isLoading]);
-
-    // var transition = lottie.loadAnimation({
-    //     name: "transition",
-    //     container: Ref42.current,
-    //     renderer: "svg",
-    //     loop: false,
-    //     autoplay: true,
-    //     animationData: gardenerScene?.lottie[1],
-    // })
+   
 
     const sound = new Howl({
         src: [`internal/audio/SB_26_Audio_05.mp3`],
@@ -55,7 +25,7 @@ function Gardener() {
     const [playSound, setPlaySound] = useState(sound)
 
     useEffect(() => {
-        // transition.play()
+  
         playSound.play()
         playSound.on('end', () => {
             setSceneId('/teacher')
@@ -85,28 +55,17 @@ function Gardener() {
             Bg={Bg}
             sprites={
                 <>
-                    {isLoading && (
-                        <div
-                            className="transition_style"
-                            ref={containerRef2}
-                            id='placeholder'
-                            style={{
-                                zIndex: 9999,
-                                width: "200%",
-                                top: "50%",
-                                left: "50%",
-                                transform: "translate(-50%,-50%)",
-                            }}
-                        ></div>
-                    )}
+                
                     <div onClick={() => {
-                        Howler.stop()
+                        playSound.stop()
+                        setisLoading(true)
                         setSceneId("/teacher")
                     }}>
                         <Image src={gardenerScene?.sprites[2]} alt="txt" className="next_button" />
                     </div>
                     <div onClick={() => {
-                        Howler.stop()
+                        playSound.stop()
+                        setisLoading(true)
                         setSceneId("/doctor")
                     }}>
                         <Image src={gardenerScene?.sprites[3]} alt="txt" className="prev_button" />
@@ -127,10 +86,10 @@ function Gardener() {
                             </div>
                     }
                     <Image src={gardenerScene?.sprites[0]} alt="txt" className="iconGirl" />
-                    {/* <Image src={characterscene?.sprites[1]} alt="txt" className="gardenerSceneIcon" /> */}
+                   
 
                     <div ref={Ref7} className="gardenerSceneIcon" id="gardener"></div>
-                    <div ref={Ref42} className="transitionStyle" id="transition"></div>
+                 
                 </>
             }
         />

@@ -19,7 +19,10 @@ export default function Intro() {
       Bg={Bg}
       sprites={
         <>
-          <div onClick={() => setSceneId('/explain')}>
+          <div onClick={() => {
+            setSceneId('/explain')
+            setisLoading(true)
+          }}>
             <Image src={intro?.sprites[7]} alt="" id='' className="play_btn" />
           </div>
           <Image src={intro?.sprites[0]} alt="txt" className="armyMan" />

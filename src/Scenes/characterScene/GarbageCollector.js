@@ -25,6 +25,7 @@ function GarbageCollector() {
     useEffect(() => {
         playSound.play()
         playSound.on('end', () => {
+            setisLoading(true)
             setSceneId('/activity02')
         })
     }, [])
@@ -54,13 +55,15 @@ function GarbageCollector() {
                 <>
 
                     <div onClick={() => {
-                        Howler.stop()
+                        playSound.stop()
+                        setisLoading(true)
                         setSceneId("/activity02")
                     }}>
                         <Image src={garbageCollectorScene?.sprites[2]} alt="txt" className="next_button" />
                     </div>
                     <div onClick={() => {
-                        Howler.stop()
+                        playSound.stop()
+                        setisLoading(true)
                         setSceneId("/guard")
                     }}>
                         <Image src={garbageCollectorScene?.sprites[3]} alt="txt" className="prev_button" />

@@ -1,6 +1,5 @@
 import { Howl, Howler } from 'howler';
-import React, { useEffect, useRef, useState } from 'react';
-import { useContext } from 'react/cjs/react.development';
+import React, { useEffect, useRef, useState, useContext } from 'react';
 import { SceneContext } from '../../../contexts/SceneContext';
 import { SoundContext } from '../../../contexts/SoundContext';
 import Image from '../../../utils/elements/Image';
@@ -12,7 +11,7 @@ import lottie from 'lottie-web';
 import AssetsMap from '../../../Assets';
 function ChooseCharacter() {
     const { Bg, Loading } = useLoadAsset(AssetsMap.chooseCharacter)
-    const { setSceneId, Assets, character, num, charNum } = useContext(SceneContext);
+    const { setSceneId, Assets, character, num, charNum, setisLoading } = useContext(SceneContext);
     const { choosecharacter } = Assets;
     const { Sound, setSound, muted, setMuted } = useContext(SoundContext)
     const [correct, setCorrect] = useState(false)
@@ -43,7 +42,7 @@ function ChooseCharacter() {
         var randomPos = Math.random() >= 0.5;
         setPosition(randomPos)
     }
-j
+
     const toggle = () => setMuted(!muted)
 
     const wrongAnswerSound = () => {
@@ -66,24 +65,34 @@ j
             sound.play();
             sound.on('end', () => {
                 if (character == 'doctor') {
+                    setisLoading(true)
                     setSceneId('/doctoractivity')
                 } else if (character == 'armyman') {
+                    setisLoading(true)
                     setSceneId('/armymanactivity')
                 } else if (character == 'gardener') {
+                    setisLoading(true)
                     setSceneId('/gardeneractivity')
                 } else if (character == 'police') {
+                    setisLoading(true)
                     setSceneId('/policeactivity')
                 } else if (character == 'teacher') {
+                    setisLoading(true)
                     setSceneId('/teacheractivity')
                 } else if (character == 'garbagecollector') {
+                    setisLoading(true)
                     setSceneId('/garbagecollectoractivity')
                 } else if (character == 'dentist') {
+                    setisLoading(true)
                     setSceneId('/dentistactivity')
                 } else if (character == 'floorcleaner') {
+                    setisLoading(true)
                     setSceneId('/floorcleaneractivity')
                 } else if (character == 'guard') {
+                    setisLoading(true)
                     setSceneId('/guardactivity')
                 } else if (character == 'firefighter') {
+                    setisLoading(true)
                     setSceneId('/firefighteractivity')
                 }
                 // setSceneId('/doctor')
@@ -122,7 +131,6 @@ j
 
                                         <Image src={choosecharacter?.sprites[charNum]} alt="" className={`${position ? "leftCharacterIcon" : "rightCharacterIcon"}`} onClick={() => rightAnswerSound()} />
                                         {(correct) ? <Image src={choosecharacter?.sprites[4]} alt="txt" className={`${position ? "leftHilighterIcon" : "rightHilighterIcon"}`} onClick={() => rightAnswerSound()} /> : null}
-
 
                                         <Image src={choosecharacter?.sprites[random]} alt="txt" className={`${!position ? "leftCharacterIcon" : "rightCharacterIcon"}`} onClick={() => wrongAnswerSound()} />
                                         {(wrong) ? <Image src={choosecharacter?.sprites[5]} alt="txt" className={`${!position ? "leftHilighterIcon" : "rightHilighterIcon"}`} onClick={() => wrongAnswerSound()} /> : null}

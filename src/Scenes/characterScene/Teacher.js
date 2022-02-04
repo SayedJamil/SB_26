@@ -25,6 +25,7 @@ function Teacher() {
     useEffect(() => {
         playSound.play()
         playSound.on('end', () => {
+            setisLoading(true)
             setSceneId('/police')
         })
     }, [])
@@ -55,13 +56,15 @@ function Teacher() {
                 <>
 
                     <div onClick={() => {
-                        Howler.stop()
+                        playSound.stop()
+                        setisLoading(true)
                         setSceneId("/police")
                     }}>
                         <Image src={teacherScene?.sprites[2]} alt="txt" className="next_button" />
                     </div>
                     <div onClick={() => {
-                        Howler.stop()
+                        playSound.stop()
+                        setisLoading(true)
                         setSceneId("/gardener")
                     }}>
                         <Image src={teacherScene?.sprites[3]} alt="txt" className="prev_button" />
@@ -82,7 +85,7 @@ function Teacher() {
                             </div>
                     }
                     <Image src={teacherScene?.sprites[0]} alt="txt" className="iconGirl" />
-                    {/* <Image src={characterscene?.sprites[1]} alt="txt" className="teacherSceneIcon" /> */}
+                   
                     <div ref={Ref10} className="teacherSceneIcon" id="teacher"></div>
                 </>
             }

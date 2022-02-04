@@ -16,27 +16,19 @@ function Dentist() {
     const { dentistScene } = Assets;
     const { Sound, setSound, muted, setMuted } = useContext(SoundContext)
     const Ref5 = useRef(null);
-    const Ref41 = useRef(null);
     const sound = new Howl({
         src: [`internal/audio/SB_26_Audio_29.mp3`],
     });
     const [playSound, setPlaySound] = useState(sound)
-    var transition = lottie.loadAnimation({
-        name: "transition",
-        container: Ref41.current,
-        renderer: "svg",
-        loop: false,
-        autoplay: true,
-        animationData: dentistScene?.lottie[1],
-    })
-    const [playTransition, setPlayTransition] = useState(transition)
+
     useEffect(() => {
-        playTransition.play()
+
         playSound.play()
         playSound.on('end', () => {
+            setisLoading(true)
             setSceneId('/guard')
         })
-        // transition.play()
+
     }, [])
 
 
@@ -60,15 +52,17 @@ function Dentist() {
             Bg={Bg}
             sprites={
                 <>
-                    <div ref={Ref41} className="transitionStyle" id="transition"></div>
+
                     <div onClick={() => {
-                        Howler.stop()
+                        playSound.stop()
+                        setisLoading(true)
                         setSceneId("/guard")
                     }}>
                         <Image src={dentistScene?.sprites[2]} alt="txt" className="next_button" />
                     </div>
                     <div onClick={() => {
-                        Howler.stop()
+                        playSound.stop()
+                        setisLoading(true)
                         setSceneId("/floorcleaner")
                     }}>
                         <Image src={dentistScene?.sprites[3]} alt="txt" className="prev_button" />
@@ -90,7 +84,7 @@ function Dentist() {
                     }
 
                     <Image src={dentistScene?.sprites[0]} alt="txt" className="iconGirl" />
-                    {/* <Image src={characterscene?.sprites[1]} alt="txt" className="dentistSceneIcon" /> */}
+
                     <div ref={Ref5} className="dentistSceneIcon" id="dentist"></div>
 
                 </>

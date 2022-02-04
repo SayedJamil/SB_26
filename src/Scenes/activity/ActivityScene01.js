@@ -25,6 +25,7 @@ function ActivityExplainScene01() {
     useEffect(() => {
         playSound.play()
         playSound.on('end', () => {
+            setisLoading(true)
             setSceneId('/choosecharacter')
         })
     }, [])
@@ -55,6 +56,7 @@ function ActivityExplainScene01() {
 
                     <div onClick={() => {
                         playSound.stop()
+                        setisLoading(true)
                         setSceneId("/police")
                     }}>
                         <Image src={activity01scene?.sprites[3]} alt="txt" className="prev_button" />

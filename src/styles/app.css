@@ -62,3 +62,7 @@
 .bouncing-loader > div:nth-child(3) {
   animation-delay: 0.4s;
 }
+
+.transition_style {
+  position: fixed;
+}

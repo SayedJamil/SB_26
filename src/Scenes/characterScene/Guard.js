@@ -25,6 +25,7 @@ function Guard() {
     useEffect(() => {
         playSound.play()
         playSound.on('end', () => {
+            setisLoading(true)
             setSceneId('/garbagecollector')
         })
     }, [])
@@ -55,13 +56,15 @@ function Guard() {
                 <>
 
                     <div onClick={() => {
-                        Howler.stop()
+                        playSound.stop()
+                        setisLoading(true)
                         setSceneId("/garbagecollector")
                     }}>
                         <Image src={guardScene?.sprites[2]} alt="txt" className="next_button" />
                     </div>
                     <div onClick={() => {
-                        Howler.stop()
+                        playSound.stop()
+                        setisLoading(true)
                         setSceneId("/dentist")
                     }}>
                         <Image src={guardScene?.sprites[3]} alt="txt" className="prev_button" />

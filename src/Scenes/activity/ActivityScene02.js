@@ -30,6 +30,7 @@ function ActivityExplainScene02() {
             setCharNum(7)//change here from choosecharacterassetmap character icon
             setToolNum(12)//change here from choosecharacterassetmap character tool
             setStars(0)
+            setisLoading(true)
             setSceneId('/choosecharacter')
         })
     }, [])
@@ -62,6 +63,7 @@ function ActivityExplainScene02() {
 
                     <div onClick={() => {
                         playSound.stop()
+                        setisLoading(true)
                         setSceneId("/garbagecollector")
                     }}>
                         <Image src={activity02scene?.sprites[3]} alt="txt" className="prev_button" />

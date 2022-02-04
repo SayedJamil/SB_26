@@ -25,7 +25,9 @@ export default function Explain() {
   useEffect(() => {
     playSound.play()
     playSound.on('end', () => {
+      setisLoading(true)
       setSceneId('/armyman')
+      
     })
   }, [])
   console.log(explain)
@@ -59,6 +61,7 @@ export default function Explain() {
           <div onClick={() => {
             playSound.stop()
             setSceneId("/armyman")
+            setisLoading(true)
           }}>
             <Image src={explain?.sprites[11]} alt="txt" className="next_button" />
           </div>

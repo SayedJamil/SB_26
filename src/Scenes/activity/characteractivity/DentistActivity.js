@@ -36,7 +36,7 @@ function DentistActivity() {//change here
     const Ref29 = useRef(null);//change here
 
     useEffect(() => {
-        if (dentistScene?.lottie[0] && Ref29.current && !Loading) {//change here
+        if (dentistScene?.lottie && Ref29.current && !Loading) {//change here
             try {
                 lottie.loadAnimation({
                     name: "characterAnimation",

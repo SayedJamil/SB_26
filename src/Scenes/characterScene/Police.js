@@ -32,7 +32,7 @@ function Police() {
     const toggle = () => setMuted(!muted)
 
     useEffect(() => {
-        if (policeScene?.lottie[0]&& Ref9.current && !Loading) {
+        if (policeScene?.lottie && Ref9.current && !Loading) {
             try {
                 lottie.loadAnimation({
                     name: "police",

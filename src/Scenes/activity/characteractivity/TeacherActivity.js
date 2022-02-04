@@ -36,7 +36,7 @@ function TeacherActivity() {//change here
     const Ref23 = useRef(null);//change here
 
     useEffect(() => {
-        if (teacherScene?.lottie[0] && Ref23.current && !Loading) {//change here
+        if (teacherScene?.lottie && Ref23.current && !Loading) {//change here
             try {
                 lottie.loadAnimation({
                     name: "characterAnimation",

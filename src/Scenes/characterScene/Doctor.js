@@ -63,7 +63,7 @@ function Doctor() {
     const toggle = () => setMuted(!muted)
 
     useEffect(() => {
-        if (doctorScene?.lottie[0] && Ref3.current && !Loading) {
+        if (doctorScene?.lottie && Ref3.current && !Loading) {
             try {
                 lottie.loadAnimation({
                     name: "doctor",

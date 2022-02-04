@@ -36,7 +36,7 @@ function ArmyManActivity() {//change here
     const Ref24 = useRef(null);//change here
 
     useEffect(() => {
-        if (armyManScene?.lottie[0] && Ref24.current && !Loading) {//change here
+        if (armyManScene?.lottie && Ref24.current && !Loading) {//change here
             try {
                 lottie.loadAnimation({
                     animationData: armyManScene?.lottie[0],

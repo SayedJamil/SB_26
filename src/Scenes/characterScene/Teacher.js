@@ -32,7 +32,7 @@ function Teacher() {
     const toggle = () => setMuted(!muted)
 
     useEffect(() => {
-        if (teacherScene?.lottie[0] && Ref10.current && !Loading) {
+        if (teacherScene?.lottie && Ref10.current && !Loading) {
             try {
                 lottie.loadAnimation({
                     name: "teacher",

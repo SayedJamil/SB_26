@@ -14,7 +14,7 @@ import AssetsMap from '../../../Assets';
 
 function DoctorActivity() {//change here
     const { Bg, Loading } = useLoadAsset(AssetsMap.doctor)//change here
-    const { SceneId, setSceneId, isLoading, setisLoading, Assets, setAssets, character, setCharacter, setNum, setCharNum, toolNum, setToolNum, stars, setStars } = useContext(SceneContext);
+    const { setSceneId, isLoading, setisLoading, Assets, setAssets, character, setCharacter, setNum, setCharNum, toolNum, setToolNum, stars, setStars } = useContext(SceneContext);
     const { doctorScene } = Assets;
     const { Sound, setSound, muted, setMuted } = useContext(SoundContext)
     const [correct, setCorrect] = useState(false)
@@ -36,7 +36,7 @@ function DoctorActivity() {//change here
     const Ref21 = useRef(null);//change here
 
     useEffect(() => {
-        if (doctorScene?.lottie[0] && Ref21.current && !Loading) {//change here
+        if (doctorScene?.lottie && Ref21.current && !Loading) {//change here
             try {
                 lottie.loadAnimation({
                     name: "characterAnimation",

@@ -12,13 +12,13 @@ import lottie from 'lottie-web';
 import AssetsMap from '../../../Assets';
 function ChooseCharacter() {
     const { Bg, Loading } = useLoadAsset(AssetsMap.chooseCharacter)
-    const { SceneId, setSceneId, Assets, character, num, charNum, setStars } = useContext(SceneContext);
+    const { setSceneId, Assets, character, num, charNum } = useContext(SceneContext);
     const { choosecharacter } = Assets;
     const { Sound, setSound, muted, setMuted } = useContext(SoundContext)
     const [correct, setCorrect] = useState(false)
     const [wrong, setWrong] = useState(false)
     const [enableButton, setEnableButton] = useState(false)
-    const [random, setRandom] = useState()
+    const [random, setRandom] = useState(0)
     const [position, setPosition] = useState(true)
 
     useEffect(() => {
@@ -43,7 +43,7 @@ function ChooseCharacter() {
         var randomPos = Math.random() >= 0.5;
         setPosition(randomPos)
     }
-
+j
     const toggle = () => setMuted(!muted)
 
     const wrongAnswerSound = () => {

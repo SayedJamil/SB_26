@@ -28,9 +28,9 @@ export default function Explain() {
       setSceneId('/armyman')
     })
   }, [])
-
+  console.log(explain)
   useEffect(() => {
-    if (explain?.lottie[0] && Ref11.current && !Loading) {
+    if (explain?.lottie && Ref11.current && !Loading) {
       try {
         lottie.loadAnimation({
           name: "explaingirl",

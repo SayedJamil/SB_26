@@ -36,7 +36,7 @@ function PoliceActivity() {//change here
     const Ref22 = useRef(null);//change here
 
     useEffect(() => {
-        if (policeScene?.lottie[0] && Ref22.current && !Loading) {//change here
+        if (policeScene?.lottie && Ref22.current && !Loading) {//change here
             try {
                 lottie.loadAnimation({
                     name: "characterAnimation",

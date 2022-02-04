@@ -34,7 +34,7 @@ function FloorCleaner() {
     const toggle = () => setMuted(!muted)
 
     useEffect(() => {
-        if (floorCleanerScene?.lottie[0] && Ref3.current && !Loading) {
+        if (floorCleanerScene?.lottie && Ref3.current && !Loading) {
             try {
                 lottie.loadAnimation({
                     name: "floorcleaner",

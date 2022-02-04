@@ -392,7 +392,7 @@ const AssetsMap = {
             `${soundUrl}SB_26_Audio_01.mp3`
         ],
         lottie: [
-            `${lottieUrl}Scene_01.json`,
+
         ]
     },
     explain: {

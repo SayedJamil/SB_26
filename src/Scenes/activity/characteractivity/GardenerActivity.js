@@ -36,7 +36,7 @@ function GardenerActivity() {//change here
     const Ref21 = useRef(null);//change here
 
     useEffect(() => {
-        if (gardenerScene?.lottie[0] && Ref21.current && !Loading) {//change here
+        if (gardenerScene?.lottie && Ref21.current && !Loading) {//change here
             try {
                 lottie.loadAnimation({
                     name: "characterAnimation",

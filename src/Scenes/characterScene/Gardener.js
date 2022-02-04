@@ -64,7 +64,7 @@ function Gardener() {
 
     const toggle = () => setMuted(!muted)
     useEffect(() => {
-        if (gardenerScene?.lottie[0] && Ref7.current && !Loading) {
+        if (gardenerScene?.lottie && Ref7.current && !Loading) {
             try {
                 lottie.loadAnimation({
                     name: "gardener",

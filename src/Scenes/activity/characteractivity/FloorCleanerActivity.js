@@ -36,7 +36,7 @@ function FloorCleanerActivity() {//change here
     const Ref28 = useRef(null);//change here
 
     useEffect(() => {
-        if (floorCleanerScene?.lottie[0] && Ref28.current && !Loading) {//change here
+        if (floorCleanerScene?.lottie && Ref28.current && !Loading) {//change here
             try {
                 lottie.loadAnimation({
                     name: "characterAnimation",

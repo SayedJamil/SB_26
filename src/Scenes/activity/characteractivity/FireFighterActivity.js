@@ -36,7 +36,7 @@ function FireFighterActivity() {//change here
     const Ref26 = useRef(null);//change here
 
     useEffect(() => {
-        if (fireFighterScene?.lottie[0] && Ref26.current && !Loading) {//change here
+        if (fireFighterScene?.lottie && Ref26.current && !Loading) {//change here
             try {
                 lottie.loadAnimation({
                     name: "characterAnimation",

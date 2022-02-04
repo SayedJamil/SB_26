@@ -36,7 +36,7 @@ function GuardActivity() {//change here
     const Ref27 = useRef(null);//change here
 
     useEffect(() => {
-        if (guardScene?.lottie[0] && Ref27.current && !Loading) {//change here
+        if (guardScene?.lottie && Ref27.current && !Loading) {//change here
             try {
                 lottie.loadAnimation({
                     name: "characterAnimation",

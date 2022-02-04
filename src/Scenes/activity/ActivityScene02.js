@@ -38,7 +38,7 @@ function ActivityExplainScene02() {
     const toggle = () => setMuted(!muted)
 
     useEffect(() => {
-        if (activity02scene?.lottie[0] && Ref12.current && !Loading) {
+        if (activity02scene?.lottie && Ref12.current && !Loading) {
             try {
                 lottie.loadAnimation({
                     name: "explaingirl",

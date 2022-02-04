@@ -32,7 +32,7 @@ function GarbageCollector() {
     const toggle = () => setMuted(!muted)
 
     useEffect(() => {
-        if (garbageCollectorScene?.lottie[0] && Ref6.current && !Loading) {
+        if (garbageCollectorScene?.lottie && Ref6.current && !Loading) {
             try {
                 lottie.loadAnimation({
                     name: "garbagecollector",

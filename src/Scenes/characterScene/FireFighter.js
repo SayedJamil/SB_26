@@ -32,7 +32,7 @@ function FireFighter() {
     const toggle = () => setMuted(!muted)
 
     useEffect(() => {
-        if (fireFighterScene?.lottie[0] && Ref4.current && !Loading) {
+        if (fireFighterScene?.lottie && Ref4.current && !Loading) {
             try {
                 lottie.loadAnimation({
                     name: "firefighter",

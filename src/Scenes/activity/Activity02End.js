@@ -64,7 +64,7 @@ function Activity02End() {
     const toggle = () => setMuted(!muted)
 
     useEffect(() => {
-        if (activityend?.lottie[0] && Ref30.current && !Loading) {
+        if (activityend?.lottie && Ref30.current && !Loading) {
             try {
                 lottie.loadAnimation({
                     name: "explaingirl",

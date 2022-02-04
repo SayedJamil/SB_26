@@ -69,7 +69,7 @@ function ArmyMan() {
     const toggle = () => setMuted(!muted)
 
     useEffect(() => {
-        if (armyManScene?.lottie[0] && Ref1.current && !Loading) {
+        if (armyManScene?.lottie && Ref1.current && !Loading) {
             try {
                 lottie.loadAnimation({
                     name: "armyman",

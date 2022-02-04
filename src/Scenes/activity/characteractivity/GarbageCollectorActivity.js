@@ -36,7 +36,7 @@ function GarbageCollectorActivity() {//change here
     const Ref25 = useRef(null);//change here
 
     useEffect(() => {
-        if (garbageCollectorScene?.lottie[0] && Ref25.current && !Loading) {//change here
+        if (garbageCollectorScene?.lottie && Ref25.current && !Loading) {//change here
             try {
                 lottie.loadAnimation({
                     name: "characterAnimation",

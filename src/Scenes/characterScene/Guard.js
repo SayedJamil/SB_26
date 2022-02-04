@@ -31,7 +31,7 @@ function Guard() {
     const toggle = () => setMuted(!muted)
 
     useEffect(() => {
-        if (guardScene?.lottie[0] && Ref8.current && !Loading) {
+        if (guardScene?.lottie && Ref8.current && !Loading) {
             try {
                 lottie.loadAnimation({
                     name: "guard",

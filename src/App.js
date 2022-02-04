@@ -58,15 +58,15 @@ function App() {
   }, []);
 
 
-  // if (Load) return (
-  //   <div className="intro_Loading_screen">
-  //     Loading
-  //     <div></div>
-  //     <div></div>
-  //     <div></div>
-  //     <div></div>
-  //   </div>
-  // )
+  if (Load) return (
+    <div className="intro_Loading_screen">
+      Loading
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+    </div>
+  )
 
   return (
     <GameContainer>

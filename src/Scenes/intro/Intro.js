@@ -14,8 +14,6 @@ export default function Intro() {
   const { SceneId, setSceneId, isLoading, setisLoading, Assets, setAssets } = useContext(SceneContext);
   const { intro } = Assets;
 
-
-
   return (
     <Scenes
       Bg={Bg}

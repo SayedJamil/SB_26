@@ -13,7 +13,7 @@ import AssetsMap from '../../Assets';
 function FloorCleaner() {
     const { Bg, Loading } = useLoadAsset(AssetsMap.floorCleaner)
     const { SceneId, setSceneId, isLoading, setisLoading, Assets, setAssets } = useContext(SceneContext);
-    const { characteractivity } = Assets;
+    const { floorCleanerScene } = Assets;
     const { Sound, setSound, muted, setMuted } = useContext(SoundContext)
 
     const Ref3 = useRef(null);
@@ -34,7 +34,7 @@ function FloorCleaner() {
     const toggle = () => setMuted(!muted)
 
     useEffect(() => {
-        if (characteractivity?.lottie[0] && Ref3.current && !Loading) {
+        if (floorCleanerScene?.lottie[0] && Ref3.current && !Loading) {
             try {
                 lottie.loadAnimation({
                     name: "floorcleaner",
@@ -42,7 +42,7 @@ function FloorCleaner() {
                     renderer: "svg",
                     loop: true,
                     autoplay: true,
-                    animationData: characteractivity?.lottie[0],
+                    animationData: floorCleanerScene?.lottie[0],
                 })
             } catch (err) {
                 console.log(err)
@@ -61,13 +61,13 @@ function FloorCleaner() {
                         Howler.stop()
                         setSceneId("/dentist")
                     }}>
-                        <Image src={characteractivity?.sprites[2]} alt="txt" className="next_button" />
+                        <Image src={floorCleanerScene?.sprites[2]} alt="txt" className="next_button" />
                     </div>
                     <div onClick={() => {
                         Howler.stop()
                         setSceneId("/firefighter")
                     }}>
-                        <Image src={characteractivity?.sprites[3]} alt="txt" className="prev_button" />
+                        <Image src={floorCleanerScene?.sprites[3]} alt="txt" className="prev_button" />
                     </div>
                     {
                         muted
@@ -75,17 +75,17 @@ function FloorCleaner() {
                                 Howler.volume(1)
                                 toggle()
                             }}>
-                                <Image src={characteractivity?.sprites[5]} alt="txt" className="music_button" />
+                                <Image src={floorCleanerScene?.sprites[5]} alt="txt" className="music_button" />
                             </div>
                             : <div onClick={() => {
                                 Howler.volume(0)
                                 toggle()
                             }}>
-                                <Image src={characteractivity?.sprites[4]} alt="txt" className="music_button" />
+                                <Image src={floorCleanerScene?.sprites[4]} alt="txt" className="music_button" />
                             </div>
                     }
 
-                    <Image src={characteractivity?.sprites[0]} alt="txt" className="iconGirl" />
+                    <Image src={floorCleanerScene?.sprites[0]} alt="txt" className="iconGirl" />
                     {/* <Image src={characterscene?.sprites[1]} alt="txt" className="floorCleanerSceneIcon" /> */}
 
                     <div ref={Ref3} className="floorCleanerSceneIcon" id="floorcleaner"></div>

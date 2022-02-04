@@ -13,7 +13,7 @@ export default function SceneContextProvider({ children }) {
   const [num, setNum] = useState('09')
   const [charNum, setCharNum] = useState(8)
   const [toolNum, setToolNum] = useState(15)
-  const [stars, setStars] = useState(1)
+  const [stars, setStars] = useState(0)
 
   // loading part
   useEffect(() => {

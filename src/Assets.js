@@ -44,7 +44,7 @@ const AssetsMap = {
         ]
     },
     armyMan: {
-        id: "characteractivity",
+        id: "armyManScene",
         Bg: `${bg}SB_26_BG_06.svg`,
         sprites: [
             `${icons}SB_26_icon_girl.svg`,
@@ -80,7 +80,7 @@ const AssetsMap = {
         ]
     },
     dentist: {
-        id: "characteractivity",
+        id: "dentistScene",
         Bg: `${bg}SB_26_BG_13.svg`,
         sprites: [
             `${icons}SB_26_icon_girl.svg`,
@@ -113,7 +113,7 @@ const AssetsMap = {
         ]
     },
     doctor: {
-        id: "characteractivity",
+        id: "doctorScene",
         Bg: `${bg}SB_26_BG_02.svg`,
         sprites: [
             `${icons}SB_26_icon_girl.svg`,
@@ -146,7 +146,7 @@ const AssetsMap = {
         ]
     },
     fireFighter: {
-        id: "characteractivity",
+        id: "fireFighterScene",
         Bg: `${bg}SB_26_BG_10.svg`,
         sprites: [
             `${icons}SB_26_icon_girl.svg`,
@@ -178,7 +178,7 @@ const AssetsMap = {
         ]
     },
     floorCleaner: {
-        id: "characteractivity",
+        id: "floorCleanerScene",
         Bg: `${bg}SB_26_BG_11.svg`,
         sprites: [
             `${icons}SB_26_icon_girl.svg`,
@@ -210,7 +210,7 @@ const AssetsMap = {
         ]
     },
     garbageCollector: {
-        id: "characteractivity",
+        id: "garbageCollectorScene",
         Bg: `${bg}SB_26_BG_14.svg`,
         sprites: [
             `${icons}SB_26_icon_girl.svg`,
@@ -243,7 +243,7 @@ const AssetsMap = {
         ]
     },
     gardener: {
-        id: "characteractivity",
+        id: "gardenerScene",
         Bg: `${bg}SB_26_BG_04.svg`,
         sprites: [
             `${icons}SB_26_icon_girl.svg`,
@@ -276,7 +276,7 @@ const AssetsMap = {
         ]
     },
     guard: {
-        id: "characteractivity",
+        id: "guardScene",
         Bg: `${bg}SB_26_BG_12.svg`,
         sprites: [
             `${icons}SB_26_icon_girl.svg`,
@@ -309,7 +309,7 @@ const AssetsMap = {
         ]
     },
     police: {
-        id: "characteractivity",
+        id: "policeScene",
         Bg: `${bg}SB_26_BG_05.svg`,
         sprites: [
             `${icons}SB_26_icon_girl.svg`,
@@ -342,7 +342,7 @@ const AssetsMap = {
         ]
     },
     teacher: {
-        id: "characteractivity",
+        id: "teacherScene",
         Bg: `${bg}SB_26_BG_03.svg`,
         sprites: [
             `${icons}SB_26_icon_girl.svg`,
@@ -423,7 +423,7 @@ const AssetsMap = {
         ]
     },
     activity01: {
-        id: "activityscene",
+        id: "activity01scene",
         Bg: `${bg}SB_26_BG_07.svg`,
         sprites: [
             `${icons}SB_26_icon_girl.svg`,
@@ -442,7 +442,7 @@ const AssetsMap = {
         ]
     },
     activity02: {
-        id: "activityscene",
+        id: "activity02scene",
         Bg: `${bg}SB_26_BG_09.svg`,
         sprites: [
             `${icons}SB_26_icon_girl.svg`,

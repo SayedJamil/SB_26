@@ -15,7 +15,7 @@ import AssetsMap from '../../../Assets';
 function GuardActivity() {//change here
     const { Bg, Loading } = useLoadAsset(AssetsMap.guard)//change here
     const { SceneId, setSceneId, isLoading, setisLoading, Assets, setAssets, character, setCharacter, setNum, setCharNum, toolNum, setToolNum, stars, setStars } = useContext(SceneContext);
-    const { characteractivity } = Assets;
+    const { guardScene } = Assets;
     const { Sound, setSound, muted, setMuted } = useContext(SoundContext)
     const [correct, setCorrect] = useState(false)
     const [wrong, setWrong] = useState(false)
@@ -36,7 +36,7 @@ function GuardActivity() {//change here
     const Ref27 = useRef(null);//change here
 
     useEffect(() => {
-        if (characteractivity?.lottie[0] && Ref27.current && !Loading) {//change here
+        if (guardScene?.lottie[0] && Ref27.current && !Loading) {//change here
             try {
                 lottie.loadAnimation({
                     name: "characterAnimation",
@@ -44,7 +44,7 @@ function GuardActivity() {//change here
                     renderer: "svg",
                     loop: true,
                     autoplay: true,
-                    animationData: characteractivity?.lottie[0],
+                    animationData: guardScene?.lottie[0],
                 })
             } catch (err) {
                 console.log(err)
@@ -102,24 +102,24 @@ function GuardActivity() {//change here
                                 Howler.volume(1)
                                 toggle()
                             }}>
-                                <Image src={characteractivity?.sprites[5]} alt="txt" className="music_button" />
+                                <Image src={guardScene?.sprites[5]} alt="txt" className="music_button" />
                             </div>
                             : <div onClick={() => {
                                 Howler.volume(0)
                                 toggle()
                             }}>
-                                <Image src={characteractivity?.sprites[4]} alt="txt" className="music_button" />
+                                <Image src={guardScene?.sprites[4]} alt="txt" className="music_button" />
                             </div>
                     }
-                    <Image src={characteractivity?.sprites[toolNum]} alt="txt" className={`${position ? "bottomEquipButton" : "topEquipButton"}`} onClick={() => rightAnswerSound()} /> //change here
-                    {(correct) ? <Image src={characteractivity?.sprites[18]} alt="txt" className={`${position ? "bottomHighlightIcon" : "topHighlightIcon"}`} onClick={() => rightAnswerSound()} /> : null}//change here
-                    <Image src={characteractivity?.sprites[random]} alt="txt" className={`${!position ? "bottomEquipButton" : "topEquipButton"}`} onClick={() => wrongAnswerSound()} />//change here
-                    {(wrong) ? <Image src={characteractivity?.sprites[19]} alt="txt" className={`${!position ? "bottomHighlightIcon" : "topHighlightIcon"}`} onClick={() => wrongAnswerSound()} /> : null}//change here
+                    <Image src={guardScene?.sprites[toolNum]} alt="txt" className={`${position ? "bottomEquipButton" : "topEquipButton"}`} onClick={() => rightAnswerSound()} /> //change here
+                    {(correct) ? <Image src={guardScene?.sprites[18]} alt="txt" className={`${position ? "bottomHighlightIcon" : "topHighlightIcon"}`} onClick={() => rightAnswerSound()} /> : null}//change here
+                    <Image src={guardScene?.sprites[random]} alt="txt" className={`${!position ? "bottomEquipButton" : "topEquipButton"}`} onClick={() => wrongAnswerSound()} />//change here
+                    {(wrong) ? <Image src={guardScene?.sprites[19]} alt="txt" className={`${!position ? "bottomHighlightIcon" : "topHighlightIcon"}`} onClick={() => wrongAnswerSound()} /> : null}//change here
 
-                    <Image src={characteractivity?.sprites[20]} alt="" className="progressBar" />
+                    <Image src={guardScene?.sprites[20]} alt="" className="progressBar" />
                     <div className='starspos'>
                         {[...Array(stars)].map((elementInArray, index) => (
-                            <Image src={characteractivity?.sprites[21]} alt="" className="progressBarStars" />
+                            <Image src={guardScene?.sprites[21]} alt="" className="progressBarStars" />
                         )
                         )}
                     </div>

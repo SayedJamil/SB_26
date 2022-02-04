@@ -15,7 +15,7 @@ import AssetsMap from '../../../Assets';
 function DoctorActivity() {//change here
     const { Bg, Loading } = useLoadAsset(AssetsMap.doctor)//change here
     const { SceneId, setSceneId, isLoading, setisLoading, Assets, setAssets, character, setCharacter, setNum, setCharNum, toolNum, setToolNum, stars, setStars } = useContext(SceneContext);
-    const { characteractivity } = Assets;
+    const { doctorScene } = Assets;
     const { Sound, setSound, muted, setMuted } = useContext(SoundContext)
     const [correct, setCorrect] = useState(false)
     const [wrong, setWrong] = useState(false)
@@ -36,7 +36,7 @@ function DoctorActivity() {//change here
     const Ref21 = useRef(null);//change here
 
     useEffect(() => {
-        if (characteractivity?.lottie[0] && Ref21.current && !Loading) {//change here
+        if (doctorScene?.lottie[0] && Ref21.current && !Loading) {//change here
             try {
                 lottie.loadAnimation({
                     name: "characterAnimation",
@@ -44,7 +44,7 @@ function DoctorActivity() {//change here
                     renderer: "svg",
                     loop: true,
                     autoplay: true,
-                    animationData: characteractivity?.lottie[0],
+                    animationData: doctorScene?.lottie[0],
                 })
             } catch (err) {
                 console.log(err)
@@ -69,6 +69,9 @@ function DoctorActivity() {//change here
                 src: [`internal/audio/SB_26_Audio_13.mp3`],
             });
             sound.play();
+            setCorrect(true)
+            setStars(stars + 1)
+            setEnableButton(false)
             sound.on('end', () => {
                 setCharacter('gardener')//change here
                 setNum('14')//change here for audio "Tap the character"
@@ -76,9 +79,7 @@ function DoctorActivity() {//change here
                 setToolNum(17)//change here from choosecharacterassetmap character tool
                 setSceneId('/choosecharacter')
             })
-            setCorrect(true)
-            setStars(stars + 1)
-            setEnableButton(false)
+
         }
     }
     const randomize = () => {
@@ -102,24 +103,24 @@ function DoctorActivity() {//change here
                                 Howler.volume(1)
                                 toggle()
                             }}>
-                                <Image src={characteractivity?.sprites[5]} alt="txt" className="music_button" />
+                                <Image src={doctorScene?.sprites[5]} alt="txt" className="music_button" />
                             </div>
                             : <div onClick={() => {
                                 Howler.volume(0)
                                 toggle()
                             }}>
-                                <Image src={characteractivity?.sprites[4]} alt="txt" className="music_button" />
+                                <Image src={doctorScene?.sprites[4]} alt="txt" className="music_button" />
                             </div>
                     }
 
-                    <Image src={characteractivity?.sprites[toolNum]} alt="txt" className={`${position ? "bottomEquipButton" : "topEquipButton"}`} onClick={() => rightAnswerSound()} />{/* changehere */}
-                    {(correct) ? <Image src={characteractivity?.sprites[18]} alt="txt" className={`${position ? "bottomHighlightIcon" : "topHighlightIcon"}`} onClick={() => rightAnswerSound()} /> : null}{/* changehere */}
-                    <Image src={characteractivity?.sprites[random]} alt="txt" className={`${!position ? "bottomEquipButton" : "topEquipButton"}`} onClick={() => wrongAnswerSound()} />{/* changehere */}
-                    {(wrong) ? <Image src={characteractivity?.sprites[19]} alt="txt" className={`${!position ? "bottomHighlightIcon" : "topHighlightIcon"}`} onClick={() => wrongAnswerSound()} /> : null}{/* changehere */}
-                    <Image src={characteractivity?.sprites[20]} alt="" className="progressBar" />
+                    <Image src={doctorScene?.sprites[toolNum]} alt="txt" className={`${position ? "bottomEquipButton" : "topEquipButton"}`} onClick={() => rightAnswerSound()} />{/* changehere */}
+                    {(correct) ? <Image src={doctorScene?.sprites[18]} alt="txt" className={`${position ? "bottomHighlightIcon" : "topHighlightIcon"}`} onClick={() => rightAnswerSound()} /> : null}{/* changehere */}
+                    <Image src={doctorScene?.sprites[random]} alt="txt" className={`${!position ? "bottomEquipButton" : "topEquipButton"}`} onClick={() => wrongAnswerSound()} />{/* changehere */}
+                    {(wrong) ? <Image src={doctorScene?.sprites[19]} alt="txt" className={`${!position ? "bottomHighlightIcon" : "topHighlightIcon"}`} onClick={() => wrongAnswerSound()} /> : null}{/* changehere */}
+                    <Image src={doctorScene?.sprites[20]} alt="" className="progressBar" />
                     <div className='starspos'>
                         {[...Array(stars)].map((elementInArray, index) => (
-                            <Image src={characteractivity?.sprites[21]} alt="" className="progressBarStars" />
+                            <Image src={doctorScene?.sprites[21]} alt="" className="progressBarStars" />
                         )
                         )}
                     </div>

@@ -60,7 +60,6 @@ function ChooseCharacter() {
     }
     const rightAnswerSound = () => {
         if (enableButton) {
-            setStars(0)
             var sound = new Howl({
                 src: [`internal/audio/SB_26_Audio_11.mp3`],
             });

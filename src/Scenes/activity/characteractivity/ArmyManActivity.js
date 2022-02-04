@@ -15,7 +15,7 @@ import AssetsMap from '../../../Assets';
 function ArmyManActivity() {//change here
     const { Bg, Loading } = useLoadAsset(AssetsMap.armyMan)//change here
     const { SceneId, setSceneId, isLoading, setisLoading, Assets, setAssets, character, setCharacter, setNum, setCharNum, toolNum, setToolNum, stars, setStars } = useContext(SceneContext);
-    const { characteractivity } = Assets;
+    const { armyManScene } = Assets;
     const { Sound, setSound, muted, setMuted } = useContext(SoundContext)
     const [correct, setCorrect] = useState(false)
     const [wrong, setWrong] = useState(false)
@@ -36,10 +36,10 @@ function ArmyManActivity() {//change here
     const Ref24 = useRef(null);//change here
 
     useEffect(() => {
-        if (characteractivity?.lottie[0] && Ref24.current && !Loading) {//change here
+        if (armyManScene?.lottie[0] && Ref24.current && !Loading) {//change here
             try {
                 lottie.loadAnimation({
-                    animationData: characteractivity?.lottie[0],
+                    animationData: armyManScene?.lottie[0],
                     name: "characterAnimation",
                     container: Ref24.current,//change here
                     renderer: "svg",
@@ -105,24 +105,24 @@ function ArmyManActivity() {//change here
                                 Howler.volume(1)
                                 toggle()
                             }}>
-                                <Image src={characteractivity?.sprites[5]} alt="txt" className="music_button" />
+                                <Image src={armyManScene?.sprites[5]} alt="txt" className="music_button" />
                             </div>
                             : <div onClick={() => {
                                 Howler.volume(0)
                                 toggle()
                             }}>
-                                <Image src={characteractivity?.sprites[4]} alt="txt" className="music_button" />
+                                <Image src={armyManScene?.sprites[4]} alt="txt" className="music_button" />
                             </div>
                     }
-                    <Image src={characteractivity?.sprites[toolNum]} alt="txt" className={`${position ? "bottomEquipButton" : "topEquipButton"}`} onClick={() => rightAnswerSound()} /> //change here
-                    {(correct) ? <Image src={characteractivity?.sprites[18]} alt="txt" className={`${position ? "bottomHighlightIcon" : "topHighlightIcon"}`} onClick={() => rightAnswerSound()} /> : null}//change here
-                    <Image src={characteractivity?.sprites[random]} alt="txt" className={`${!position ? "bottomEquipButton" : "topEquipButton"}`} onClick={() => wrongAnswerSound()} />//change here
-                    {(wrong) ? <Image src={characteractivity?.sprites[19]} alt="txt" className={`${!position ? "bottomHighlightIcon" : "topHighlightIcon"}`} onClick={() => wrongAnswerSound()} /> : null}//change here
+                    <Image src={armyManScene?.sprites[toolNum]} alt="txt" className={`${position ? "bottomEquipButton" : "topEquipButton"}`} onClick={() => rightAnswerSound()} /> //change here
+                    {(correct) ? <Image src={armyManScene?.sprites[18]} alt="txt" className={`${position ? "bottomHighlightIcon" : "topHighlightIcon"}`} onClick={() => rightAnswerSound()} /> : null}//change here
+                    <Image src={armyManScene?.sprites[random]} alt="txt" className={`${!position ? "bottomEquipButton" : "topEquipButton"}`} onClick={() => wrongAnswerSound()} />//change here
+                    {(wrong) ? <Image src={armyManScene?.sprites[19]} alt="txt" className={`${!position ? "bottomHighlightIcon" : "topHighlightIcon"}`} onClick={() => wrongAnswerSound()} /> : null}//change here
 
-                    <Image src={characteractivity?.sprites[20]} alt="" className="progressBar" />
+                    <Image src={armyManScene?.sprites[20]} alt="" className="progressBar" />
                     <div className='starspos'>
                         {[...Array(stars)].map((elementInArray, index) => (
-                            <Image src={characteractivity?.sprites[21]} alt="" className="progressBarStars" />
+                            <Image src={armyManScene?.sprites[21]} alt="" className="progressBarStars" />
                         )
                         )}
                     </div>

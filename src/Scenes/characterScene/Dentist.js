@@ -13,7 +13,7 @@ import AssetsMap from '../../Assets';
 function Dentist() {
     const { Bg, Loading } = useLoadAsset(AssetsMap.dentist)
     const { SceneId, setSceneId, isLoading, setisLoading, Assets, setAssets } = useContext(SceneContext);
-    const { characteractivity } = Assets;
+    const { dentistScene } = Assets;
     const { Sound, setSound, muted, setMuted } = useContext(SoundContext)
     const Ref5 = useRef(null);
     const Ref41 = useRef(null);
@@ -27,7 +27,7 @@ function Dentist() {
         renderer: "svg",
         loop: false,
         autoplay: true,
-        animationData: characteractivity?.lottie[1],
+        animationData: dentistScene?.lottie[1],
     })
     const [playTransition, setPlayTransition] = useState(transition)
     useEffect(() => {
@@ -43,14 +43,14 @@ function Dentist() {
     const toggle = () => setMuted(!muted)
 
     useEffect(() => {
-        if (characteractivity?.lottie[0] && Ref5.current && !Loading) {
+        if (dentistScene?.lottie[0] && Ref5.current && !Loading) {
             const ch = lottie.loadAnimation({
                 name: "dentist",
                 container: Ref5.current,
                 renderer: "svg",
                 loop: true,
                 autoplay: true,
-                animationData: characteractivity?.lottie[0],
+                animationData: dentistScene?.lottie[0],
             })
         }
     }, [Assets, Loading])
@@ -65,13 +65,13 @@ function Dentist() {
                         Howler.stop()
                         setSceneId("/guard")
                     }}>
-                        <Image src={characteractivity?.sprites[2]} alt="txt" className="next_button" />
+                        <Image src={dentistScene?.sprites[2]} alt="txt" className="next_button" />
                     </div>
                     <div onClick={() => {
                         Howler.stop()
                         setSceneId("/floorcleaner")
                     }}>
-                        <Image src={characteractivity?.sprites[3]} alt="txt" className="prev_button" />
+                        <Image src={dentistScene?.sprites[3]} alt="txt" className="prev_button" />
                     </div>
                     {
                         muted
@@ -79,17 +79,17 @@ function Dentist() {
                                 Howler.volume(1)
                                 toggle()
                             }}>
-                                <Image src={characteractivity?.sprites[5]} alt="txt" className="music_button" />
+                                <Image src={dentistScene?.sprites[5]} alt="txt" className="music_button" />
                             </div>
                             : <div onClick={() => {
                                 Howler.volume(0)
                                 toggle()
                             }}>
-                                <Image src={characteractivity?.sprites[4]} alt="txt" className="music_button" />
+                                <Image src={dentistScene?.sprites[4]} alt="txt" className="music_button" />
                             </div>
                     }
 
-                    <Image src={characteractivity?.sprites[0]} alt="txt" className="iconGirl" />
+                    <Image src={dentistScene?.sprites[0]} alt="txt" className="iconGirl" />
                     {/* <Image src={characterscene?.sprites[1]} alt="txt" className="dentistSceneIcon" /> */}
                     <div ref={Ref5} className="dentistSceneIcon" id="dentist"></div>
 

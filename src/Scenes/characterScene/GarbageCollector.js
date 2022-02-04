@@ -13,7 +13,7 @@ import AssetsMap from '../../Assets';
 function GarbageCollector() {
     const { Bg, Loading } = useLoadAsset(AssetsMap.garbageCollector)
     const { SceneId, setSceneId, isLoading, setisLoading, Assets, setAssets } = useContext(SceneContext);
-    const { characteractivity } = Assets;
+    const { garbageCollectorScene } = Assets;
     const { Sound, setSound, muted, setMuted } = useContext(SoundContext)
     const Ref6 = useRef(null);
 
@@ -32,7 +32,7 @@ function GarbageCollector() {
     const toggle = () => setMuted(!muted)
 
     useEffect(() => {
-        if (characteractivity?.lottie[0] && Ref6.current && !Loading) {
+        if (garbageCollectorScene?.lottie[0] && Ref6.current && !Loading) {
             try {
                 lottie.loadAnimation({
                     name: "garbagecollector",
@@ -40,7 +40,7 @@ function GarbageCollector() {
                     renderer: "svg",
                     loop: true,
                     autoplay: true,
-                    animationData: characteractivity?.lottie[0],
+                    animationData: garbageCollectorScene?.lottie[0],
                 })
             } catch (err) {
                 console.log(err)
@@ -57,13 +57,13 @@ function GarbageCollector() {
                         Howler.stop()
                         setSceneId("/activity02")
                     }}>
-                        <Image src={characteractivity?.sprites[2]} alt="txt" className="next_button" />
+                        <Image src={garbageCollectorScene?.sprites[2]} alt="txt" className="next_button" />
                     </div>
                     <div onClick={() => {
                         Howler.stop()
                         setSceneId("/guard")
                     }}>
-                        <Image src={characteractivity?.sprites[3]} alt="txt" className="prev_button" />
+                        <Image src={garbageCollectorScene?.sprites[3]} alt="txt" className="prev_button" />
                     </div>
                     {
                         muted
@@ -71,17 +71,17 @@ function GarbageCollector() {
                                 Howler.volume(1)
                                 toggle()
                             }}>
-                                <Image src={characteractivity?.sprites[5]} alt="txt" className="music_button" />
+                                <Image src={garbageCollectorScene?.sprites[5]} alt="txt" className="music_button" />
                             </div>
                             : <div onClick={() => {
                                 Howler.volume(0)
                                 toggle()
                             }}>
-                                <Image src={characteractivity?.sprites[4]} alt="txt" className="music_button" />
+                                <Image src={garbageCollectorScene?.sprites[4]} alt="txt" className="music_button" />
                             </div>
                     }
 
-                    <Image src={characteractivity?.sprites[0]} alt="txt" className="iconGirl" />
+                    <Image src={garbageCollectorScene?.sprites[0]} alt="txt" className="iconGirl" />
                     {/* <Image src={characterscene?.sprites[1]} alt="txt" className="garbageCollectorSceneIcon" /> */}
 
                     <div ref={Ref6} className="garbageCollectorSceneIcon" id="garbagecollector"></div>

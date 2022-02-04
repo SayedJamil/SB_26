@@ -13,7 +13,7 @@ import AssetsMap from '../../Assets';
 function Police() {
     const { Bg, Loading } = useLoadAsset(AssetsMap.police)
     const { SceneId, setSceneId, isLoading, setisLoading, Assets, setAssets } = useContext(SceneContext);
-    const { characteractivity } = Assets;
+    const { policeScene } = Assets;
     const { Sound, setSound, muted, setMuted } = useContext(SoundContext)
     const Ref9 = useRef(null);
 
@@ -32,7 +32,7 @@ function Police() {
     const toggle = () => setMuted(!muted)
 
     useEffect(() => {
-        if (characteractivity?.lottie[0]&& Ref9.current && !Loading) {
+        if (policeScene?.lottie[0]&& Ref9.current && !Loading) {
             try {
                 lottie.loadAnimation({
                     name: "police",
@@ -40,7 +40,7 @@ function Police() {
                     renderer: "svg",
                     loop: true,
                     autoplay: true,
-                    animationData: characteractivity?.lottie[0],
+                    animationData: policeScene?.lottie[0],
                 })
             } catch (err) {
                 console.log(err)
@@ -59,13 +59,13 @@ function Police() {
                         Howler.stop()
                         setSceneId("/activity01")
                     }}>
-                        <Image src={characteractivity?.sprites[2]} alt="txt" className="next_button" />
+                        <Image src={policeScene?.sprites[2]} alt="txt" className="next_button" />
                     </div>
                     <div onClick={() => {
                         Howler.stop()
                         setSceneId("/teacher")
                     }}>
-                        <Image src={characteractivity?.sprites[3]} alt="txt" className="prev_button" />
+                        <Image src={policeScene?.sprites[3]} alt="txt" className="prev_button" />
                     </div>
                     {
                         muted
@@ -73,16 +73,16 @@ function Police() {
                                 Howler.volume(1)
                                 toggle()
                             }}>
-                                <Image src={characteractivity?.sprites[5]} alt="txt" className="music_button" />
+                                <Image src={policeScene?.sprites[5]} alt="txt" className="music_button" />
                             </div>
                             : <div onClick={() => {
                                 Howler.volume(0)
                                 toggle()
                             }}>
-                                <Image src={characteractivity?.sprites[4]} alt="txt" className="music_button" />
+                                <Image src={policeScene?.sprites[4]} alt="txt" className="music_button" />
                             </div>
                     }
-                    <Image src={characteractivity?.sprites[0]} alt="txt" className="iconGirl" />
+                    <Image src={policeScene?.sprites[0]} alt="txt" className="iconGirl" />
                     {/* <Image src={characterscene?.sprites[1]} alt="txt" className="policeSceneIcon" /> */}
 
                     <div ref={Ref9} className="policeSceneIcon" id="police"></div>

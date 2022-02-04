@@ -12,7 +12,7 @@ import lottie from 'lottie-web';
 import AssetsMap from '../../../Assets';
 function ChooseCharacter() {
     const { Bg, Loading } = useLoadAsset(AssetsMap.chooseCharacter)
-    const { SceneId, setSceneId, isLoading, setisLoading, Assets, setAssets, character, setCharacter, num, setNum, charNum } = useContext(SceneContext);
+    const { SceneId, setSceneId, Assets, character, num, charNum, setStars } = useContext(SceneContext);
     const { choosecharacter } = Assets;
     const { Sound, setSound, muted, setMuted } = useContext(SoundContext)
     const [correct, setCorrect] = useState(false)
@@ -60,6 +60,7 @@ function ChooseCharacter() {
     }
     const rightAnswerSound = () => {
         if (enableButton) {
+            setStars(0)
             var sound = new Howl({
                 src: [`internal/audio/SB_26_Audio_11.mp3`],
             });

@@ -15,7 +15,7 @@ function DoctorActivity() {//change here
     const { Bg, Loading } = useLoadAsset(AssetsMap.doctor)//change here
     const { setSceneId, isLoading, setisLoading, Assets, setAssets, character, setCharacter, setNum, setCharNum, toolNum, setToolNum, stars, setStars } = useContext(SceneContext);
     const { doctorScene } = Assets;
-    const { Sound, setSound, muted, setMuted } = useContext(SoundContext)
+    const { Sound, setSound, } = useContext(SoundContext)
     const [correct, setCorrect] = useState(false)
     const [wrong, setWrong] = useState(false)
     const [enableButton, setEnableButton] = useState(false)
@@ -31,7 +31,7 @@ function DoctorActivity() {//change here
         })
         randomize();
     }, [])
-    const toggle = () => setMuted(!muted)
+
     const Ref21 = useRef(null);//change here
 
     useEffect(() => {
@@ -97,21 +97,7 @@ function DoctorActivity() {//change here
             Bg={Bg}
             sprites={
                 <>
-                    {
-                        muted
-                            ? <div onClick={() => {
-                                Howler.volume(1)
-                                toggle()
-                            }}>
-                                <Image src={doctorScene?.sprites[5]} alt="txt" className="music_button" />
-                            </div>
-                            : <div onClick={() => {
-                                Howler.volume(0)
-                                toggle()
-                            }}>
-                                <Image src={doctorScene?.sprites[4]} alt="txt" className="music_button" />
-                            </div>
-                    }
+
 
                     <Image src={doctorScene?.sprites[toolNum]} alt="txt" className={`${position ? "bottomEquipButton" : "topEquipButton"}`} onClick={() => rightAnswerSound()} />{/* changehere */}
                     {(correct) ? <Image src={doctorScene?.sprites[18]} alt="txt" className={`${position ? "bottomHighlightIcon" : "topHighlightIcon"}`} onClick={() => rightAnswerSound()} /> : null}{/* changehere */}

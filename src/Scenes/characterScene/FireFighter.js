@@ -15,7 +15,7 @@ function FireFighter() {
     const { SceneId, setSceneId, isLoading, setisLoading, Assets, setAssets } = useContext(SceneContext);
     const { fireFighterScene } = Assets;
     const Ref4 = useRef(null);
-    const { Sound, setSound, muted, setMuted } = useContext(SoundContext)
+    const { Sound, setSound } = useContext(SoundContext)
 
     const sound = new Howl({
         src: [`internal/audio/SB_26_Audio_27.mp3`],
@@ -30,7 +30,7 @@ function FireFighter() {
         })
     }, [])
 
-    const toggle = () => setMuted(!muted)
+
 
     useEffect(() => {
         if (fireFighterScene?.lottie && Ref4.current && !Loading) {
@@ -57,27 +57,13 @@ function FireFighter() {
 
                     <div onClick={() => {
                         playSound.stop()
-                        setSceneId("/floorcleaner")                      
+                        setSceneId("/floorcleaner")
                     }}>
                         <Image src={fireFighterScene?.sprites[2]} alt="txt" className="next_button" />
                     </div>
-                    {
-                        muted
-                            ? <div onClick={() => {
-                                Howler.volume(1)
-                                toggle()
-                            }}>
-                                <Image src={fireFighterScene?.sprites[5]} alt="txt" className="music_button" />
-                            </div>
-                            : <div onClick={() => {
-                                Howler.volume(0)
-                                toggle()
-                            }}>
-                                <Image src={fireFighterScene?.sprites[4]} alt="txt" className="music_button" />
-                            </div>
-                    }
+
                     <Image src={fireFighterScene?.sprites[0]} alt="txt" className="iconGirl" />
-                    {/* <Image src={characterscene?.sprites[1]} alt="txt" className="fireFighterSceneIcon" /> */}
+
 
                     <div ref={Ref4} className="fireFighterSceneIcon" id="firefighter"></div>
                 </>

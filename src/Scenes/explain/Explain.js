@@ -14,7 +14,7 @@ export default function Explain() {
   const { Bg, Loading } = useLoadAsset(AssetsMap.explain)
   const { SceneId, setSceneId, isLoading, setisLoading, Assets, setAssets } = useContext(SceneContext);
   const { explain } = Assets;
-  const { Sound, setSound, muted, setMuted } = useContext(SoundContext)
+  const { Sound, setSound, } = useContext(SoundContext)
   const Ref11 = useRef(null);
 
   const sound = new Howl({
@@ -27,7 +27,7 @@ export default function Explain() {
     playSound.on('end', () => {
       setisLoading(true)
       setSceneId('/armyman')
-      
+
     })
   }, [])
   console.log(explain)
@@ -49,7 +49,7 @@ export default function Explain() {
   }, [Assets, Loading])
 
 
-  const toggle = () => setMuted(!muted)
+
 
 
 
@@ -66,21 +66,7 @@ export default function Explain() {
             <Image src={explain?.sprites[11]} alt="txt" className="next_button" />
           </div>
 
-          {
-            muted
-              ? <div onClick={() => {
-                Howler.volume(1)
-                toggle()
-              }}>
-                <Image src={explain?.sprites[14]} alt="txt" className="music_button" />
-              </div>
-              : <div onClick={() => {
-                Howler.volume(0)
-                toggle()
-              }}>
-                <Image src={explain?.sprites[13]} alt="txt" className="music_button" />
-              </div>
-          }
+
 
           <div>
             <Image src={explain?.sprites[0]} alt="" id="" className="helperIcon armymanIcon" />

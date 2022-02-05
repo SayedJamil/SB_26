@@ -14,9 +14,9 @@ function Guard() {
     const { Bg, Loading } = useLoadAsset(AssetsMap.guard)
     const { SceneId, setSceneId, isLoading, setisLoading, Assets, setAssets } = useContext(SceneContext);
     const { guardScene } = Assets;
-    const { Sound, setSound, muted, setMuted } = useContext(SoundContext)
+    const { Sound, setSound, } = useContext(SoundContext)
     const Ref8 = useRef(null);
-   
+
     const sound = new Howl({
         src: [`internal/audio/SB_26_Audio_30.mp3`],
     });
@@ -29,7 +29,7 @@ function Guard() {
             setSceneId('/garbagecollector')
         })
     }, [])
-    const toggle = () => setMuted(!muted)
+
 
     useEffect(() => {
         if (guardScene?.lottie && Ref8.current && !Loading) {
@@ -69,24 +69,9 @@ function Guard() {
                     }}>
                         <Image src={guardScene?.sprites[3]} alt="txt" className="prev_button" />
                     </div>
-                    {
-                        muted
-                            ? <div onClick={() => {
-                                Howler.volume(1)
-                                toggle()
-                            }}>
-                                <Image src={guardScene?.sprites[5]} alt="txt" className="music_button" />
-                            </div>
-                            : <div onClick={() => {
-                                Howler.volume(0)
-                                toggle()
-                            }}>
-                                <Image src={guardScene?.sprites[4]} alt="txt" className="music_button" />
-                            </div>
-                    }
 
                     <Image src={guardScene?.sprites[0]} alt="txt" className="iconGirl" />
-                    {/* <Image src={characterscene?.sprites[1]} alt="txt" className="guardSceneIcon" /> */}
+
 
                     <div ref={Ref8} className="guardSceneIcon" id="guard"></div>
                 </>

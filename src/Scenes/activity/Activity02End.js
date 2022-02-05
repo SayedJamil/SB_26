@@ -14,7 +14,7 @@ function Activity02End() {
     const { Bg, Loading } = useLoadAsset(AssetsMap.activity01end)
     const { SceneId, setSceneId, isLoading, setisLoading, Assets, setAssets } = useContext(SceneContext);
     const { activityend } = Assets;
-    const { Sound, setSound, muted, setMuted } = useContext(SoundContext)
+    const { Sound, setSound, } = useContext(SoundContext)
     const Ref30 = useRef(null);
     const [enableButton, setEnableButton] = useState(false)
     const sound = new Howl({
@@ -61,7 +61,7 @@ function Activity02End() {
     //     })
     // }, [])
 
-    const toggle = () => setMuted(!muted)
+
 
     useEffect(() => {
         if (activityend?.lottie && Ref30.current && !Loading) {
@@ -86,21 +86,7 @@ function Activity02End() {
             sprites={
                 <>
 
-                    {
-                        muted
-                            ? <div onClick={() => {
-                                Howler.volume(1)
-                                toggle()
-                            }}>
-                                <Image src={activityend?.sprites[5]} alt="txt" className="music_button" />
-                            </div>
-                            : <div onClick={() => {
-                                Howler.volume(0)
-                                toggle()
-                            }}>
-                                <Image src={activityend?.sprites[4]} alt="txt" className="music_button" />
-                            </div>
-                    }
+
                     <Image src={activityend?.sprites[6]} alt="txt" className="replay_btn" onClick={() => {
                         if (enableButton) {
                             playSound.stop()

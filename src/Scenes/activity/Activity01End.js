@@ -14,7 +14,7 @@ function Activity01End() {
     const { Bg, Loading } = useLoadAsset(AssetsMap.activity01end)
     const { SceneId, setSceneId, isLoading, setisLoading, Assets, setAssets } = useContext(SceneContext);
     const { activityend } = Assets;
-    const { Sound, setSound, muted, setMuted } = useContext(SoundContext)
+    const { Sound, setSound, } = useContext(SoundContext)
     const Ref30 = useRef(null);
 
     useEffect(() => {
@@ -28,7 +28,7 @@ function Activity01End() {
         })
     }, [])
 
-    const toggle = () => setMuted(!muted)
+
 
     useEffect(() => {
         if (activityend?.lottie && Ref30.current && !Loading) {
@@ -53,21 +53,7 @@ function Activity01End() {
             sprites={
                 <>
 
-                    {
-                        muted
-                            ? <div onClick={() => {
-                                Howler.volume(1)
-                                toggle()
-                            }}>
-                                <Image src={activityend?.sprites[5]} alt="txt" className="music_button" />
-                            </div>
-                            : <div onClick={() => {
-                                Howler.volume(0)
-                                toggle()
-                            }}>
-                                <Image src={activityend?.sprites[4]} alt="txt" className="music_button" />
-                            </div>
-                    }
+
 
                     <div ref={Ref30} className="activityEndGirlIcon" id="explaingirl"></div>
                 </>

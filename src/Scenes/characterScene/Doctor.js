@@ -14,7 +14,7 @@ function Doctor() {
     const { Bg, Loading } = useLoadAsset(AssetsMap.doctor)
     const { SceneId, setSceneId, isLoading, setisLoading, Assets, setAssets, setTransition, transition } = useContext(SceneContext);
     const { doctorScene } = Assets;
-    const { Sound, setSound, muted, setMuted } = useContext(SoundContext)
+    const { Sound, setSound, } = useContext(SoundContext)
     const Ref3 = useRef(null);
 
     const sound = new Howl({
@@ -33,7 +33,7 @@ function Doctor() {
     }, [])
 
 
-    const toggle = () => setMuted(!muted)
+
 
     useEffect(() => {
         if (doctorScene?.lottie && Ref3.current && !Loading) {
@@ -74,21 +74,7 @@ function Doctor() {
                     }}>
                         <Image src={doctorScene?.sprites[3]} alt="txt" className="prev_button" />
                     </div>
-                    {
-                        muted
-                            ? <div onClick={() => {
-                                Howler.volume(1)
-                                toggle()
-                            }}>
-                                <Image src={doctorScene?.sprites[5]} alt="txt" className="music_button" />
-                            </div>
-                            : <div onClick={() => {
-                                Howler.volume(0)
-                                toggle()
-                            }}>
-                                <Image src={doctorScene?.sprites[4]} alt="txt" className="music_button" />
-                            </div>
-                    }
+
                     <Image src={doctorScene?.sprites[0]} alt="txt" className="iconGirl" />
 
 

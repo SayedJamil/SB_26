@@ -17,7 +17,7 @@ function ArmyMan() {
     const { Bg, Loading } = useLoadAsset(AssetsMap.armyMan)
     const { SceneId, setSceneId, isLoading, setisLoading, Assets, setAssets, transition, setTransition } = useContext(SceneContext);
     const { armyManScene } = Assets;
-    const { Sound, setSound, muted, setMuted } = useContext(SoundContext)
+    const { Sound, setSound, } = useContext(SoundContext)
     const [sceneSound, setSceneSound] = useState(null)
     const Ref1 = useRef(null);
 
@@ -33,13 +33,13 @@ function ArmyMan() {
         playSound.on('end', () => {
             setisLoading(true)
             setSceneId('/doctor')
-           
+
         })
 
     }, [])
 
 
-    const toggle = () => setMuted(!muted)
+
 
     useEffect(() => {
         if (armyManScene?.lottie && Ref1.current && !Loading) {
@@ -63,7 +63,7 @@ function ArmyMan() {
             Bg={Bg}
             sprites={
                 <>
-                  
+
                     <div onClick={() => {
                         playSound.stop()
                         setisLoading(true)
@@ -80,21 +80,6 @@ function ArmyMan() {
                         <Image src={armyManScene?.sprites[3]} alt="txt" className="prev_button" />
                     </div>
 
-                    {
-                        muted
-                            ? <div onClick={() => {
-                                Howler.volume(1)
-                                toggle()
-                            }}>
-                                <Image src={armyManScene?.sprites[5]} alt="txt" className="music_button" />
-                            </div>
-                            : <div onClick={() => {
-                                Howler.volume(0)
-                                toggle()
-                            }}>
-                                <Image src={armyManScene?.sprites[4]} alt="txt" className="music_button" />
-                            </div>
-                    }
 
                     <Image src={armyManScene?.sprites[0]} alt="txt" className="iconGirl" />
 

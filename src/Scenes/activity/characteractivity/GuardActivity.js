@@ -16,7 +16,7 @@ function GuardActivity() {//change here
     const { Bg, Loading } = useLoadAsset(AssetsMap.guard)//change here
     const { SceneId, setSceneId, isLoading, setisLoading, Assets, setAssets, character, setCharacter, setNum, setCharNum, toolNum, setToolNum, stars, setStars } = useContext(SceneContext);
     const { guardScene } = Assets;
-    const { Sound, setSound, muted, setMuted } = useContext(SoundContext)
+    const { Sound, setSound, } = useContext(SoundContext)
     const [correct, setCorrect] = useState(false)
     const [wrong, setWrong] = useState(false)
     const [enableButton, setEnableButton] = useState(false)
@@ -32,7 +32,7 @@ function GuardActivity() {//change here
         })
         randomize();
     }, [])
-    const toggle = () => setMuted(!muted)
+
     const Ref27 = useRef(null);//change here
 
     useEffect(() => {
@@ -97,21 +97,7 @@ function GuardActivity() {//change here
             Bg={Bg}
             sprites={
                 <>
-                    {
-                        muted
-                            ? <div onClick={() => {
-                                Howler.volume(1)
-                                toggle()
-                            }}>
-                                <Image src={guardScene?.sprites[5]} alt="txt" className="music_button" />
-                            </div>
-                            : <div onClick={() => {
-                                Howler.volume(0)
-                                toggle()
-                            }}>
-                                <Image src={guardScene?.sprites[4]} alt="txt" className="music_button" />
-                            </div>
-                    }
+
                     <Image src={guardScene?.sprites[toolNum]} alt="txt" className={`${position ? "bottomEquipButton" : "topEquipButton"}`} onClick={() => rightAnswerSound()} /> //change here
                     {(correct) ? <Image src={guardScene?.sprites[18]} alt="txt" className={`${position ? "bottomHighlightIcon" : "topHighlightIcon"}`} onClick={() => rightAnswerSound()} /> : null}//change here
                     <Image src={guardScene?.sprites[random]} alt="txt" className={`${!position ? "bottomEquipButton" : "topEquipButton"}`} onClick={() => wrongAnswerSound()} />//change here

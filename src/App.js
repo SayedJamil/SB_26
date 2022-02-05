@@ -31,8 +31,19 @@ import GuardActivity from "./Scenes/activity/characteractivity/GuardActivity";
 import FireFighterActivity from "./Scenes/activity/characteractivity/FireFighterActivity";
 import Activity02End from "./Scenes/activity/Activity02End";
 import { SceneContext } from "./contexts/SceneContext";
+import sound from './Buttons-20.svg'
+import nosound from './Buttons-26.svg'
 function App() {
   const { setTransition, transition } = useContext(SceneContext);
+
+  useEffect(() => {
+    loadAudio()
+    setTimeout(() => {
+      setLoad(false)
+    }, 3000)
+    loadLottie()
+
+  }, []);
 
   const loadLottie = async () => {
     const data = await LoadJson(`internal/lottie/Transition_01.json`);
@@ -45,18 +56,36 @@ function App() {
   };
   const [Load, setLoad] = useState(true);
 
-  useEffect(() => {
-    var bgsound = new Howl({
+  const [mute, setmute] = useState(false);
+  const [BG_sound, setBG_sound] = useState(null);
+
+  const loadAudio = async () => {
+    setBG_sound(new Howl({
       src: [`internal/audio/Entire_video_song.mp3`],
-      loop: true
-    });
-    var id1 = bgsound.play();
-    bgsound.volume(0.1, id1);
-    setTimeout(() => {
-      setLoad(false)
-    }, 3000)
-    loadLottie()
-  }, []);
+      loop: true,
+      volume: 0.1
+    }))
+  }
+
+  useEffect(() => {
+    if (BG_sound !== null) {
+      BG_sound?.play()
+      BG_sound.volume(0.1)
+    }
+  }, [BG_sound])
+
+  useEffect(() => {
+    if (BG_sound) {
+      if (mute) {
+        BG_sound?.mute(true)
+      } else {
+        BG_sound?.mute(false)
+      }
+    }
+  }, [mute])
+
+  const toggleMute = () => { setmute(!mute) }
+
 
 
   if (Load) return (
@@ -70,7 +99,11 @@ function App() {
   )
 
   return (
+
+
     <GameContainer>
+      {!mute && <img src={sound} alt="" className="music_button" onClick={toggleMute} />}
+      {mute && <img src={nosound} alt="" className="music_button" onClick={toggleMute} />}
       <Router sceneId="/">
         <Intro />
       </Router>

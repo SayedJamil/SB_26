@@ -14,7 +14,7 @@ function Police() {
     const { Bg, Loading } = useLoadAsset(AssetsMap.police)
     const { SceneId, setSceneId, isLoading, setisLoading, Assets, setAssets } = useContext(SceneContext);
     const { policeScene } = Assets;
-    const { Sound, setSound, muted, setMuted } = useContext(SoundContext)
+    const { Sound, setSound, } = useContext(SoundContext)
     const Ref9 = useRef(null);
 
     const sound = new Howl({
@@ -30,7 +30,7 @@ function Police() {
         })
     }, [])
 
-    const toggle = () => setMuted(!muted)
+
 
     useEffect(() => {
         if (policeScene?.lottie && Ref9.current && !Loading) {
@@ -55,7 +55,7 @@ function Police() {
             Bg={Bg}
             sprites={
                 <>
-                   
+
                     <div onClick={() => {
                         playSound.stop()
                         setisLoading(true)
@@ -70,23 +70,8 @@ function Police() {
                     }}>
                         <Image src={policeScene?.sprites[3]} alt="txt" className="prev_button" />
                     </div>
-                    {
-                        muted
-                            ? <div onClick={() => {
-                                Howler.volume(1)
-                                toggle()
-                            }}>
-                                <Image src={policeScene?.sprites[5]} alt="txt" className="music_button" />
-                            </div>
-                            : <div onClick={() => {
-                                Howler.volume(0)
-                                toggle()
-                            }}>
-                                <Image src={policeScene?.sprites[4]} alt="txt" className="music_button" />
-                            </div>
-                    }
+
                     <Image src={policeScene?.sprites[0]} alt="txt" className="iconGirl" />
-                    {/* <Image src={characterscene?.sprites[1]} alt="txt" className="policeSceneIcon" /> */}
 
                     <div ref={Ref9} className="policeSceneIcon" id="police"></div>
                 </>

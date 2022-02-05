@@ -14,7 +14,7 @@ function FloorCleaner() {
     const { Bg, Loading } = useLoadAsset(AssetsMap.floorCleaner)
     const { SceneId, setSceneId, isLoading, setisLoading, Assets, setAssets } = useContext(SceneContext);
     const { floorCleanerScene } = Assets;
-    const { Sound, setSound, muted, setMuted } = useContext(SoundContext)
+    const { Sound, setSound, } = useContext(SoundContext)
 
     const Ref3 = useRef(null);
 
@@ -31,8 +31,8 @@ function FloorCleaner() {
         })
     }, [])
 
- 
-    const toggle = () => setMuted(!muted)
+
+
 
     useEffect(() => {
         if (floorCleanerScene?.lottie && Ref3.current && !Loading) {
@@ -72,24 +72,10 @@ function FloorCleaner() {
                     }}>
                         <Image src={floorCleanerScene?.sprites[3]} alt="txt" className="prev_button" />
                     </div>
-                    {
-                        muted
-                            ? <div onClick={() => {
-                                Howler.volume(1)
-                                toggle()
-                            }}>
-                                <Image src={floorCleanerScene?.sprites[5]} alt="txt" className="music_button" />
-                            </div>
-                            : <div onClick={() => {
-                                Howler.volume(0)
-                                toggle()
-                            }}>
-                                <Image src={floorCleanerScene?.sprites[4]} alt="txt" className="music_button" />
-                            </div>
-                    }
+
 
                     <Image src={floorCleanerScene?.sprites[0]} alt="txt" className="iconGirl" />
-                    {/* <Image src={characterscene?.sprites[1]} alt="txt" className="floorCleanerSceneIcon" /> */}
+
 
                     <div ref={Ref3} className="floorCleanerSceneIcon" id="floorcleaner"></div>
                 </>

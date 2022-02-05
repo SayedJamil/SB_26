@@ -14,7 +14,7 @@ function Dentist() {
     const { Bg, Loading } = useLoadAsset(AssetsMap.dentist)
     const { SceneId, setSceneId, isLoading, setisLoading, Assets, setAssets } = useContext(SceneContext);
     const { dentistScene } = Assets;
-    const { Sound, setSound, muted, setMuted } = useContext(SoundContext)
+    const { Sound, setSound, } = useContext(SoundContext)
     const Ref5 = useRef(null);
     const sound = new Howl({
         src: [`internal/audio/SB_26_Audio_29.mp3`],
@@ -32,7 +32,7 @@ function Dentist() {
     }, [])
 
 
-    const toggle = () => setMuted(!muted)
+
 
     useEffect(() => {
         if (dentistScene?.lottie && Ref5.current && !Loading) {
@@ -67,21 +67,7 @@ function Dentist() {
                     }}>
                         <Image src={dentistScene?.sprites[3]} alt="txt" className="prev_button" />
                     </div>
-                    {
-                        muted
-                            ? <div onClick={() => {
-                                Howler.volume(1)
-                                toggle()
-                            }}>
-                                <Image src={dentistScene?.sprites[5]} alt="txt" className="music_button" />
-                            </div>
-                            : <div onClick={() => {
-                                Howler.volume(0)
-                                toggle()
-                            }}>
-                                <Image src={dentistScene?.sprites[4]} alt="txt" className="music_button" />
-                            </div>
-                    }
+
 
                     <Image src={dentistScene?.sprites[0]} alt="txt" className="iconGirl" />
 

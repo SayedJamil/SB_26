@@ -1,6 +1,8 @@
 .iconGirl {
   height: 45%;
   left: 3%;
+  -webkit-left: 3%;
+  -moz-left: 3%;
   top: -08%;
   position: fixed;
 }
@@ -17,6 +19,8 @@
   height: 70%;
   position: fixed;
   left: 52%;
+  -webkit-left: 52%;
+  -moz-left: 52%;
   top: 20%;
 }
 
@@ -24,6 +28,8 @@
   height: 70%;
   position: fixed;
   left: 25%;
+  -webkit-left: 25%;
+  -moz-left: 25%;
   top: 21%;
 }
 
@@ -31,12 +37,16 @@
   height: 70%;
   position: fixed;
   left: 35%;
+  -webkit-left: 35%;
+  -moz-left: 35%;
   top: 21%;
 }
 .fireFighterSceneIcon {
   height: 90%;
   position: fixed;
   left: 30%;
+  -webkit-left: 30%;
+  -moz-left: 30%;
   top: 15%;
 }
 
@@ -44,6 +54,8 @@
   height: 50%;
   position: fixed;
   left: 35%;
+  -webkit-left: 35%;
+  -moz-left: 35%;
   top: 41%;
 }
 
@@ -51,12 +63,16 @@
   height: 70%;
   position: fixed;
   left: 50%;
+  -webkit-left: 50%;
+  -moz-left: 50%;
   top: 35%;
 }
 .gardenerSceneIcon {
   height: 70%;
   position: fixed;
   left: 45%;
+  -webkit-left: 45%;
+  -moz-left: 45%;
   top: 38%;
 }
 
@@ -64,18 +80,24 @@
   height: 60%;
   position: fixed;
   left: 35%;
+  -webkit-left: 35%;
+  -moz-left: 35%;
   top: 42%;
 }
 .policeSceneIcon {
   height: 70%;
   position: fixed;
   left: 35%;
+  -webkit-left: 35%;
+  -moz-left: 35%;
   top: 25%;
 }
 .teacherSceneIcon {
   height: 60%;
   position: fixed;
   left: 45%;
+  -webkit-left: 45%;
+  -moz-left: 45%;
   top: 32%;
 }
 

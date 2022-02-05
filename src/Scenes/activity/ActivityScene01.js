@@ -14,7 +14,7 @@ function ActivityExplainScene01() {
     const { Bg, Loading } = useLoadAsset(AssetsMap.activity01)
     const { SceneId, setSceneId, isLoading, setisLoading, Assets, setAssets } = useContext(SceneContext);
     const { activity01scene } = Assets;
-    const { Sound, setSound, muted, setMuted } = useContext(SoundContext)
+    const { Sound, setSound, } = useContext(SoundContext)
     const Ref12 = useRef(null);
 
     const sound = new Howl({
@@ -29,7 +29,7 @@ function ActivityExplainScene01() {
             setSceneId('/choosecharacter')
         })
     }, [])
-    const toggle = () => setMuted(!muted)
+
 
     useEffect(() => {
         if (activity01scene?.lottie && Ref12.current && !Loading) {
@@ -62,21 +62,7 @@ function ActivityExplainScene01() {
                         <Image src={activity01scene?.sprites[3]} alt="txt" className="prev_button" />
                     </div>
 
-                    {
-                        muted
-                            ? <div onClick={() => {
-                                Howler.volume(1)
-                                toggle()
-                            }}>
-                                <Image src={activity01scene?.sprites[5]} alt="txt" className="music_button" />
-                            </div>
-                            : <div onClick={() => {
-                                Howler.volume(0)
-                                toggle()
-                            }}>
-                                <Image src={activity01scene?.sprites[4]} alt="txt" className="music_button" />
-                            </div>
-                    }
+
 
                     <div ref={Ref12} className="activitygirlIcon" id="explaingirl"></div>
                 </>

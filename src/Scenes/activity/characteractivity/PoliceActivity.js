@@ -16,7 +16,7 @@ function PoliceActivity() {//change here
     const { Bg, Loading } = useLoadAsset(AssetsMap.police)//change here
     const { SceneId, setSceneId, isLoading, setisLoading, Assets, setAssets, character, setCharacter, setNum, setCharNum, toolNum, setToolNum, stars, setStars } = useContext(SceneContext);
     const { policeScene } = Assets;
-    const { Sound, setSound, muted, setMuted } = useContext(SoundContext)
+    const { Sound, setSound, } = useContext(SoundContext)
     const [correct, setCorrect] = useState(false)
     const [wrong, setWrong] = useState(false)
     const [enableButton, setEnableButton] = useState(false)
@@ -32,7 +32,7 @@ function PoliceActivity() {//change here
         })
         randomize();
     }, [])
-    const toggle = () => setMuted(!muted)
+
     const Ref22 = useRef(null);//change here
 
     useEffect(() => {
@@ -97,21 +97,7 @@ function PoliceActivity() {//change here
             Bg={Bg}
             sprites={
                 <>
-                    {
-                        muted
-                            ? <div onClick={() => {
-                                Howler.volume(1)
-                                toggle()
-                            }}>
-                                <Image src={policeScene?.sprites[5]} alt="txt" className="music_button" />
-                            </div>
-                            : <div onClick={() => {
-                                Howler.volume(0)
-                                toggle()
-                            }}>
-                                <Image src={policeScene?.sprites[4]} alt="txt" className="music_button" />
-                            </div>
-                    }
+
                     <Image src={policeScene?.sprites[toolNum]} alt="txt" className={`${position ? "bottomEquipButton" : "topEquipButton"}`} onClick={() => rightAnswerSound()} /> //change here
                     {(correct) ? <Image src={policeScene?.sprites[18]} alt="txt" className={`${position ? "bottomHighlightIcon" : "topHighlightIcon"}`} onClick={() => rightAnswerSound()} /> : null}//change here
                     <Image src={policeScene?.sprites[random]} alt="txt" className={`${!position ? "bottomEquipButton" : "topEquipButton"}`} onClick={() => wrongAnswerSound()} />//change here

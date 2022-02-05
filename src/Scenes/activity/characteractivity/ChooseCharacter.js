@@ -13,7 +13,7 @@ function ChooseCharacter() {
     const { Bg, Loading } = useLoadAsset(AssetsMap.chooseCharacter)
     const { setSceneId, Assets, character, num, charNum, setisLoading } = useContext(SceneContext);
     const { choosecharacter } = Assets;
-    const { Sound, setSound, muted, setMuted } = useContext(SoundContext)
+    const { Sound, setSound, } = useContext(SoundContext)
     const [correct, setCorrect] = useState(false)
     const [wrong, setWrong] = useState(false)
     const [enableButton, setEnableButton] = useState(false)
@@ -43,7 +43,7 @@ function ChooseCharacter() {
         setPosition(randomPos)
     }
 
-    const toggle = () => setMuted(!muted)
+
 
     const wrongAnswerSound = () => {
         if (enableButton) {
@@ -108,21 +108,7 @@ function ChooseCharacter() {
             Bg={Bg}
             sprites={
                 <>
-                    {
-                        muted
-                            ? <div onClick={() => {
-                                Howler.volume(1)
-                                toggle()
-                            }}>
-                                <Image src={choosecharacter?.sprites[3]} alt="txt" className="music_button" />
-                            </div>
-                            : <div onClick={() => {
-                                Howler.volume(0)
-                                toggle()
-                            }}>
-                                <Image src={choosecharacter?.sprites[2]} alt="txt" className="music_button" />
-                            </div>
-                    }
+
                     {(() => {
                         switch (character) {
                             case 'armyman':

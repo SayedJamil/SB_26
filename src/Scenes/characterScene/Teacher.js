@@ -14,7 +14,7 @@ function Teacher() {
     const { Bg, Loading } = useLoadAsset(AssetsMap.teacher)
     const { SceneId, setSceneId, isLoading, setisLoading, Assets, setAssets } = useContext(SceneContext);
     const { teacherScene } = Assets;
-    const { Sound, setSound, muted, setMuted } = useContext(SoundContext)
+    const { Sound, setSound, } = useContext(SoundContext)
     const Ref10 = useRef(null);
 
     const sound = new Howl({
@@ -30,7 +30,7 @@ function Teacher() {
         })
     }, [])
 
-    const toggle = () => setMuted(!muted)
+
 
     useEffect(() => {
         if (teacherScene?.lottie && Ref10.current && !Loading) {
@@ -69,23 +69,9 @@ function Teacher() {
                     }}>
                         <Image src={teacherScene?.sprites[3]} alt="txt" className="prev_button" />
                     </div>
-                    {
-                        muted
-                            ? <div onClick={() => {
-                                Howler.volume(1)
-                                toggle()
-                            }}>
-                                <Image src={teacherScene?.sprites[5]} alt="txt" className="music_button" />
-                            </div>
-                            : <div onClick={() => {
-                                Howler.volume(0)
-                                toggle()
-                            }}>
-                                <Image src={teacherScene?.sprites[4]} alt="txt" className="music_button" />
-                            </div>
-                    }
+
                     <Image src={teacherScene?.sprites[0]} alt="txt" className="iconGirl" />
-                   
+
                     <div ref={Ref10} className="teacherSceneIcon" id="teacher"></div>
                 </>
             }

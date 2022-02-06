@@ -4,6 +4,8 @@
   -webkit-left: 3%;
   -moz-left: 3%;
   top: -08%;
+  -webkit-top: -08%;
+  -moz-top: -08%;
   position: fixed;
 }
 .transitionStyle {
@@ -21,15 +23,73 @@
   left: 52%;
   -webkit-left: 52%;
   -moz-left: 52%;
+  -webkit-top: 20%;
+  -moz-top: 20%;
   top: 20%;
+}
+
+@media not all and (min-resolution: 0.001dpcm) {
+  @media {
+    .armyManSceneIcon {
+      left: 40%;
+    }
+  }
+}
+
+@media screen and (min-color-index: 0) and(-webkit-min-device-pixel-ratio:0) {
+  @media {
+    .armyManSceneIcon {
+      left: 40%;
+    }
+    .iconGirl {
+      left: -2%;
+    }
+    .doctorSceneIcon {
+      left: 25%;
+    }
+    .gardenerSceneIcon {
+      left: 35%;
+    }
+  }
+}
+
+@media not all and (min-resolution: 0.001dpcm) {
+  @supports (-webkit-appearance: none) {
+    .armyManSceneIcon {
+      left: 40%;
+    }
+    .iconGirl {
+      left: -2%;
+    }
+    .doctorSceneIcon {
+      left: 25%;
+    }
+    .gardenerSceneIcon {
+      left: 35%;
+    }
+  }
+}
+@media screen and (max-device-width: 480px) {
+  .armyManSceneIcon {
+    left: 40%;
+  }
+  .iconGirl {
+    left: -2%;
+  }
+  .doctorSceneIcon {
+    left: 25%;
+  }
+  .gardenerSceneIcon {
+    left: 35%;
+  }
 }
 
 .dentistSceneIcon {
   height: 70%;
   position: fixed;
   left: 25%;
-  -webkit-left: 25%;
-  -moz-left: 25%;
+  -webkit-top: 21%;
+  -moz-top: 21%;
   top: 21%;
 }
 
@@ -39,6 +99,8 @@
   left: 35%;
   -webkit-left: 35%;
   -moz-left: 35%;
+  -webkit-left: 52%;
+  -moz-left: 52%;
   top: 21%;
 }
 .fireFighterSceneIcon {

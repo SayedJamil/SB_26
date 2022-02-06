@@ -31,9 +31,11 @@ import GuardActivity from "./Scenes/activity/characteractivity/GuardActivity";
 import FireFighterActivity from "./Scenes/activity/characteractivity/FireFighterActivity";
 import Activity02End from "./Scenes/activity/Activity02End";
 import { SceneContext } from "./contexts/SceneContext";
-import sound from './Buttons-20.svg'
-import nosound from './Buttons-26.svg'
+import { LoadImage } from "./utils/loadImage";
+import Image from "./utils/elements/Image";
 function App() {
+  const [soundButton, setSoundButton] = useState(null);
+  const [noSoundButton, setNoSoundButton] = useState(null);
   const { setTransition, transition } = useContext(SceneContext);
 
   useEffect(() => {
@@ -42,9 +44,16 @@ function App() {
       setLoad(false)
     }, 3000)
     loadLottie()
-
+    loadBgImage()
   }, []);
 
+
+  const loadBgImage = async () => {
+    const unmute = await LoadImage(`internal/button/Buttons-20.svg`);
+    const mute = await LoadImage(`internal/button/Buttons-26.svg`);
+    setSoundButton(unmute);
+    setNoSoundButton(mute);
+  };
   const loadLottie = async () => {
     const data = await LoadJson(`internal/lottie/Transition_01.json`);
     setTransition(data);
@@ -55,7 +64,6 @@ function App() {
     return data;
   };
   const [Load, setLoad] = useState(true);
-
   const [mute, setmute] = useState(false);
   const [BG_sound, setBG_sound] = useState(null);
 
@@ -86,8 +94,6 @@ function App() {
 
   const toggleMute = () => { setmute(!mute) }
 
-
-
   if (Load) return (
     <div className="intro_Loading_screen">
       Loading
@@ -97,13 +103,15 @@ function App() {
       <div></div>
     </div>
   )
-
   return (
-
-
     <GameContainer>
-      {!mute && <img src={sound} alt="" className="music_button" onClick={toggleMute} />}
-      {mute && <img src={nosound} alt="" className="music_button" onClick={toggleMute} />}
+      {
+        mute
+          ?
+          <Image src={noSoundButton} alt="" className="music_button" onClick={toggleMute} />
+          :
+          <Image src={soundButton} alt="" className="music_button" onClick={toggleMute} />
+      }
       <Router sceneId="/">
         <Intro />
       </Router>

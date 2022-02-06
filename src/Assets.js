@@ -43,6 +43,23 @@ const AssetsMap = {
             `${lottieUrl}Scene_07/SB_26_Scene_07.json`,
         ]
     },
+    app: {
+        id: "appScene",
+        Bg: `${bg}SB_26_BG_06.svg`,
+        sprites: [
+            `${button}Buttons-20.svg`,
+            `${button}Buttons-26.svg`,
+            
+
+        ],
+        sounds: [
+            `${soundUrl}SB_26_Audio_07.mp3`,
+        ],
+        lottie: [
+            `${lottieUrl}Scene_07/SB_26_Scene_07.json`,
+            `${lottieUrl}Transition_01.json`,
+        ]
+    },
     armyMan: {
         id: "armyManScene",
         Bg: `${bg}SB_26_BG_06.svg`,

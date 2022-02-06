@@ -49,13 +49,13 @@ function App() {
 
 
   const loadBgImage = async () => {
-    const unmute = await LoadImage(`internal/button/Buttons-20.svg`);
-    const mute = await LoadImage(`internal/button/Buttons-26.svg`);
+    const unmute = await LoadImage(`ee01_ow_thss_pl1/button/Buttons-20.svg`);
+    const mute = await LoadImage(`ee01_ow_thss_pl1/button/Buttons-26.svg`);
     setSoundButton(unmute);
     setNoSoundButton(mute);
   };
   const loadLottie = async () => {
-    const data = await LoadJson(`internal/lottie/Transition_01.json`);
+    const data = await LoadJson(`ee01_ow_thss_pl1/lottie/Transition_01.json`);
     setTransition(data);
   };
 
@@ -69,7 +69,7 @@ function App() {
 
   const loadAudio = async () => {
     setBG_sound(new Howl({
-      src: [`internal/audio/Entire_video_song.mp3`],
+      src: [`ee01_ow_thss_pl1/audio/Entire_video_song.mp3`],
       loop: true,
       volume: 0.1
     }))

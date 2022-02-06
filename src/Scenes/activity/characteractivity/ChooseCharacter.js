@@ -23,7 +23,7 @@ function ChooseCharacter() {
     useEffect(() => {
 
         var sound = new Howl({
-            src: [`internal/audio/SB_26_Audio_${num}.mp3`],
+            src: [`ee01_ow_thss_pl1/audio/SB_26_Audio_${num}.mp3`],
         });
         sound.play();
         sound.on('end', () => {
@@ -48,7 +48,7 @@ function ChooseCharacter() {
     const wrongAnswerSound = () => {
         if (enableButton) {
             var sound = new Howl({
-                src: [`internal/audio/SB_26_Audio_10.mp3`],
+                src: [`ee01_ow_thss_pl1/audio/SB_26_Audio_10.mp3`],
             });
             sound.play();
             setWrong(true)
@@ -60,7 +60,7 @@ function ChooseCharacter() {
     const rightAnswerSound = () => {
         if (enableButton) {
             var sound = new Howl({
-                src: [`internal/audio/SB_26_Audio_11.mp3`],
+                src: [`ee01_ow_thss_pl1/audio/SB_26_Audio_11.mp3`],
             });
             sound.play();
             sound.on('end', () => {

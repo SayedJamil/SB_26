@@ -18,16 +18,16 @@ function Activity02End() {
     const Ref30 = useRef(null);
     const [enableButton, setEnableButton] = useState(false)
     const sound = new Howl({
-        src: [`internal/audio/SB_26_Audio_48.mp3`],
+        src: [`ee01_ow_thss_pl1/audio/SB_26_Audio_48.mp3`],
     });
     const sound02 = new Howl({
-        src: [`internal/audio/SB_26_Audio_49.mp3`],
+        src: [`ee01_ow_thss_pl1/audio/SB_26_Audio_49.mp3`],
     });
     const sound03 = new Howl({
-        src: [`internal/audio/replayAudio.mp3`],
+        src: [`ee01_ow_thss_pl1/audio/replayAudio.mp3`],
     });
     const sound04 = new Howl({
-        src: [`internal/audio/children_clapping.mp3`],
+        src: [`ee01_ow_thss_pl1/audio/children_clapping.mp3`],
     });
     const [playSound, setPlaySound] = useState(sound)
     const [play02Sound, setPlay02Sound] = useState(sound02)
@@ -50,12 +50,12 @@ function Activity02End() {
     }, [])
     // useEffect(() => {
     //     var sound = new Howl({
-    //         src: [`internal/audio/SB_26_Audio_48.mp3`],
+    //         src: [`ee01_ow_thss_pl1/audio/SB_26_Audio_48.mp3`],
     //     });
     //     sound.play();
     //     sound.on('end', () => {
     //         var sound = new Howl({
-    //             src: [`internal/audio/SB_26_Audio_49.mp3`],
+    //             src: [`ee01_ow_thss_pl1/audio/SB_26_Audio_49.mp3`],
     //         });
     //         sound.play();
     //     })

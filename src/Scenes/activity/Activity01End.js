@@ -19,7 +19,7 @@ function Activity01End() {
 
     useEffect(() => {
         var sound = new Howl({
-            src: [`internal/audio/SB_26_Audio_26.mp3`],
+            src: [`ee01_ow_thss_pl1/audio/SB_26_Audio_26.mp3`],
         });
         sound.play();
         sound.on('end', () => {

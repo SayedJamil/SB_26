@@ -1,15 +1,15 @@
 
-const soundUrl = "internal/audio/"
-const lottieUrl = "internal/lottie/"
-const bg = "internal/bg/BG/"
-const introBg = "internal/bg/Intro_BG/"
-const character = "internal/character/"
-const hilight = "internal/icons/ICON_CI01_HILIGHT/"
-const icons = "internal/icons/ICON_CI_01/"
-const button = "internal/button/"
-const equipement = "internal/icons/ICON_PI_02/"
-const eqhilight = "internal/icons/ICON_PI_02_HILIGHT/"
-const progressBar = "internal/icons/PROGRESS_BAR/"
+const soundUrl = "ee01_ow_thss_pl1/audio/"
+const lottieUrl = "ee01_ow_thss_pl1/lottie/"
+const bg = "ee01_ow_thss_pl1/bg/BG/"
+const introBg = "ee01_ow_thss_pl1/bg/Intro_BG/"
+const character = "ee01_ow_thss_pl1/character/"
+const hilight = "ee01_ow_thss_pl1/icons/ICON_CI01_HILIGHT/"
+const icons = "ee01_ow_thss_pl1/icons/ICON_CI_01/"
+const button = "ee01_ow_thss_pl1/button/"
+const equipement = "ee01_ow_thss_pl1/icons/ICON_PI_02/"
+const eqhilight = "ee01_ow_thss_pl1/icons/ICON_PI_02_HILIGHT/"
+const progressBar = "ee01_ow_thss_pl1/icons/PROGRESS_BAR/"
 //public\internal\icons\ICON_PI_02_HILIGHT\SB_26_GREEN.svg
 const AssetsMap = {
     chooseCharacter: {
@@ -49,7 +49,7 @@ const AssetsMap = {
         sprites: [
             `${button}Buttons-20.svg`,
             `${button}Buttons-26.svg`,
-            
+
 
         ],
         sounds: [

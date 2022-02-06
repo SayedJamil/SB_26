@@ -18,7 +18,7 @@ function ActivityExplainScene01() {
     const Ref12 = useRef(null);
 
     const sound = new Howl({
-        src: [`internal/audio/SB_26_Audio_08.mp3`],
+        src: [`ee01_ow_thss_pl1/audio/SB_26_Audio_08.mp3`],
     });
     const [playSound, setPlaySound] = useState(sound)
 

@@ -19,7 +19,7 @@
 
 .armyManSceneIcon {
   height: 70%;
-  position: fixed;
+  position: absolute;
   left: 52%;
   -webkit-left: 52%;
   -moz-left: 52%;
@@ -92,15 +92,15 @@
   -moz-top: 21%;
   top: 21%;
 }
+/*   -webkit-left: 35%;
+  -moz-left: 35%;
+  -webkit-left: 52%;
+  -moz-left: 52%; */
 
 .doctorSceneIcon {
   height: 70%;
   position: fixed;
   left: 35%;
-  -webkit-left: 35%;
-  -moz-left: 35%;
-  -webkit-left: 52%;
-  -moz-left: 52%;
   top: 21%;
 }
 .fireFighterSceneIcon {

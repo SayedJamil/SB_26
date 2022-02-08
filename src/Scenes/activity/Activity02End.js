@@ -49,8 +49,6 @@ function Activity02End() {
         })
     }, [])
 
-
-
     useEffect(() => {
         if (activityend?.lottie && Ref30.current && !Loading) {
             try {

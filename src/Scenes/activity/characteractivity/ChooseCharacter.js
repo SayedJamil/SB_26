@@ -42,11 +42,31 @@ function ChooseCharacter() {
         var randomPos = Math.random() >= 0.5;
         setPosition(randomPos)
     }
+    const [isActivity, setIsActivity] = useState(true)
+    const [playAnimation, setPlayAnimation] = useState(false)
+
+    useEffect(() => {
+        if (isActivity) {
+            setTimeout(() => {
+                setIsActivity(false)
+            }, 10000)
+        }
+        if (!isActivity) {
+            setPlayAnimation(true)
+            setTimeout(() => {
+                setPlayAnimation(!playAnimation)
+            }, 4000)
+        }
+    }, [isActivity, playAnimation])
 
 
 
     const wrongAnswerSound = () => {
+        setIsActivity(true)
+        setPlayAnimation(false)
+        setPlayAnimation(false)
         if (enableButton) {
+            setEnableButton(false)
             var sound = new Howl({
                 src: [`ee01_ow_thss_pl1/audio/SB_26_Audio_10.mp3`],
             });
@@ -54,10 +74,13 @@ function ChooseCharacter() {
             setWrong(true)
             sound.on('end', () => {
                 setWrong(false)
+                setEnableButton(true)
             })
         }
     }
     const rightAnswerSound = () => {
+        setIsActivity(true)
+        setPlayAnimation(false)
         if (enableButton) {
             var sound = new Howl({
                 src: [`ee01_ow_thss_pl1/audio/SB_26_Audio_11.mp3`],
@@ -103,148 +126,18 @@ function ChooseCharacter() {
     }
 
 
+
     return (
         <Scenes
             Bg={Bg}
             sprites={
                 <>
+                    <Image src={choosecharacter?.sprites[charNum]} alt="" className={`${position ? "leftCharacterIcon" : "rightCharacterIcon"}`} onClick={() => rightAnswerSound()} />
+                    {(playAnimation) ? <Image src={choosecharacter?.sprites[18]} className={`${position ? "leftHilightIcon handIconAnimation" : "rightHilightIcon handIconAnimation"}`} /> : null}
+                    {(correct) ? <Image src={choosecharacter?.sprites[4]} alt="txt" className={`${position ? "leftHilighterIcon" : "rightHilighterIcon"}`} onClick={() => rightAnswerSound()} /> : null}
 
-                    {(() => {
-                        switch (character) {
-                            case 'armyman':
-                                return (
-                                    <div>
-
-                                        <Image src={choosecharacter?.sprites[charNum]} alt="" className={`${position ? "leftCharacterIcon" : "rightCharacterIcon"}`} onClick={() => rightAnswerSound()} />
-                                        {(correct) ? <Image src={choosecharacter?.sprites[4]} alt="txt" className={`${position ? "leftHilighterIcon" : "rightHilighterIcon"}`} onClick={() => rightAnswerSound()} /> : null}
-
-                                        <Image src={choosecharacter?.sprites[random]} alt="txt" className={`${!position ? "leftCharacterIcon" : "rightCharacterIcon"}`} onClick={() => wrongAnswerSound()} />
-                                        {(wrong) ? <Image src={choosecharacter?.sprites[5]} alt="txt" className={`${!position ? "leftHilighterIcon" : "rightHilighterIcon"}`} onClick={() => wrongAnswerSound()} /> : null}
-
-                                    </div>
-                                )
-                            case 'dentist':
-                                return (
-                                    <div>
-
-                                        <Image src={choosecharacter?.sprites[charNum]} alt="" className={`${position ? "leftCharacterIcon" : "rightCharacterIcon"}`} onClick={() => rightAnswerSound()} />
-                                        {(correct) ? <Image src={choosecharacter?.sprites[4]} alt="txt" className={`${position ? "leftHilighterIcon" : "rightHilighterIcon"}`} onClick={() => rightAnswerSound()} /> : null}
-
-
-                                        <Image src={choosecharacter?.sprites[random]} alt="txt" className={`${!position ? "leftCharacterIcon" : "rightCharacterIcon"}`} onClick={() => wrongAnswerSound()} />
-                                        {(wrong) ? <Image src={choosecharacter?.sprites[5]} alt="txt" className={`${!position ? "leftHilighterIcon" : "rightHilighterIcon"}`} onClick={() => wrongAnswerSound()} /> : null}
-
-                                    </div>
-
-                                )
-                            case 'doctor':
-                                return (
-                                    <div>
-
-                                        <Image src={choosecharacter?.sprites[charNum]} alt="" className={`${position ? "leftCharacterIcon" : "rightCharacterIcon"}`} onClick={() => rightAnswerSound()} />
-                                        {(correct) ? <Image src={choosecharacter?.sprites[4]} alt="txt" className={`${position ? "leftHilighterIcon" : "rightHilighterIcon"}`} onClick={() => rightAnswerSound()} /> : null}
-
-
-                                        <Image src={choosecharacter?.sprites[random]} alt="txt" className={`${!position ? "leftCharacterIcon" : "rightCharacterIcon"}`} onClick={() => wrongAnswerSound()} />
-                                        {(wrong) ? <Image src={choosecharacter?.sprites[5]} alt="txt" className={`${!position ? "leftHilighterIcon" : "rightHilighterIcon"}`} onClick={() => wrongAnswerSound()} /> : null}
-
-                                    </div>
-                                )
-                            case 'firefighter':
-                                return (
-                                    <div>
-
-                                        <Image src={choosecharacter?.sprites[charNum]} alt="" className={`${position ? "leftCharacterIcon" : "rightCharacterIcon"}`} onClick={() => rightAnswerSound()} />
-                                        {(correct) ? <Image src={choosecharacter?.sprites[4]} alt="txt" className={`${position ? "leftHilighterIcon" : "rightHilighterIcon"}`} onClick={() => rightAnswerSound()} /> : null}
-
-
-                                        <Image src={choosecharacter?.sprites[random]} alt="txt" className={`${!position ? "leftCharacterIcon" : "rightCharacterIcon"}`} onClick={() => wrongAnswerSound()} />
-                                        {(wrong) ? <Image src={choosecharacter?.sprites[5]} alt="txt" className={`${!position ? "leftHilighterIcon" : "rightHilighterIcon"}`} onClick={() => wrongAnswerSound()} /> : null}
-
-                                    </div>
-                                )
-                            case 'floorcleaner':
-                                return (
-                                    <div>
-
-                                        <Image src={choosecharacter?.sprites[charNum]} alt="" className={`${position ? "leftCharacterIcon" : "rightCharacterIcon"}`} onClick={() => rightAnswerSound()} />
-                                        {(correct) ? <Image src={choosecharacter?.sprites[4]} alt="txt" className={`${position ? "leftHilighterIcon" : "rightHilighterIcon"}`} onClick={() => rightAnswerSound()} /> : null}
-
-
-                                        <Image src={choosecharacter?.sprites[random]} alt="txt" className={`${!position ? "leftCharacterIcon" : "rightCharacterIcon"}`} onClick={() => wrongAnswerSound()} />
-                                        {(wrong) ? <Image src={choosecharacter?.sprites[5]} alt="txt" className={`${!position ? "leftHilighterIcon" : "rightHilighterIcon"}`} onClick={() => wrongAnswerSound()} /> : null}
-
-                                    </div>
-                                )
-                            case 'garbagecollector':
-                                return (
-                                    <div>
-
-                                        <Image src={choosecharacter?.sprites[charNum]} alt="" className={`${position ? "leftCharacterIcon" : "rightCharacterIcon"}`} onClick={() => rightAnswerSound()} />
-                                        {(correct) ? <Image src={choosecharacter?.sprites[4]} alt="txt" className={`${position ? "leftHilighterIcon" : "rightHilighterIcon"}`} onClick={() => rightAnswerSound()} /> : null}
-
-                                        <Image src={choosecharacter?.sprites[random]} alt="txt" className={`${!position ? "leftCharacterIcon" : "rightCharacterIcon"}`} onClick={() => wrongAnswerSound()} />
-                                        {(wrong) ? <Image src={choosecharacter?.sprites[5]} alt="txt" className={`${!position ? "leftHilighterIcon" : "rightHilighterIcon"}`} onClick={() => wrongAnswerSound()} /> : null}
-
-                                    </div>
-                                )
-                            case 'gardener':
-                                return (
-                                    <div>
-
-                                        <Image src={choosecharacter?.sprites[charNum]} alt="" className={`${position ? "leftCharacterIcon" : "rightCharacterIcon"}`} onClick={() => rightAnswerSound()} />
-                                        {(correct) ? <Image src={choosecharacter?.sprites[4]} alt="txt" className={`${position ? "leftHilighterIcon" : "rightHilighterIcon"}`} onClick={() => rightAnswerSound()} /> : null}
-
-
-                                        <Image src={choosecharacter?.sprites[random]} alt="txt" className={`${!position ? "leftCharacterIcon" : "rightCharacterIcon"}`} onClick={() => wrongAnswerSound()} />
-                                        {(wrong) ? <Image src={choosecharacter?.sprites[5]} alt="txt" className={`${!position ? "leftHilighterIcon" : "rightHilighterIcon"}`} onClick={() => wrongAnswerSound()} /> : null}
-
-                                    </div>
-                                )
-                            case 'guard':
-                                return (
-                                    <div>
-
-                                        <Image src={choosecharacter?.sprites[charNum]} alt="" className={`${position ? "leftCharacterIcon" : "rightCharacterIcon"}`} onClick={() => rightAnswerSound()} />
-                                        {(correct) ? <Image src={choosecharacter?.sprites[4]} alt="txt" className={`${position ? "leftHilighterIcon" : "rightHilighterIcon"}`} onClick={() => rightAnswerSound()} /> : null}
-
-
-                                        <Image src={choosecharacter?.sprites[random]} alt="txt" className={`${!position ? "leftCharacterIcon" : "rightCharacterIcon"}`} onClick={() => wrongAnswerSound()} />
-                                        {(wrong) ? <Image src={choosecharacter?.sprites[5]} alt="txt" className={`${!position ? "leftHilighterIcon" : "rightHilighterIcon"}`} onClick={() => wrongAnswerSound()} /> : null}
-
-                                    </div>
-                                )
-                            case 'police':
-                                return (
-                                    <div>
-
-                                        <Image src={choosecharacter?.sprites[charNum]} alt="" className={`${position ? "leftCharacterIcon" : "rightCharacterIcon"}`} onClick={() => rightAnswerSound()} />
-                                        {(correct) ? <Image src={choosecharacter?.sprites[4]} alt="txt" className={`${position ? "leftHilighterIcon" : "rightHilighterIcon"}`} onClick={() => rightAnswerSound()} /> : null}
-
-
-                                        <Image src={choosecharacter?.sprites[random]} alt="txt" className={`${!position ? "leftCharacterIcon" : "rightCharacterIcon"}`} onClick={() => wrongAnswerSound()} />
-                                        {(wrong) ? <Image src={choosecharacter?.sprites[5]} alt="txt" className={`${!position ? "leftHilighterIcon" : "rightHilighterIcon"}`} onClick={() => wrongAnswerSound()} /> : null}
-
-                                    </div>
-                                )
-                            case 'teacher':
-                                return (
-                                    <div>
-
-                                        <Image src={choosecharacter?.sprites[charNum]} alt="" className={`${position ? "leftCharacterIcon" : "rightCharacterIcon"}`} onClick={() => rightAnswerSound()} />
-                                        {(correct) ? <Image src={choosecharacter?.sprites[4]} alt="txt" className={`${position ? "leftHilighterIcon" : "rightHilighterIcon"}`} onClick={() => rightAnswerSound()} /> : null}
-
-
-                                        <Image src={choosecharacter?.sprites[random]} alt="txt" className={`${!position ? "leftCharacterIcon" : "rightCharacterIcon"}`} onClick={() => wrongAnswerSound()} />
-                                        {(wrong) ? <Image src={choosecharacter?.sprites[5]} alt="txt" className={`${!position ? "leftHilighterIcon" : "rightHilighterIcon"}`} onClick={() => wrongAnswerSound()} /> : null}
-
-                                    </div>
-                                )
-                            default:
-                                return null
-                        }
-                    })()}
-
+                    <Image src={choosecharacter?.sprites[random]} alt="txt" className={`${!position ? "leftCharacterIcon" : "rightCharacterIcon"}`} onClick={() => wrongAnswerSound()} />
+                    {(wrong) ? <Image src={choosecharacter?.sprites[5]} alt="txt" className={`${!position ? "leftHilighterIcon" : "rightHilighterIcon"}`} onClick={() => wrongAnswerSound()} /> : null}
                 </>
             }
         />

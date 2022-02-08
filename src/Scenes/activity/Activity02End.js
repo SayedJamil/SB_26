@@ -12,7 +12,7 @@ import lottie from 'lottie-web';
 import AssetsMap from '../../Assets';
 function Activity02End() {
     const { Bg, Loading } = useLoadAsset(AssetsMap.activity01end)
-    const { SceneId, setSceneId, isLoading, setisLoading, Assets, setAssets } = useContext(SceneContext);
+    const { SceneId, setSceneId, isLoading, setisLoading, Assets, setAssets, setStars, setCharNum, setCharacter, setToolNum, setNum } = useContext(SceneContext);
     const { activityend } = Assets;
     const { Sound, setSound, } = useContext(SoundContext)
     const Ref30 = useRef(null);
@@ -48,18 +48,6 @@ function Activity02End() {
             setEnableButton(true)
         })
     }, [])
-    // useEffect(() => {
-    //     var sound = new Howl({
-    //         src: [`ee01_ow_thss_pl1/audio/SB_26_Audio_48.mp3`],
-    //     });
-    //     sound.play();
-    //     sound.on('end', () => {
-    //         var sound = new Howl({
-    //             src: [`ee01_ow_thss_pl1/audio/SB_26_Audio_49.mp3`],
-    //         });
-    //         sound.play();
-    //     })
-    // }, [])
 
 
 
@@ -70,7 +58,7 @@ function Activity02End() {
                     name: "explaingirl",
                     container: Ref30.current,
                     renderer: "svg",
-                    loop: false,
+                    loop: true,
                     autoplay: true,
                     animationData: activityend?.lottie[0],
                 })
@@ -91,7 +79,13 @@ function Activity02End() {
                         if (enableButton) {
                             playSound.stop()
                             setisLoading(true)
-                            setSceneId('/explain')
+                            setSceneId('/')
+                            setStars(0)
+                            setCharacter('doctor')
+                            setCharNum(8)
+                            setNum('09')
+                            setToolNum(15)
+
                         }
                     }} />
                     <div ref={Ref30} className="activityEndGirlIcon" id="explaingirl"></div>

@@ -2,7 +2,6 @@ body {
   margin: 0px;
   padding: 0px;
   background: black;
-  /* cursor: url("../../public/internal/icons/HAND/SB_26_hand.svg"); */
 }
 
 .fadeup {
@@ -15,6 +14,7 @@ body {
 
 * {
   -webkit-user-drag: none;
+  cursor: url("/src/styles/SB_26_hand.svg"), auto;
 }
 @keyframes fade {
   from {

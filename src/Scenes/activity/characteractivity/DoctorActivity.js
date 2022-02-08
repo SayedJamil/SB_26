@@ -21,6 +21,7 @@ function DoctorActivity() {//change here
     const [enableButton, setEnableButton] = useState(false)
     const [random, setRandom] = useState()
     const [position, setPosition] = useState(true)
+
     useEffect(() => {
         var sound = new Howl({
             src: [`ee01_ow_thss_pl1/audio/SB_26_Audio_12.mp3`],//change here
@@ -30,7 +31,25 @@ function DoctorActivity() {//change here
             setEnableButton(true)
         })
         randomize();
+
     }, [])
+
+    const [isActivity, setIsActivity] = useState(true)
+    const [playAnimation, setPlayAnimation] = useState(false)
+
+    useEffect(() => {
+        if (isActivity) {
+            setTimeout(() => {
+                setIsActivity(false)
+            }, 10000)
+        }
+        if (!isActivity) {
+            setPlayAnimation(true)
+            setTimeout(() => {
+                setPlayAnimation(!playAnimation)
+            }, 4000)
+        }
+    }, [isActivity, playAnimation])
 
     const Ref21 = useRef(null);//change here
 
@@ -51,7 +70,10 @@ function DoctorActivity() {//change here
         }
     }, [Assets, Loading])
     const wrongAnswerSound = () => {
+        setIsActivity(true)
+        setPlayAnimation(false) 
         if (enableButton) {
+            setEnableButton(false)
             var sound = new Howl({
                 src: [`ee01_ow_thss_pl1/audio/SB_26_Audio_10.mp3`],
             });
@@ -59,10 +81,14 @@ function DoctorActivity() {//change here
             setWrong(true)
             sound.on('end', () => {
                 setWrong(false)
+                setEnableButton(true)
             })
+
         }
     }
     const rightAnswerSound = () => {
+        setIsActivity(true)
+        setPlayAnimation(false)
         if (enableButton) {
             var sound = new Howl({
                 src: [`ee01_ow_thss_pl1/audio/SB_26_Audio_13.mp3`],
@@ -97,12 +123,17 @@ function DoctorActivity() {//change here
             Bg={Bg}
             sprites={
                 <>
+                    <div>
+                        <Image src={doctorScene?.sprites[toolNum]} alt="txt" className={`${position ? "bottomEquipButton" : "topEquipButton"}`} onClick={() => rightAnswerSound()} />{/* changehere */}
+                        {(playAnimation) ? <Image src={doctorScene?.sprites[22]} className={`${position ? "bottomHilightIcon handIconAnimation" : "topHilightIcon handIconAnimation"}`} /> : null}
+                        {(correct) ? <Image src={doctorScene?.sprites[18]} alt="txt" className={`${position ? "bottomHighlightIcon" : "topHighlightIcon"}`} onClick={() => rightAnswerSound()} /> : null}{/* changehere */}
+                    </div>
 
-
-                    <Image src={doctorScene?.sprites[toolNum]} alt="txt" className={`${position ? "bottomEquipButton" : "topEquipButton"}`} onClick={() => rightAnswerSound()} />{/* changehere */}
-                    {(correct) ? <Image src={doctorScene?.sprites[18]} alt="txt" className={`${position ? "bottomHighlightIcon" : "topHighlightIcon"}`} onClick={() => rightAnswerSound()} /> : null}{/* changehere */}
                     <Image src={doctorScene?.sprites[random]} alt="txt" className={`${!position ? "bottomEquipButton" : "topEquipButton"}`} onClick={() => wrongAnswerSound()} />{/* changehere */}
+
                     {(wrong) ? <Image src={doctorScene?.sprites[19]} alt="txt" className={`${!position ? "bottomHighlightIcon" : "topHighlightIcon"}`} onClick={() => wrongAnswerSound()} /> : null}{/* changehere */}
+
+
                     <Image src={doctorScene?.sprites[20]} alt="" className="progressBar" />
                     <div className='starspos'>
                         {[...Array(stars)].map((elementInArray, index) => (

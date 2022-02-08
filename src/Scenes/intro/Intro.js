@@ -1,4 +1,4 @@
-import { useContext, useRef, useEffect } from 'react';
+import { useContext, useRef, useEffect, useState } from 'react';
 import { SceneContext } from '../../contexts/SceneContext';
 import Scenes from "../../utils/Scenes"
 import useLoadAsset from '../../utils/useLoadAsset';
@@ -7,12 +7,23 @@ import lottie from "lottie-web"
 import "../../styles/intro.css"
 import Image from '../../utils/elements/Image';
 import AssetsMap from '../../Assets';
+import { Howl } from 'howler';
 
 
 export default function Intro() {
+
   const { Bg, Loading } = useLoadAsset(AssetsMap.intro)
   const { SceneId, setSceneId, isLoading, setisLoading, Assets, setAssets } = useContext(SceneContext);
   const { intro } = Assets;
+
+  const sound = new Howl({
+    src: [`ee01_ow_thss_pl1/audio/SB_26_Audio_01.mp3`],
+  });
+  const [playSound, setPlaySound] = useState(sound)
+
+  useEffect(() => {
+    playSound.play()
+  }, [])
 
   return (
     <Scenes
@@ -20,6 +31,7 @@ export default function Intro() {
       sprites={
         <>
           <div onClick={() => {
+            playSound.stop()
             setSceneId('/explain')
             setisLoading(true)
           }}>

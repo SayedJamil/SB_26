@@ -51,7 +51,10 @@ function DentistActivity() {//change here
         }
     }, [Assets, Loading])
     const wrongAnswerSound = () => {
+        setIsActivity(true)
+        setPlayAnimation(false)
         if (enableButton) {
+            setEnableButton(false)
             var sound = new Howl({
                 src: [`ee01_ow_thss_pl1/audio/SB_26_Audio_10.mp3`],
             });
@@ -59,11 +62,14 @@ function DentistActivity() {//change here
             setWrong(true)
             sound.on('end', () => {
                 setWrong(false)
+                setEnableButton(true)
             })
 
         }
     }
     const rightAnswerSound = () => {
+        setIsActivity(true)
+        setPlayAnimation(false)
         if (enableButton) {
             var sound = new Howl({
                 src: [`ee01_ow_thss_pl1/audio/SB_26_Audio_34.mp3`],//change here
@@ -93,6 +99,23 @@ function DentistActivity() {//change here
         var randomPos = Math.random() >= 0.5;
         setPosition(randomPos)
     }
+    const [isActivity, setIsActivity] = useState(true)
+    const [playAnimation, setPlayAnimation] = useState(false)
+
+    useEffect(() => {
+        if (isActivity) {
+            setTimeout(() => {
+                setIsActivity(false)
+            }, 10000)
+        }
+        if (!isActivity) {
+            setPlayAnimation(true)
+            setTimeout(() => {
+                setPlayAnimation(!playAnimation)
+            }, 4000)
+        }
+    }, [isActivity, playAnimation])
+
     return (
         <Scenes
             Bg={Bg}
@@ -100,8 +123,12 @@ function DentistActivity() {//change here
                 <>
 
 
-                    <Image src={dentistScene?.sprites[toolNum]} alt="txt" className={`${position ? "bottomEquipButton" : "topEquipButton"}`} onClick={() => rightAnswerSound()} /> //change here
-                    {(correct) ? <Image src={dentistScene?.sprites[18]} alt="txt" className={`${position ? "bottomHighlightIcon" : "topHighlightIcon"}`} onClick={() => rightAnswerSound()} /> : null}//change here
+                    <div>
+                        <Image src={dentistScene?.sprites[toolNum]} alt="txt" className={`${position ? "bottomEquipButton" : "topEquipButton"}`} onClick={() => rightAnswerSound()} />{/* changehere */}
+                        {(playAnimation) ? <Image src={dentistScene?.sprites[22]} className={`${position ? "bottomHilightIcon handIconAnimation" : "topHilightIcon handIconAnimation"}`} /> : null}
+                        {(correct) ? <Image src={dentistScene?.sprites[18]} alt="txt" className={`${position ? "bottomHighlightIcon" : "topHighlightIcon"}`} onClick={() => rightAnswerSound()} /> : null}{/* changehere */}
+                    </div>
+
                     <Image src={dentistScene?.sprites[random]} alt="txt" className={`${!position ? "bottomEquipButton" : "topEquipButton"}`} onClick={() => wrongAnswerSound()} />//change here
                     {(wrong) ? <Image src={dentistScene?.sprites[19]} alt="txt" className={`${!position ? "bottomHighlightIcon" : "topHighlightIcon"}`} onClick={() => wrongAnswerSound()} /> : null}//change here
 

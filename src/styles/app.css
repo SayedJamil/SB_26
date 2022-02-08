@@ -34,6 +34,7 @@
 }
 .GameContainer {
   overflow: hidden !important;
+  
 }
 .Bg_Image {
   position: fixed;

@@ -18,7 +18,7 @@ export default function Explain() {
   const Ref11 = useRef(null);
 
   const sound = new Howl({
-    src: [`ee01_ow_thss_pl1/audio/SB_26_Audio_01.mp3`],
+    src: [`ee01_ow_thss_pl1/audio/14-11-2021/SB_26_Audio_01.mp3`],
   });
   const [playSound, setPlaySound] = useState(sound)
 
@@ -38,7 +38,7 @@ export default function Explain() {
           name: "explaingirl",
           container: Ref11.current,
           renderer: "svg",
-          loop: false,
+          loop: true,
           autoplay: true,
           animationData: explain?.lottie[0],
         })

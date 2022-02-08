@@ -82,7 +82,7 @@
   left: 43%;
   top: 50%;
   z-index: 1;
-  cursor: pointer;
+  cursor: url("/src/styles/SB_26_hand.svg"), auto;
 }
 .replay_btn {
   position: fixed;
@@ -90,7 +90,7 @@
   left: 43%;
   top: 75%;
   z-index: 1;
-  cursor: pointer;
+  cursor: url("/src/styles/SB_26_hand.svg"), auto;
 }
 
 /* .intro_lottie_container{

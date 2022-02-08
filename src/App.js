@@ -33,15 +33,28 @@ import Activity02End from "./Scenes/activity/Activity02End";
 import { SceneContext } from "./contexts/SceneContext";
 import { LoadImage } from "./utils/loadImage";
 import Image from "./utils/elements/Image";
+import PlayAudio from "./utils/playAudio";
 function App() {
   const [soundButton, setSoundButton] = useState(null);
   const [noSoundButton, setNoSoundButton] = useState(null);
   const { setTransition, transition } = useContext(SceneContext);
 
+  const loadAudio = () => {
+    const bg_sound = new Howl({
+      src: [`ee01_ow_thss_pl1/audio/Entire_video_song.mp3`],
+      loop: true,
+      volume: 0.1,
+      autoplay: true
+    })
+    bg_sound.play()
+    setBG_sound(bg_sound)
+  }
+
   useEffect(() => {
     loadAudio()
     setTimeout(() => {
       setLoad(false)
+      PlayAudio()
     }, 3000)
     loadLottie()
     loadBgImage()
@@ -65,15 +78,9 @@ function App() {
   };
   const [Load, setLoad] = useState(true);
   const [mute, setmute] = useState(false);
-  const [BG_sound, setBG_sound] = useState(null);
 
-  const loadAudio = async () => {
-    setBG_sound(new Howl({
-      src: [`ee01_ow_thss_pl1/audio/Entire_video_song.mp3`],
-      loop: true,
-      volume: 0.1
-    }))
-  }
+
+  const [BG_sound, setBG_sound] = useState(null);
 
   useEffect(() => {
     if (BG_sound !== null) {
@@ -101,10 +108,11 @@ function App() {
       <div></div>
       <div></div>
       <div></div>
-    </div>
+    </div >
   )
   return (
     <GameContainer>
+
       {
         mute
           ?

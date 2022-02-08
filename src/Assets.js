@@ -10,6 +10,7 @@ const button = "ee01_ow_thss_pl1/button/"
 const equipement = "ee01_ow_thss_pl1/icons/ICON_PI_02/"
 const eqhilight = "ee01_ow_thss_pl1/icons/ICON_PI_02_HILIGHT/"
 const progressBar = "ee01_ow_thss_pl1/icons/PROGRESS_BAR/"
+const handIcon = "ee01_ow_thss_pl1/icons/HAND/"
 //public\internal\icons\ICON_PI_02_HILIGHT\SB_26_GREEN.svg
 const AssetsMap = {
     chooseCharacter: {
@@ -34,6 +35,7 @@ const AssetsMap = {
             `${icons}SB_26_icon_teacher.svg`,//15
             `${progressBar}SB_26_PROGRESS_BAR.svg`,
             `${progressBar}SB_26_STAR.svg`,
+            `${handIcon}SB_26_hand_hilight.svg`,
 
         ],
         sounds: [
@@ -86,6 +88,7 @@ const AssetsMap = {
             `${eqhilight}SB_26_RED.svg`,
             `${progressBar}SB_26_PROGRESS_BAR.svg`,
             `${progressBar}SB_26_STAR.svg`,
+            `${handIcon}SB_26_hand_hilight.svg`,
 
         ],
         sounds: [
@@ -122,6 +125,7 @@ const AssetsMap = {
             `${eqhilight}SB_26_RED.svg`,
             `${progressBar}SB_26_PROGRESS_BAR.svg`,
             `${progressBar}SB_26_STAR.svg`,
+            `${handIcon}SB_26_hand_hilight.svg`,
 
         ],
         sounds: [`${soundUrl}SB_26_Audio_29.mp3`],
@@ -155,6 +159,8 @@ const AssetsMap = {
             `${eqhilight}SB_26_RED.svg`,
             `${progressBar}SB_26_PROGRESS_BAR.svg`,
             `${progressBar}SB_26_STAR.svg`,
+            `${handIcon}SB_26_hand_hilight.svg`,
+            `${handIcon}SB_26_hand_hilight.svg`,
         ],
         sounds: [`${soundUrl}SB_26_Audio_03.mp3`],
         lottie: [
@@ -188,6 +194,7 @@ const AssetsMap = {
             `${eqhilight}SB_26_RED.svg`,
             `${progressBar}SB_26_PROGRESS_BAR.svg`,
             `${progressBar}SB_26_STAR.svg`,
+            `${handIcon}SB_26_hand_hilight.svg`,
         ],
         sounds: [`${soundUrl}SB_26_Audio_27.mp3`],
         lottie: [
@@ -220,6 +227,7 @@ const AssetsMap = {
             `${eqhilight}SB_26_RED.svg`,
             `${progressBar}SB_26_PROGRESS_BAR.svg`,
             `${progressBar}SB_26_STAR.svg`,
+            `${handIcon}SB_26_hand_hilight.svg`,
         ],
         sounds: [`${soundUrl}SB_26_Audio_28.mp3`],
         lottie: [
@@ -252,6 +260,7 @@ const AssetsMap = {
             `${eqhilight}SB_26_RED.svg`,
             `${progressBar}SB_26_PROGRESS_BAR.svg`,
             `${progressBar}SB_26_STAR.svg`,
+            `${handIcon}SB_26_hand_hilight.svg`,
 
         ],
         sounds: [`${soundUrl}SB_26_Audio_31.mp3`],
@@ -285,6 +294,7 @@ const AssetsMap = {
             `${eqhilight}SB_26_RED.svg`,
             `${progressBar}SB_26_PROGRESS_BAR.svg`,
             `${progressBar}SB_26_STAR.svg`,
+            `${handIcon}SB_26_hand_hilight.svg`,
 
         ],
         sounds: [`${soundUrl}SB_26_Audio_05.mp3`],
@@ -318,6 +328,7 @@ const AssetsMap = {
             `${eqhilight}SB_26_RED.svg`,
             `${progressBar}SB_26_PROGRESS_BAR.svg`,
             `${progressBar}SB_26_STAR.svg`,
+            `${handIcon}SB_26_hand_hilight.svg`,
 
         ],
         sounds: [`${soundUrl}SB_26_Audio_30.mp3`],
@@ -351,6 +362,7 @@ const AssetsMap = {
             `${eqhilight}SB_26_RED.svg`,
             `${progressBar}SB_26_PROGRESS_BAR.svg`,
             `${progressBar}SB_26_STAR.svg`,
+            `${handIcon}SB_26_hand_hilight.svg`,
 
         ],
         sounds: [`${soundUrl}SB_26_Audio_06.mp3`],
@@ -384,6 +396,7 @@ const AssetsMap = {
             `${eqhilight}SB_26_RED.svg`,
             `${progressBar}SB_26_PROGRESS_BAR.svg`,
             `${progressBar}SB_26_STAR.svg`,
+            `${handIcon}SB_26_hand_hilight.svg`,
 
         ],
         sounds: [`${soundUrl}SB_26_Audio_04.mp3`],
@@ -436,7 +449,7 @@ const AssetsMap = {
             `${soundUrl}SB_26_Audio_01.mp3`
         ],
         lottie: [
-            `${lottieUrl}scene_08/1.SB_26_SC_08.json`,
+            `${lottieUrl}scene_02/1.SB_26_SC_02.json`,
         ]
     },
     activity01: {

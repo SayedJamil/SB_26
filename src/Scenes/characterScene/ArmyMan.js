@@ -31,8 +31,8 @@ function ArmyMan() {
     useEffect(() => {
         playSound.play()
         playSound.on('end', () => {
-            // setisLoading(true)
-            // setSceneId('/doctor')
+            setisLoading(true)
+            setSceneId('/doctor')
 
         })
 

@@ -159,22 +159,23 @@
   }
 }
 
+.cursorPointer {
+  cursor: url("/src/styles/SB_26_hand.svg"), auto;
+}
 .next_button {
   position: fixed;
-  z-index: 999;
   left: 91%;
   bottom: 1.9%;
   height: 10%;
-  /* cursor: url("/src/styles/SB_26_hand.svg"), auto; */
+  cursor: url("/src/styles/SB_26_hand.svg"), auto !important;
 }
 
 .prev_button {
   position: fixed;
-  z-index: 999;
   left: 3%;
   bottom: 2.25%;
   height: 10%;
-  /* cursor: url("/src/styles/SB_26_hand.svg"), auto; */
+  cursor: url("/src/styles/SB_26_hand.svg"), auto !important;
 }
 .toolContainer {
   height: 20%;

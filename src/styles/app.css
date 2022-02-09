@@ -11,6 +11,7 @@
   height: max-content;
   margin: auto;
   margin-top: 20%;
+  cursor: url("/src/styles/SB_26_hand.svg"), auto !important;
 }
 
 .intro_Loading_screen > div {
@@ -34,7 +35,7 @@
 }
 .GameContainer {
   overflow: hidden !important;
-  
+  cursor: url("/src/styles/SB_26_hand.svg"), auto !important;
 }
 .Bg_Image {
   position: fixed;
@@ -47,6 +48,7 @@
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
+  cursor: url("/src/styles/SB_26_hand.svg"), auto !important;
 }
 
 @keyframes bouncing-loader {
@@ -66,6 +68,7 @@
 
 .transition_style {
   position: fixed;
+  cursor: url("/src/styles/SB_26_hand.svg"), auto !important;
 }
 
 .music_button {
@@ -74,4 +77,5 @@
   left: 2%;
   bottom: 50%;
   height: 8%;
+  cursor: url("/src/styles/SB_26_hand.svg"), auto !important;
 }

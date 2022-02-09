@@ -15,7 +15,7 @@ const handIcon = "ee01_ow_thss_pl1/icons/HAND/"
 const AssetsMap = {
     chooseCharacter: {
         id: "choosecharacter",
-        Bg: `${bg}SB_26_BG_01.svg`,
+        Bg: `${bg}SB_26_BG_08.svg`,
         sprites: [
             `${button}Buttons-16.svg`,//0
             `${button}Buttons-22.svg`,//1

@@ -31,8 +31,8 @@ function ArmyMan() {
     useEffect(() => {
         playSound.play()
         playSound.on('end', () => {
-            setisLoading(true)
-            setSceneId('/doctor')
+            // setisLoading(true)
+            // setSceneId('/doctor')
 
         })
 
@@ -64,21 +64,20 @@ function ArmyMan() {
             sprites={
                 <>
 
-                    <div onClick={() => {
+
+                    <Image src={armyManScene?.sprites[2]} alt="" className="next_button" onClick={() => {
                         playSound.stop()
                         setisLoading(true)
                         setSceneId("/doctor")
-                    }}>
-                        <Image src={armyManScene?.sprites[2]} alt="txt" className="next_button" />
-                    </div>
-                    <div onClick={() => {
+                    }} />
+
+                    <Image src={armyManScene?.sprites[3]} alt="" className="prev_button" onClick={() => {
                         playSound.stop()
                         setisLoading(true)
                         setSceneId("/explain")
+                    }} />
 
-                    }}>
-                        <Image src={armyManScene?.sprites[3]} alt="txt" className="prev_button" />
-                    </div>
+
 
 
                     <Image src={armyManScene?.sprites[0]} alt="txt" className="iconGirl" />

@@ -104,16 +104,16 @@ function App() {
     navigator.vibrate(100);
   }
 
-  if (Load) return (
-    <div class="ballcontainer">
-      <div class="ball"></div>
-      <div class="ball"></div>
-      <div class="ball"></div>
-      <div class="ball"></div>
-      <div class="ball"></div>
-      <div class="ball"></div>
-    </div>
-  )
+  // if (Load) return (
+  //   <div class="ballcontainer">
+  //     <div class="ball"></div>
+  //     <div class="ball"></div>
+  //     <div class="ball"></div>
+  //     <div class="ball"></div>
+  //     <div class="ball"></div>
+  //     <div class="ball"></div>
+  //   </div>
+  // )
   return (
     <GameContainer>
 

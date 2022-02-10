@@ -17,6 +17,7 @@ function Guard() {
     const { Sound, setSound, } = useContext(SoundContext)
     const Ref8 = useRef(null);
 
+    const [buttonClicked, setButtonClicked] = useState(false)
     const sound = new Howl({
         src: [`ee01_ow_thss_pl1/audio/SB_26_Audio_30.mp3`],
     });
@@ -25,7 +26,9 @@ function Guard() {
     useEffect(() => {
         playSound.play()
         playSound.on('end', () => {
-            setisLoading(true)
+            if (!buttonClicked) {
+                setisLoading(true)
+            }
             setSceneId('/garbagecollector')
         })
     }, [])
@@ -57,18 +60,20 @@ function Guard() {
 
                     <div onClick={() => {
                         playSound.stop()
+                        setButtonClicked(true)
                         setisLoading(true)
-                        setSceneId("/garbagecollector")
+                        setSceneId("/activity02")
                     }}>
                         <Image src={guardScene?.sprites[2]} alt="txt" className="next_button" />
                     </div>
-                    <div onClick={() => {
+                    {/* <div onClick={() => {
                         playSound.stop()
+                        setButtonClicked(true)
                         setisLoading(true)
                         setSceneId("/dentist")
                     }}>
                         <Image src={guardScene?.sprites[3]} alt="txt" className="prev_button" />
-                    </div>
+                    </div> */}
 
                     <Image src={guardScene?.sprites[0]} alt="txt" className="iconGirl" />
 

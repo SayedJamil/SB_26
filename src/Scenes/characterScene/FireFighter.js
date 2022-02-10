@@ -17,6 +17,7 @@ function FireFighter() {
     const Ref4 = useRef(null);
     const { Sound, setSound } = useContext(SoundContext)
 
+    const [buttonClicked, setButtonClicked] = useState(false)
     const sound = new Howl({
         src: [`ee01_ow_thss_pl1/audio/SB_26_Audio_27.mp3`],
     });
@@ -25,7 +26,9 @@ function FireFighter() {
     useEffect(() => {
         playSound.play()
         playSound.on('end', () => {
-            setisLoading(true)
+            if (!buttonClicked) {
+                setisLoading(true)
+            }
             setSceneId('/floorcleaner')
         })
     }, [])
@@ -57,7 +60,7 @@ function FireFighter() {
 
                     <div onClick={() => {
                         playSound.stop()
-                        setSceneId("/floorcleaner")
+                        setSceneId("/activity02")
                     }}>
                         <Image src={fireFighterScene?.sprites[2]} alt="txt" className="next_button" />
                     </div>

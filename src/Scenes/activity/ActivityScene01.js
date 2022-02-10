@@ -17,6 +17,7 @@ function ActivityExplainScene01() {
     const { Sound, setSound, } = useContext(SoundContext)
     const Ref12 = useRef(null);
 
+    const [buttonClicked, setButtonClicked] = useState(false)
     const sound = new Howl({
         src: [`ee01_ow_thss_pl1/audio/SB_26_Audio_08.mp3`],
     });
@@ -25,7 +26,9 @@ function ActivityExplainScene01() {
     useEffect(() => {
         playSound.play()
         playSound.on('end', () => {
-            setisLoading(true)
+            if (!buttonClicked) {
+                setisLoading(true)
+            }
             setSceneId('/choosecharacter')
         })
     }, [])
@@ -54,14 +57,15 @@ function ActivityExplainScene01() {
             sprites={
                 <>
 
-                    <div onClick={() => {
+                    {/* <div onClick={() => {
                         playSound.stop()
+                        setButtonClicked(true)
                         setisLoading(true)
                         setSceneId("/police")
                     }}>
                         <Image src={activity01scene?.sprites[3]} alt="txt" className="prev_button" />
                     </div>
-
+ */}
 
 
                     <div ref={Ref12} className="activitygirlIcon" id="explaingirl"></div>

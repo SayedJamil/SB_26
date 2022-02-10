@@ -17,6 +17,7 @@ function Police() {
     const { Sound, setSound, } = useContext(SoundContext)
     const Ref9 = useRef(null);
 
+    const [buttonClicked, setButtonClicked] = useState(false)
     const sound = new Howl({
         src: [`ee01_ow_thss_pl1/audio/14-11-2021/SB_26_Audio_02.mp3`],
     });
@@ -25,7 +26,9 @@ function Police() {
     useEffect(() => {
         playSound.play()
         playSound.on('end', () => {
-            setisLoading(true)
+            if (!buttonClicked) {
+                setisLoading(true)
+            }
             setSceneId('/activity01')
         })
     }, [])
@@ -58,18 +61,20 @@ function Police() {
 
                     <div onClick={() => {
                         playSound.stop()
+                        setButtonClicked(true)
                         setisLoading(true)
                         setSceneId("/activity01")
                     }}>
                         <Image src={policeScene?.sprites[2]} alt="txt" className="next_button" />
                     </div>
-                    <div onClick={() => {
+                    {/* <div onClick={() => {
                         playSound.stop()
+                        setButtonClicked(true)
                         setisLoading(true)
                         setSceneId("/teacher")
                     }}>
                         <Image src={policeScene?.sprites[3]} alt="txt" className="prev_button" />
-                    </div>
+                    </div> */}
 
                     <Image src={policeScene?.sprites[0]} alt="txt" className="iconGirl" />
 

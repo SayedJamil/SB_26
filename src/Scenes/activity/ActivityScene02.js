@@ -17,6 +17,7 @@ function ActivityExplainScene02() {
     const { Sound, setSound, } = useContext(SoundContext)
     const Ref12 = useRef(null);
 
+
     const sound = new Howl({
         src: [`ee01_ow_thss_pl1/audio/SB_26_Audio_08.mp3`],
     });
@@ -61,14 +62,15 @@ function ActivityExplainScene02() {
             sprites={
                 <>
 
-                    <div onClick={() => {
+                    {/* <div onClick={() => {
                         playSound.stop()
+                        setButtonClicked(true)
                         setisLoading(true)
                         setSceneId("/garbagecollector")
                     }}>
                         <Image src={activity02scene?.sprites[3]} alt="txt" className="prev_button" />
                     </div>
-
+ */}
 
 
                     <div ref={Ref12} className="activitygirlIcon" id="explaingirl"></div>

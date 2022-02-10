@@ -55,12 +55,12 @@ function App() {
     setTimeout(() => {
       setLoad(false)
       PlayAudio()
-    }, 3000)
+    }, 4000)
     loadLottie()
     loadBgImage()
   }, []);
 
-
+  navigator.vibrate = navigator.vibrate || navigator.webkitVibrate || navigator.mozVibrate || navigator.msVibrate;
   const loadBgImage = async () => {
     const unmute = await LoadImage(`ee01_ow_thss_pl1/button/Buttons-20.svg`);
     const mute = await LoadImage(`ee01_ow_thss_pl1/button/Buttons-26.svg`);
@@ -99,17 +99,21 @@ function App() {
     }
   }, [mute])
 
-  const toggleMute = () => { setmute(!mute) }
+  const toggleMute = () => {
+    setmute(!mute)
+    navigator.vibrate(100);
+  }
 
-  if (Load) return (
-    <div className="intro_Loading_screen">
-      Loading
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-    </div >
-  )
+  // if (Load) return (
+  //   <div class="ballcontainer">
+  //     <div class="ball"></div>
+  //     <div class="ball"></div>
+  //     <div class="ball"></div>
+  //     <div class="ball"></div>
+  //     <div class="ball"></div>
+  //     <div class="ball"></div>
+  //   </div>
+  // )
   return (
     <GameContainer>
 

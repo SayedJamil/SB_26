@@ -25,7 +25,7 @@ export default function Scenes({ sprites, Bg = "" }) {
     if (isLoading) {
       setTimeout(() => {
         setisLoading(false)
-      }, 2000)
+      }, 1500)
     }
   }, [isLoading])
   return (
@@ -43,9 +43,10 @@ export default function Scenes({ sprites, Bg = "" }) {
         id='placeholder'
         style={{
           opacity: isLoading ? 1 : 0,
-          zIndex: isLoading ? 9999 : 0,
+          zIndex: isLoading ? 100 : 0,
           width: "200%",
           top: "50%",
+          position: 'fixed',
           left: "50%",
           transform: "translate(-50%,-50%)",
         }}

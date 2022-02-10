@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import '.././styles/app.css'
 import { LoadImage } from './loadImage';
 export default function GameContainer({ children }) {
-  const ratio = 1600 / 900
+  const ratio = 1600 / 768
   const [width, setwidth] = useState(window.innerWidth);
   const [height, setheight] = useState(width / ratio);
 
@@ -33,7 +33,7 @@ export default function GameContainer({ children }) {
   };
 
   const styles = {
-    height: `${height}px`, width: `${width}px`, position: "fixed", left: "50%", top: "50%", transform: "translate(-50%,-50%)", cursor: 'url({cursorHand}),auto'
+    height: `${height}px`, width: `${width}px`, position: "fixed", left: "50%", top: "50%", transform: "translate(-50%,-50%)"
   }
 
   return <div className="GameContainer" style={styles}>

@@ -19,6 +19,7 @@ function Gardener() {
     const Ref7 = useRef(null);
 
 
+    const [buttonClicked, setButtonClicked] = useState(false)
     const sound = new Howl({
         src: [`ee01_ow_thss_pl1/audio/SB_26_Audio_05.mp3`],
     });
@@ -28,6 +29,9 @@ function Gardener() {
 
         playSound.play()
         playSound.on('end', () => {
+            if (!buttonClicked) {
+                setisLoading(true)
+            }
             setSceneId('/teacher')
         })
     }, [])
@@ -58,18 +62,20 @@ function Gardener() {
 
                     <div onClick={() => {
                         playSound.stop()
+                        setButtonClicked(true)
                         setisLoading(true)
-                        setSceneId("/teacher")
+                        setSceneId("/activity01")
                     }}>
                         <Image src={gardenerScene?.sprites[2]} alt="txt" className="next_button" />
                     </div>
-                    <div onClick={() => {
+                    {/* <div onClick={() => {
                         playSound.stop()
+                        setButtonClicked(true)
                         setisLoading(true)
                         setSceneId("/doctor")
                     }}>
                         <Image src={gardenerScene?.sprites[3]} alt="txt" className="prev_button" />
-                    </div>
+                    </div> */}
 
                     <Image src={gardenerScene?.sprites[0]} alt="txt" className="iconGirl" />
 

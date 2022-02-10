@@ -16,6 +16,7 @@ export default function Intro() {
   const { SceneId, setSceneId, isLoading, setisLoading, Assets, setAssets } = useContext(SceneContext);
   const { intro } = Assets;
 
+  const [buttonClicked, setButtonClicked] = useState(false)
   const sound = new Howl({
     src: [`ee01_ow_thss_pl1/audio/SB_26_Audio_01.mp3`],
   });
@@ -31,20 +32,16 @@ export default function Intro() {
       sprites={
         <>
           <div onClick={() => {
+            navigator.vibrate(200);
             playSound.stop()
             setSceneId('/explain')
             setisLoading(true)
           }}>
-            <Image src={intro?.sprites[7]} alt="" id='' className="play_btn" />
+            <Image src={intro?.sprites[2]} alt="" id='' className="play_btn" />
           </div>
-          <Image src={intro?.sprites[0]} alt="txt" className="armyMan" />
-          <Image src={intro?.sprites[0]} alt="txt" className="armyMan" />
-          <Image src={intro?.sprites[1]} alt="txt" className="doctor" />
-          <Image src={intro?.sprites[2]} alt="txt" className="fireFighter" />
-          <Image src={intro?.sprites[3]} alt="txt" className="garbageCollector" />
-          <Image src={intro?.sprites[4]} alt="txt" className="police" />
-          <Image src={intro?.sprites[5]} alt="txt" className="guard" />
-          <Image src={intro?.sprites[6]} alt="txt" className="title" />
+
+          <Image src={intro?.sprites[0]} alt="txt" className="introIcons" />
+          <Image src={intro?.sprites[1]} alt="txt" className="title" />
 
 
           {/* <div ref={Ref} className="intro_lottie_container"></div> */}

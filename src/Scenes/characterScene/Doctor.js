@@ -17,6 +17,7 @@ function Doctor() {
     const { Sound, setSound, } = useContext(SoundContext)
     const Ref3 = useRef(null);
 
+    const [buttonClicked, setButtonClicked] = useState(false)
     const sound = new Howl({
         src: [`ee01_ow_thss_pl1/audio/SB_26_Audio_03.mp3`],
     });
@@ -26,7 +27,9 @@ function Doctor() {
 
         playSound.play()
         playSound.on('end', () => {
-            setisLoading(true)
+            if (!buttonClicked) {
+                setisLoading(true)
+            }
             setSceneId('/gardener')
         })
 
@@ -62,18 +65,20 @@ function Doctor() {
 
                     <div onClick={() => {
                         playSound.stop()
+                        setButtonClicked(true)
                         setisLoading(true)
-                        setSceneId("/gardener")
+                        setSceneId("/activity01")
                     }}>
                         <Image src={doctorScene?.sprites[2]} alt="txt" className="next_button" />
                     </div>
-                    <div onClick={() => {
+                    {/* <div onClick={() => {
                         playSound.stop()
+                        setButtonClicked(true)
                         setisLoading(true)
                         setSceneId("/armyman")
                     }}>
                         <Image src={doctorScene?.sprites[3]} alt="txt" className="prev_button" />
-                    </div>
+                    </div> */}
 
                     <Image src={doctorScene?.sprites[0]} alt="txt" className="iconGirl" />
 

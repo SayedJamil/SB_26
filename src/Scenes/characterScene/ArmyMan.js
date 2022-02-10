@@ -22,6 +22,7 @@ function ArmyMan() {
     const Ref1 = useRef(null);
 
 
+    const [buttonClicked, setButtonClicked] = useState(false)
     const sound = new Howl({
         src: [`ee01_ow_thss_pl1/audio/SB_26_Audio_07.mp3`],
     });
@@ -31,7 +32,9 @@ function ArmyMan() {
     useEffect(() => {
         playSound.play()
         playSound.on('end', () => {
-            setisLoading(true)
+            if (!buttonClicked) {
+                setisLoading(true)
+            }
             setSceneId('/doctor')
 
         })
@@ -67,17 +70,17 @@ function ArmyMan() {
 
                     <Image src={armyManScene?.sprites[2]} alt="" className="next_button" onClick={() => {
                         playSound.stop()
+                        setButtonClicked(true)
                         setisLoading(true)
-                        setSceneId("/doctor")
+                        setSceneId("/activity01")
                     }} />
 
-                    <Image src={armyManScene?.sprites[3]} alt="" className="prev_button" onClick={() => {
+                    {/* <Image src={armyManScene?.sprites[3]} alt="" className="prev_button" onClick={() => {
                         playSound.stop()
+                        setButtonClicked(true)
                         setisLoading(true)
                         setSceneId("/explain")
-                    }} />
-
-
+                    }} /> */}
 
 
                     <Image src={armyManScene?.sprites[0]} alt="txt" className="iconGirl" />

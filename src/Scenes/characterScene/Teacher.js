@@ -17,6 +17,7 @@ function Teacher() {
     const { Sound, setSound, } = useContext(SoundContext)
     const Ref10 = useRef(null);
 
+    const [buttonClicked, setButtonClicked] = useState(false)
     const sound = new Howl({
         src: [`ee01_ow_thss_pl1/audio/SB_26_Audio_04.mp3`],
     });
@@ -25,7 +26,9 @@ function Teacher() {
     useEffect(() => {
         playSound.play()
         playSound.on('end', () => {
-            setisLoading(true)
+            if (!buttonClicked) {
+                setisLoading(true)
+            }
             setSceneId('/police')
         })
     }, [])
@@ -57,18 +60,20 @@ function Teacher() {
 
                     <div onClick={() => {
                         playSound.stop()
+                        setButtonClicked(true)
                         setisLoading(true)
-                        setSceneId("/police")
+                        setSceneId("/activity01")
                     }}>
                         <Image src={teacherScene?.sprites[2]} alt="txt" className="next_button" />
                     </div>
-                    <div onClick={() => {
+                    {/* <div onClick={() => {
                         playSound.stop()
+                        setButtonClicked(true)
                         setisLoading(true)
                         setSceneId("/gardener")
                     }}>
                         <Image src={teacherScene?.sprites[3]} alt="txt" className="prev_button" />
-                    </div>
+                    </div> */}
 
                     <Image src={teacherScene?.sprites[0]} alt="txt" className="iconGirl" />
 

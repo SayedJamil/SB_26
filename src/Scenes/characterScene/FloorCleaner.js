@@ -18,6 +18,7 @@ function FloorCleaner() {
 
     const Ref3 = useRef(null);
 
+    const [buttonClicked, setButtonClicked] = useState(false)
     const sound = new Howl({
         src: [`ee01_ow_thss_pl1/audio/SB_26_Audio_28.mp3`],
     });
@@ -26,7 +27,9 @@ function FloorCleaner() {
     useEffect(() => {
         playSound.play()
         playSound.on('end', () => {
-            setisLoading(true)
+            if (!buttonClicked) {
+                setisLoading(true)
+            }
             setSceneId('/dentist')
         })
     }, [])
@@ -60,18 +63,20 @@ function FloorCleaner() {
 
                     <div onClick={() => {
                         playSound.stop()
+                        setButtonClicked(true)
                         setisLoading(true)
-                        setSceneId("/dentist")
+                        setSceneId("/activity02")
                     }}>
                         <Image src={floorCleanerScene?.sprites[2]} alt="txt" className="next_button" />
                     </div>
-                    <div onClick={() => {
+                    {/* <div onClick={() => {
                         playSound.stop()
+                        setButtonClicked(true)
                         setisLoading(true)
                         setSceneId("/firefighter")
                     }}>
                         <Image src={floorCleanerScene?.sprites[3]} alt="txt" className="prev_button" />
-                    </div>
+                    </div> */}
 
 
                     <Image src={floorCleanerScene?.sprites[0]} alt="txt" className="iconGirl" />

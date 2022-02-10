@@ -17,6 +17,7 @@ export default function Explain() {
   const { Sound, setSound, } = useContext(SoundContext)
   const Ref11 = useRef(null);
 
+  const [buttonClicked, setButtonClicked] = useState(false)
   const sound = new Howl({
     src: [`ee01_ow_thss_pl1/audio/14-11-2021/SB_26_Audio_01.mp3`],
   });
@@ -25,9 +26,11 @@ export default function Explain() {
   useEffect(() => {
     playSound.play()
     playSound.on('end', () => {
-      setisLoading(true)
-      setSceneId('/armyman')
+      if (!buttonClicked) {
+        setisLoading(true)
+      }
 
+      setSceneId('/armyman')
     })
   }, [])
   console.log(explain)
@@ -60,7 +63,9 @@ export default function Explain() {
         <>
           <div onClick={() => {
             playSound.stop()
-            setSceneId("/armyman")
+            // setSceneId("/armyman")
+            
+            setSceneId("/activity01")
             setisLoading(true)
           }}>
             <Image src={explain?.sprites[11]} alt="txt" className="next_button" />

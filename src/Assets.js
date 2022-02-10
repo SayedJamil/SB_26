@@ -17,7 +17,7 @@ const AssetsMap = {
         id: "choosecharacter",
         Bg: `${bg}SB_26_BG_08.svg`,
         sprites: [
-            `${button}Buttons-16.svg`,//0
+            `${button}Buttons-13.svg`, //change here to 16//0
             `${button}Buttons-22.svg`,//1
             `${button}Buttons-20.svg`,//2
             `${button}Buttons-26.svg`,//3
@@ -36,6 +36,7 @@ const AssetsMap = {
             `${progressBar}SB_26_PROGRESS_BAR.svg`,
             `${progressBar}SB_26_STAR.svg`,
             `${handIcon}SB_26_hand_hilight.svg`,
+
 
         ],
         sounds: [
@@ -68,7 +69,7 @@ const AssetsMap = {
         sprites: [
             `${icons}SB_26_icon_girl.svg`,
             `${character}SB_26_CE_armyman01.svg`,
-            `${button}Buttons-16.svg`,
+            `${button}Buttons-13.svg`, //change here to 16
             `${button}Buttons-22.svg`,
             `${button}Buttons-20.svg`,
             `${button}Buttons-26.svg`,
@@ -89,6 +90,7 @@ const AssetsMap = {
             `${progressBar}SB_26_PROGRESS_BAR.svg`,
             `${progressBar}SB_26_STAR.svg`,
             `${handIcon}SB_26_hand_hilight.svg`,
+           
 
         ],
         sounds: [
@@ -105,7 +107,7 @@ const AssetsMap = {
         sprites: [
             `${icons}SB_26_icon_girl.svg`,
             `${character}SB_26_CE_dentist.svg`,
-            `${button}Buttons-16.svg`,
+            `${button}Buttons-13.svg`, //change here to 16
             `${button}Buttons-22.svg`,
             `${button}Buttons-20.svg`,
             `${button}Buttons-26.svg`,
@@ -126,6 +128,7 @@ const AssetsMap = {
             `${progressBar}SB_26_PROGRESS_BAR.svg`,
             `${progressBar}SB_26_STAR.svg`,
             `${handIcon}SB_26_hand_hilight.svg`,
+    
 
         ],
         sounds: [`${soundUrl}SB_26_Audio_29.mp3`],
@@ -139,7 +142,7 @@ const AssetsMap = {
         sprites: [
             `${icons}SB_26_icon_girl.svg`,
             `${character}SB_26_CE_docter01.svg`,
-            `${button}Buttons-16.svg`,
+            `${button}Buttons-13.svg`, //change here to 16
             `${button}Buttons-22.svg`,
             `${button}Buttons-20.svg`,
             `${button}Buttons-26.svg`,
@@ -174,7 +177,7 @@ const AssetsMap = {
         sprites: [
             `${icons}SB_26_icon_girl.svg`,
             `${character}SB_26_CE_firefighter.svg`,
-            `${button}Buttons-16.svg`,
+            `${button}Buttons-13.svg`, //change here to 16
             `${button}Buttons-22.svg`,
             `${button}Buttons-20.svg`,
             `${button}Buttons-26.svg`,
@@ -195,6 +198,7 @@ const AssetsMap = {
             `${progressBar}SB_26_PROGRESS_BAR.svg`,
             `${progressBar}SB_26_STAR.svg`,
             `${handIcon}SB_26_hand_hilight.svg`,
+            
         ],
         sounds: [`${soundUrl}SB_26_Audio_27.mp3`],
         lottie: [
@@ -207,7 +211,7 @@ const AssetsMap = {
         sprites: [
             `${icons}SB_26_icon_girl.svg`,
             `${character}SB_26_CE_florecleaner01.svg`,
-            `${button}Buttons-16.svg`,
+            `${button}Buttons-13.svg`, //change here to 16
             `${button}Buttons-22.svg`,
             `${button}Buttons-20.svg`,
             `${button}Buttons-26.svg`,
@@ -240,7 +244,7 @@ const AssetsMap = {
         sprites: [
             `${icons}SB_26_icon_girl.svg`,
             `${character}SB_26_CE_garbage collector.svg`,
-            `${button}Buttons-16.svg`,
+            `${button}Buttons-13.svg`, //change here to 16
             `${button}Buttons-22.svg`,
             `${button}Buttons-20.svg`,
             `${button}Buttons-26.svg`,
@@ -274,7 +278,7 @@ const AssetsMap = {
         sprites: [
             `${icons}SB_26_icon_girl.svg`,
             `${character}SB_26_CE_gardener.svg`,
-            `${button}Buttons-16.svg`,
+            `${button}Buttons-13.svg`, //change here to 16
             `${button}Buttons-22.svg`,
             `${button}Buttons-20.svg`,
             `${button}Buttons-26.svg`,
@@ -308,7 +312,7 @@ const AssetsMap = {
         sprites: [
             `${icons}SB_26_icon_girl.svg`,
             `${character}SB_26_CE_guard.svg`,
-            `${button}Buttons-16.svg`,
+            `${button}Buttons-13.svg`, //change here to 16
             `${button}Buttons-22.svg`,
             `${button}Buttons-20.svg`,
             `${button}Buttons-26.svg`,
@@ -342,7 +346,7 @@ const AssetsMap = {
         sprites: [
             `${icons}SB_26_icon_girl.svg`,
             `${character}SB_26_CE_police.svg`,
-            `${button}Buttons-16.svg`,
+            `${button}Buttons-13.svg`, //change here to 16
             `${button}Buttons-22.svg`,
             `${button}Buttons-20.svg`,
             `${button}Buttons-26.svg`,
@@ -376,7 +380,7 @@ const AssetsMap = {
         sprites: [
             `${icons}SB_26_icon_girl.svg`,
             `${character}SB_26_CE_teacher.svg`,
-            `${button}Buttons-16.svg`,
+            `${button}Buttons-13.svg`, //change here to 16
             `${button}Buttons-22.svg`,
             `${button}Buttons-20.svg`,
             `${button}Buttons-26.svg`,
@@ -408,12 +412,7 @@ const AssetsMap = {
         id: "intro",
         Bg: `${introBg}SB_26_Intro_BG.svg`,
         sprites: [
-            `${character}SB_26_CE_armyman01.svg`,
-            `${character}SB_26_CE_docter01.svg`,
-            `${character}SB_26_CE_firefighter.svg`,
-            `${character}SB_26_CE_garbage collector.svg`,
-            `${character}SB_26_CE_police.svg`,
-            `${character}SB_26_CE_guard.svg`,
+            `${introBg}SB_26_Intro_BG_.svg`,
             `${introBg}SB_26_Intro_BG_Font.svg`,
             `${button}Buttons-02.svg`,
 
@@ -440,7 +439,7 @@ const AssetsMap = {
             `${icons}SB_26_icon_guard.svg`,
             `${icons}SB_26_icon_teacher.svg`,
             `${character}SB_26_CE_girl01.svg`,
-            `${button}Buttons-16.svg`,
+            `${button}Buttons-13.svg`,//change here to 16 for next button
             `${button}Buttons-22.svg`,
             `${button}Buttons-20.svg`,
             `${button}Buttons-26.svg`
@@ -458,7 +457,7 @@ const AssetsMap = {
         sprites: [
             `${icons}SB_26_icon_girl.svg`,
             `${character}SB_26_CE_armyman01.svg`,
-            `${button}Buttons-16.svg`,
+            `${button}Buttons-13.svg`, //change here to 16
             `${button}Buttons-22.svg`,
             `${button}Buttons-20.svg`,
             `${button}Buttons-26.svg`,
@@ -477,10 +476,11 @@ const AssetsMap = {
         sprites: [
             `${icons}SB_26_icon_girl.svg`,
             `${character}SB_26_CE_dentist.svg`,
-            `${button}Buttons-16.svg`,
+            `${button}Buttons-13.svg`, //change here to 16
             `${button}Buttons-22.svg`,
             `${button}Buttons-20.svg`,
             `${button}Buttons-26.svg`,
+
 
         ],
         sounds: [`${soundUrl}SB_26_Audio_29.mp3`],
@@ -494,11 +494,12 @@ const AssetsMap = {
         sprites: [
             `${icons}SB_26_icon_girl.svg`,
             `${character}SB_26_CE_dentist.svg`,
-            `${button}Buttons-16.svg`,
+            `${button}Buttons-13.svg`, //change here to 16
             `${button}Buttons-22.svg`,
             `${button}Buttons-20.svg`,
             `${button}Buttons-26.svg`,
             `${button}Buttons-06.svg`,
+            `${button}Buttons-13.svg`,
 
         ],
         sounds: [`${soundUrl}SB_26_Audio_29.mp3`],

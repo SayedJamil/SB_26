@@ -17,6 +17,7 @@ function GarbageCollector() {
     const { Sound, setSound, } = useContext(SoundContext)
     const Ref6 = useRef(null);
 
+    const [buttonClicked, setButtonClicked] = useState(false)
     const sound = new Howl({
         src: [`ee01_ow_thss_pl1/audio/SB_26_Audio_31.mp3`],
     });
@@ -25,7 +26,9 @@ function GarbageCollector() {
     useEffect(() => {
         playSound.play()
         playSound.on('end', () => {
-            setisLoading(true)
+            if (!buttonClicked) {
+                setisLoading(true)
+            }
             setSceneId('/activity02')
         })
     }, [])
@@ -56,18 +59,20 @@ function GarbageCollector() {
 
                     <div onClick={() => {
                         playSound.stop()
+                        setButtonClicked(true)
                         setisLoading(true)
                         setSceneId("/activity02")
                     }}>
                         <Image src={garbageCollectorScene?.sprites[2]} alt="txt" className="next_button" />
                     </div>
-                    <div onClick={() => {
+                    {/* <div onClick={() => {
                         playSound.stop()
+                        setButtonClicked(true)
                         setisLoading(true)
                         setSceneId("/guard")
                     }}>
                         <Image src={garbageCollectorScene?.sprites[3]} alt="txt" className="prev_button" />
-                    </div>
+                    </div> */}
 
 
                     <Image src={garbageCollectorScene?.sprites[0]} alt="txt" className="iconGirl" />

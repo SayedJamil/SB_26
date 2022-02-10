@@ -12,19 +12,22 @@ import lottie from 'lottie-web';
 import AssetsMap from '../../Assets';
 function Activity01End() {
     const { Bg, Loading } = useLoadAsset(AssetsMap.activity01end)
-    const { SceneId, setSceneId, isLoading, setisLoading, Assets, setAssets } = useContext(SceneContext);
+    const { SceneId, setSceneId, isLoading, setisLoading, Assets, setAssets, character, setCharacter, setNum, setCharNum, toolNum, setToolNum, stars, setStars } = useContext(SceneContext);
     const { activityend } = Assets;
     const { Sound, setSound, } = useContext(SoundContext)
     const Ref30 = useRef(null);
+    const sound = new Howl({
+        src: [`ee01_ow_thss_pl1/audio/SB_26_Audio_26.mp3`],
+    });
+    const [playSound, setPlaySound] = useState(sound)
 
     useEffect(() => {
-        var sound = new Howl({
-            src: [`ee01_ow_thss_pl1/audio/SB_26_Audio_26.mp3`],
-        });
-        sound.play();
-        sound.on('end', () => {
+
+        playSound.play();
+        playSound.on('end', () => {
             setisLoading(true)
             setSceneId('/firefighter')
+
         })
     }, [])
 
@@ -52,7 +55,20 @@ function Activity01End() {
             Bg={Bg}
             sprites={
                 <>
-
+                    <div onClick={() => {
+                        playSound.stop()
+                        // setCharacter('dentist')//change here
+                        // setNum('32')//change here for audio "Tap the character"
+                        // setCharNum(7)//change here from choosecharacterassetmap character icon
+                        // setToolNum(12)//change here from choosecharacterassetmap character tool
+                        // setStars(0)
+                        // setisLoading(true)
+                        // setSceneId("/activity02")
+                        setSceneId("/activity02")
+                        setisLoading(true)
+                    }}>
+                        <Image src={activityend?.sprites[7]} alt="txt" className="next_button" />
+                    </div>
 
 
                     <div ref={Ref30} className="activityEndGirlIcon" id="explaingirl"></div>

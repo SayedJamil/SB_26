@@ -57,7 +57,7 @@ function ActivityExplainScene01() {
             sprites={
                 <>
 
-                    {/* <div onClick={() => {
+                    <div onClick={() => {
                         playSound.stop()
                         setButtonClicked(true)
                         setisLoading(true)
@@ -65,7 +65,7 @@ function ActivityExplainScene01() {
                     }}>
                         <Image src={activity01scene?.sprites[3]} alt="txt" className="prev_button" />
                     </div>
- */}
+
 
 
                     <div ref={Ref12} className="activitygirlIcon" id="explaingirl"></div>

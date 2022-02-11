@@ -16,6 +16,7 @@ function Guard() {
     const { guardScene } = Assets;
     const { Sound, setSound, } = useContext(SoundContext)
     const Ref8 = useRef(null);
+    const Ref801 = useRef(null);
 
     const [buttonClicked, setButtonClicked] = useState(false)
     const sound = new Howl({
@@ -49,6 +50,20 @@ function Guard() {
                 console.log(err)
             }
         }
+        if (guardScene?.lottie && Ref801.current && !Loading) {
+            try {
+                lottie.loadAnimation({
+                    name: "circleGirl",
+                    container: Ref801.current,
+                    renderer: "svg",
+                    loop: false,
+                    autoplay: true,
+                    animationData: guardScene?.lottie[1],
+                })
+            } catch (err) {
+                console.log(err)
+            }
+        }
     }, [Assets, Loading])
 
 
@@ -62,22 +77,22 @@ function Guard() {
                         playSound.stop()
                         setButtonClicked(true)
                         setisLoading(true)
-                        setSceneId("/activity02")
+                        setSceneId("/garbagecollector")
                     }}>
                         <Image src={guardScene?.sprites[2]} alt="txt" className="next_button" />
                     </div>
-                    {/* <div onClick={() => {
+                    <div onClick={() => {
                         playSound.stop()
                         setButtonClicked(true)
                         setisLoading(true)
                         setSceneId("/dentist")
                     }}>
                         <Image src={guardScene?.sprites[3]} alt="txt" className="prev_button" />
-                    </div> */}
+                    </div>
 
                     <Image src={guardScene?.sprites[0]} alt="txt" className="iconGirl" />
 
-
+                    <div ref={Ref801} className="iconGirlEyes" id="circleGirl"></div>
                     <div ref={Ref8} className="guardSceneIcon" id="guard"></div>
                 </>
             }

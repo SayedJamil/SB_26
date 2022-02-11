@@ -62,15 +62,14 @@ function ActivityExplainScene02() {
             sprites={
                 <>
 
-                    {/* <div onClick={() => {
+                    <div onClick={() => {
                         playSound.stop()
-                        setButtonClicked(true)
                         setisLoading(true)
                         setSceneId("/garbagecollector")
                     }}>
                         <Image src={activity02scene?.sprites[3]} alt="txt" className="prev_button" />
                     </div>
- */}
+
 
 
                     <div ref={Ref12} className="activitygirlIcon" id="explaingirl"></div>

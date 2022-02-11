@@ -16,6 +16,7 @@ function Police() {
     const { policeScene } = Assets;
     const { Sound, setSound, } = useContext(SoundContext)
     const Ref9 = useRef(null);
+    const Ref901 = useRef(null);
 
     const [buttonClicked, setButtonClicked] = useState(false)
     const sound = new Howl({
@@ -50,6 +51,20 @@ function Police() {
                 console.log(err)
             }
         }
+        if (policeScene?.lottie && Ref901.current && !Loading) {
+            try {
+                lottie.loadAnimation({
+                    name: "circleGirl",
+                    container: Ref901.current,
+                    renderer: "svg",
+                    loop: false,
+                    autoplay: true,
+                    animationData: policeScene?.lottie[1],
+                })
+            } catch (err) {
+                console.log(err)
+            }
+        }
     }, [Assets, Loading])
 
 
@@ -67,17 +82,17 @@ function Police() {
                     }}>
                         <Image src={policeScene?.sprites[2]} alt="txt" className="next_button" />
                     </div>
-                    {/* <div onClick={() => {
+                    <div onClick={() => {
                         playSound.stop()
                         setButtonClicked(true)
                         setisLoading(true)
                         setSceneId("/teacher")
                     }}>
                         <Image src={policeScene?.sprites[3]} alt="txt" className="prev_button" />
-                    </div> */}
+                    </div>
 
                     <Image src={policeScene?.sprites[0]} alt="txt" className="iconGirl" />
-
+                    <div ref={Ref901} className="iconGirlEyes" id="circleGirl"></div>
                     <div ref={Ref9} className="policeSceneIcon" id="police"></div>
                 </>
             }

@@ -38,18 +38,21 @@ function Activity02End() {
         playSound.play()
         playSound.on('end', () => {
             play02Sound.play()
+
         })
         play02Sound.on('end', () => {
             play04Sound.play()
+            lottie.stop()
         })
         play04Sound.on('end', () => {
             play03Sound.play()
+            lottie.play()
         })
         play03Sound.on('end', () => {
             setEnableButton(true)
+            lottie.stop()
         })
     }, [])
-
     useEffect(() => {
         if (activityend?.lottie && Ref30.current && !Loading) {
             try {

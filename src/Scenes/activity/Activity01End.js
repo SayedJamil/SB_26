@@ -57,14 +57,14 @@ function Activity01End() {
                 <>
                     <div onClick={() => {
                         playSound.stop()
-                        // setCharacter('dentist')//change here
-                        // setNum('32')//change here for audio "Tap the character"
-                        // setCharNum(7)//change here from choosecharacterassetmap character icon
-                        // setToolNum(12)//change here from choosecharacterassetmap character tool
-                        // setStars(0)
-                        // setisLoading(true)
+                        setCharacter('dentist')//change here
+                        setNum('32')//change here for audio "Tap the character"
+                        setCharNum(7)//change here from choosecharacterassetmap character icon
+                        setToolNum(12)//change here from choosecharacterassetmap character tool
+                        setStars(0)
+                        setisLoading(true)
+                        setSceneId("/firefighter")
                         // setSceneId("/activity02")
-                        setSceneId("/activity02")
                         setisLoading(true)
                     }}>
                         <Image src={activityend?.sprites[7]} alt="txt" className="next_button" />

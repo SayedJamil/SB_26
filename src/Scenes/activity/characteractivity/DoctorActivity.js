@@ -71,7 +71,7 @@ function DoctorActivity() {//change here
     }, [Assets, Loading])
     const wrongAnswerSound = () => {
         setIsActivity(true)
-        setPlayAnimation(false) 
+        setPlayAnimation(false)
         if (enableButton) {
             setEnableButton(false)
             var sound = new Howl({
@@ -94,9 +94,7 @@ function DoctorActivity() {//change here
                 src: [`ee01_ow_thss_pl1/audio/SB_26_Audio_13.mp3`],
             });
             sound.play();
-            setCorrect(true)
-            setStars(stars + 1)
-            setEnableButton(false)
+
             sound.on('end', () => {
                 setCharacter('gardener')//change here
                 setNum('14')//change here for audio "Tap the character"
@@ -105,7 +103,9 @@ function DoctorActivity() {//change here
                 setisLoading(true)
                 setSceneId('/choosecharacter')
             })
-
+            setCorrect(true)
+            setStars(stars + 1)
+            setEnableButton(false)
         }
     }
     const randomize = () => {

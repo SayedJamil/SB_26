@@ -16,6 +16,7 @@ function GarbageCollector() {
     const { garbageCollectorScene } = Assets;
     const { Sound, setSound, } = useContext(SoundContext)
     const Ref6 = useRef(null);
+    const Ref601 = useRef(null);
 
     const [buttonClicked, setButtonClicked] = useState(false)
     const sound = new Howl({
@@ -50,6 +51,20 @@ function GarbageCollector() {
                 console.log(err)
             }
         }
+        if (garbageCollectorScene?.lottie && Ref601.current && !Loading) {
+            try {
+                lottie.loadAnimation({
+                    name: "circleGirl",
+                    container: Ref601.current,
+                    renderer: "svg",
+                    loop: false,
+                    autoplay: true,
+                    animationData: garbageCollectorScene?.lottie[1],
+                })
+            } catch (err) {
+                console.log(err)
+            }
+        }
     }, [Assets, Loading])
     return (
         <Scenes
@@ -65,19 +80,19 @@ function GarbageCollector() {
                     }}>
                         <Image src={garbageCollectorScene?.sprites[2]} alt="txt" className="next_button" />
                     </div>
-                    {/* <div onClick={() => {
+                    <div onClick={() => {
                         playSound.stop()
                         setButtonClicked(true)
                         setisLoading(true)
                         setSceneId("/guard")
                     }}>
                         <Image src={garbageCollectorScene?.sprites[3]} alt="txt" className="prev_button" />
-                    </div> */}
+                    </div>
 
 
                     <Image src={garbageCollectorScene?.sprites[0]} alt="txt" className="iconGirl" />
                     {/* <Image src={characterscene?.sprites[1]} alt="txt" className="garbageCollectorSceneIcon" /> */}
-
+                    <div ref={Ref601} className="iconGirlEyes" id="circleGirl"></div>
                     <div ref={Ref6} className="garbageCollectorSceneIcon" id="garbagecollector"></div>
                 </>
             }

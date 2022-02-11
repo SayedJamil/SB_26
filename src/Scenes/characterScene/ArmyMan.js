@@ -20,6 +20,7 @@ function ArmyMan() {
     const { Sound, setSound, } = useContext(SoundContext)
     const [sceneSound, setSceneSound] = useState(null)
     const Ref1 = useRef(null);
+    const Ref101 = useRef(null);
 
 
     const [buttonClicked, setButtonClicked] = useState(false)
@@ -59,6 +60,20 @@ function ArmyMan() {
                 console.log(err)
             }
         }
+        if (armyManScene?.lottie && Ref101.current && !Loading) {
+            try {
+                lottie.loadAnimation({
+                    name: "circleGirl",
+                    container: Ref101.current,
+                    renderer: "svg",
+                    loop: false,
+                    autoplay: true,
+                    animationData: armyManScene?.lottie[1],
+                })
+            } catch (err) {
+                console.log(err)
+            }
+        }
 
     }, [Assets, Loading])
     return (
@@ -72,20 +87,20 @@ function ArmyMan() {
                         playSound.stop()
                         setButtonClicked(true)
                         setisLoading(true)
-                        setSceneId("/activity01")
+                        setSceneId("/doctor")
                     }} />
 
-                    {/* <Image src={armyManScene?.sprites[3]} alt="" className="prev_button" onClick={() => {
+                    <Image src={armyManScene?.sprites[3]} alt="" className="prev_button" onClick={() => {
                         playSound.stop()
                         setButtonClicked(true)
                         setisLoading(true)
                         setSceneId("/explain")
-                    }} /> */}
+                    }} />
 
 
                     <Image src={armyManScene?.sprites[0]} alt="txt" className="iconGirl" />
 
-
+                    <div ref={Ref101} className="iconGirlEyes" id="circleGirl"></div>
                     <div ref={Ref1} className="armyManSceneIcon" id="armyman"></div>
 
                 </>

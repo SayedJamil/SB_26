@@ -17,6 +17,7 @@ function FloorCleaner() {
     const { Sound, setSound, } = useContext(SoundContext)
 
     const Ref3 = useRef(null);
+    const Ref302 = useRef(null);
 
     const [buttonClicked, setButtonClicked] = useState(false)
     const sound = new Howl({
@@ -38,6 +39,20 @@ function FloorCleaner() {
 
 
     useEffect(() => {
+        if (floorCleanerScene?.lottie && Ref302.current && !Loading) {
+            try {
+                lottie.loadAnimation({
+                    name: "circleGirl",
+                    container: Ref302.current,
+                    renderer: "svg",
+                    loop: true,
+                    autoplay: true,
+                    animationData: floorCleanerScene?.lottie[1],
+                })
+            } catch (err) {
+                console.log(err)
+            }
+        }
         if (floorCleanerScene?.lottie && Ref3.current && !Loading) {
             try {
                 lottie.loadAnimation({
@@ -65,23 +80,23 @@ function FloorCleaner() {
                         playSound.stop()
                         setButtonClicked(true)
                         setisLoading(true)
-                        setSceneId("/activity02")
+                        setSceneId("/dentist")
                     }}>
                         <Image src={floorCleanerScene?.sprites[2]} alt="txt" className="next_button" />
                     </div>
-                    {/* <div onClick={() => {
+                    <div onClick={() => {
                         playSound.stop()
                         setButtonClicked(true)
                         setisLoading(true)
                         setSceneId("/firefighter")
                     }}>
                         <Image src={floorCleanerScene?.sprites[3]} alt="txt" className="prev_button" />
-                    </div> */}
+                    </div>
 
 
                     <Image src={floorCleanerScene?.sprites[0]} alt="txt" className="iconGirl" />
 
-
+                    <div ref={Ref302} className="iconGirlEyes" id="circleGirl"></div>
                     <div ref={Ref3} className="floorCleanerSceneIcon" id="floorcleaner"></div>
                 </>
             }

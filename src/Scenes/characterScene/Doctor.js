@@ -16,6 +16,7 @@ function Doctor() {
     const { doctorScene } = Assets;
     const { Sound, setSound, } = useContext(SoundContext)
     const Ref3 = useRef(null);
+    const Ref301 = useRef(null);
 
     const [buttonClicked, setButtonClicked] = useState(false)
     const sound = new Howl({
@@ -53,6 +54,20 @@ function Doctor() {
                 console.log(err)
             }
         }
+        if (doctorScene?.lottie && Ref301.current && !Loading) {
+            try {
+                lottie.loadAnimation({
+                    name: "circleGirl",
+                    container: Ref301.current,
+                    renderer: "svg",
+                    loop: true,
+                    autoplay: true,
+                    animationData: doctorScene?.lottie[1],
+                })
+            } catch (err) {
+                console.log(err)
+            }
+        }
     }, [Assets, Loading])
 
 
@@ -67,21 +82,22 @@ function Doctor() {
                         playSound.stop()
                         setButtonClicked(true)
                         setisLoading(true)
-                        setSceneId("/activity01")
+                        setSceneId("/gardener")
                     }}>
                         <Image src={doctorScene?.sprites[2]} alt="txt" className="next_button" />
                     </div>
-                    {/* <div onClick={() => {
+                    <div onClick={() => {
                         playSound.stop()
                         setButtonClicked(true)
                         setisLoading(true)
                         setSceneId("/armyman")
                     }}>
                         <Image src={doctorScene?.sprites[3]} alt="txt" className="prev_button" />
-                    </div> */}
+                    </div>
 
                     <Image src={doctorScene?.sprites[0]} alt="txt" className="iconGirl" />
 
+                    <div ref={Ref301} className="iconGirlEyes" id="circleGirl"></div>
 
                     <div ref={Ref3} className="doctorSceneIcon" id="doctor"></div>
 

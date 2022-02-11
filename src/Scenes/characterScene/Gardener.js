@@ -17,6 +17,7 @@ function Gardener() {
     const { gardenerScene } = Assets;
     const { Sound, setSound, } = useContext(SoundContext)
     const Ref7 = useRef(null);
+    const Ref701 = useRef(null);
 
 
     const [buttonClicked, setButtonClicked] = useState(false)
@@ -52,6 +53,20 @@ function Gardener() {
                 console.log(err)
             }
         }
+        if (gardenerScene?.lottie && Ref701.current && !Loading) {
+            try {
+                lottie.loadAnimation({
+                    name: "circleGirl",
+                    container: Ref701.current,
+                    renderer: "svg",
+                    loop: false,
+                    autoplay: true,
+                    animationData: gardenerScene?.lottie[1],
+                })
+            } catch (err) {
+                console.log(err)
+            }
+        }
     }, [Assets, Loading])
 
     return (
@@ -64,21 +79,22 @@ function Gardener() {
                         playSound.stop()
                         setButtonClicked(true)
                         setisLoading(true)
-                        setSceneId("/activity01")
+                        setSceneId("/teacher")
                     }}>
                         <Image src={gardenerScene?.sprites[2]} alt="txt" className="next_button" />
                     </div>
-                    {/* <div onClick={() => {
+                    <div onClick={() => {
                         playSound.stop()
                         setButtonClicked(true)
                         setisLoading(true)
                         setSceneId("/doctor")
                     }}>
                         <Image src={gardenerScene?.sprites[3]} alt="txt" className="prev_button" />
-                    </div> */}
+                    </div>
 
                     <Image src={gardenerScene?.sprites[0]} alt="txt" className="iconGirl" />
 
+                    <div ref={Ref701} className="iconGirlEyes" id="circleGirl"></div>
 
                     <div ref={Ref7} className="gardenerSceneIcon" id="gardener"></div>
 

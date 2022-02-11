@@ -1,11 +1,14 @@
 .iconGirl {
-  height: 60%;
-  left: 2.3%;
-  -webkit-left: 3%;
-  -moz-left: 3%;
-  top: -10%;
-  -webkit-top: -08%;
-  -moz-top: -08%;
+  height: 50%;
+  left: 0%;
+  top: -5%;
+  position: fixed;
+}
+
+.iconGirlEyes {
+  height: 11%;
+  left: 8.9%;
+  top: 13.5%;
   position: fixed;
 }
 .transitionStyle {

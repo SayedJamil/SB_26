@@ -63,9 +63,8 @@ export default function Explain() {
         <>
           <div onClick={() => {
             playSound.stop()
-            // setSceneId("/armyman")
-            
-            setSceneId("/activity01")
+            setSceneId("/armyman")
+            // setSceneId("/activity01")
             setisLoading(true)
           }}>
             <Image src={explain?.sprites[11]} alt="txt" className="next_button" />

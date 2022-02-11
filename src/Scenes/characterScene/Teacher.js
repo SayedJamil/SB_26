@@ -16,7 +16,7 @@ function Teacher() {
     const { teacherScene } = Assets;
     const { Sound, setSound, } = useContext(SoundContext)
     const Ref10 = useRef(null);
-
+    const Ref101 = useRef(null);
     const [buttonClicked, setButtonClicked] = useState(false)
     const sound = new Howl({
         src: [`ee01_ow_thss_pl1/audio/SB_26_Audio_04.mp3`],
@@ -50,6 +50,20 @@ function Teacher() {
                 console.log(err)
             }
         }
+        if (teacherScene?.lottie && Ref101.current && !Loading) {
+            try {
+                lottie.loadAnimation({
+                    name: "circleGirl",
+                    container: Ref101.current,
+                    renderer: "svg",
+                    loop: true,
+                    autoplay: true,
+                    animationData: teacherScene?.lottie[1],
+                })
+            } catch (err) {
+                console.log(err)
+            }
+        }
     }, [Assets, Loading])
 
     return (
@@ -62,21 +76,21 @@ function Teacher() {
                         playSound.stop()
                         setButtonClicked(true)
                         setisLoading(true)
-                        setSceneId("/activity01")
+                        setSceneId("/police")
                     }}>
                         <Image src={teacherScene?.sprites[2]} alt="txt" className="next_button" />
                     </div>
-                    {/* <div onClick={() => {
+                    <div onClick={() => {
                         playSound.stop()
                         setButtonClicked(true)
                         setisLoading(true)
                         setSceneId("/gardener")
                     }}>
                         <Image src={teacherScene?.sprites[3]} alt="txt" className="prev_button" />
-                    </div> */}
+                    </div>
 
                     <Image src={teacherScene?.sprites[0]} alt="txt" className="iconGirl" />
-
+                    <div ref={Ref101} className="iconGirlEyes" id="circleGirl"></div>
                     <div ref={Ref10} className="teacherSceneIcon" id="teacher"></div>
                 </>
             }

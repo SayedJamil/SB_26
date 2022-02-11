@@ -16,6 +16,7 @@ function Dentist() {
     const { dentistScene } = Assets;
     const { Sound, setSound, } = useContext(SoundContext)
     const Ref5 = useRef(null);
+    const Ref501 = useRef(null);
     const [buttonClicked, setButtonClicked] = useState(false)
     const sound = new Howl({
         src: [`ee01_ow_thss_pl1/audio/SB_26_Audio_29.mp3`],
@@ -48,6 +49,16 @@ function Dentist() {
                 animationData: dentistScene?.lottie[0],
             })
         }
+        if (dentistScene?.lottie && Ref501.current && !Loading) {
+            const ch = lottie.loadAnimation({
+                name: "circleGirl",
+                container: Ref501.current,
+                renderer: "svg",
+                loop: true,
+                autoplay: true,
+                animationData: dentistScene?.lottie[1],
+            })
+        }
     }, [Assets, Loading])
 
     return (
@@ -60,21 +71,22 @@ function Dentist() {
                         playSound.stop()
                         setButtonClicked(true)
                         setisLoading(true)
-                        setSceneId("/activity02")
+                        setSceneId("/guard")
                     }}>
                         <Image src={dentistScene?.sprites[2]} alt="txt" className="next_button" />
                     </div>
-                    {/* <div onClick={() => {
+                    <div onClick={() => {
                         playSound.stop()
                         setButtonClicked(true)
                         setisLoading(true)
                         setSceneId("/floorcleaner")
                     }}>
                         <Image src={dentistScene?.sprites[3]} alt="txt" className="prev_button" />
-                    </div> */}
+                    </div>
 
 
                     <Image src={dentistScene?.sprites[0]} alt="txt" className="iconGirl" />
+                    <div ref={Ref501} className="iconGirlEyes" id="circleGirl"></div>
 
                     <div ref={Ref5} className="dentistSceneIcon" id="dentist"></div>
 

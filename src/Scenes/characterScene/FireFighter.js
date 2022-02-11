@@ -15,6 +15,7 @@ function FireFighter() {
     const { SceneId, setSceneId, isLoading, setisLoading, Assets, setAssets } = useContext(SceneContext);
     const { fireFighterScene } = Assets;
     const Ref4 = useRef(null);
+    const Ref401 = useRef(null);
     const { Sound, setSound } = useContext(SoundContext)
 
     const [buttonClicked, setButtonClicked] = useState(false)
@@ -50,6 +51,20 @@ function FireFighter() {
                 console.log(err)
             }
         }
+        if (fireFighterScene?.lottie && Ref401.current && !Loading) {
+            try {
+                lottie.loadAnimation({
+                    name: "circleGirl",
+                    container: Ref401.current,
+                    renderer: "svg",
+                    loop: true,
+                    autoplay: true,
+                    animationData: fireFighterScene?.lottie[1],
+                })
+            } catch (err) {
+                console.log(err)
+            }
+        }
     }, [Assets, Loading])
 
     return (
@@ -60,13 +75,13 @@ function FireFighter() {
 
                     <div onClick={() => {
                         playSound.stop()
-                        setSceneId("/activity02")
+                        setSceneId("/floorcleaner")
                     }}>
                         <Image src={fireFighterScene?.sprites[2]} alt="txt" className="next_button" />
                     </div>
 
                     <Image src={fireFighterScene?.sprites[0]} alt="txt" className="iconGirl" />
-
+                    <div ref={Ref401} className="iconGirlEyes" id="circleGirl"></div>
 
                     <div ref={Ref4} className="fireFighterSceneIcon" id="firefighter"></div>
                 </>

@@ -37,13 +37,12 @@ import PlayAudio from "./utils/playAudio";
 function App() {
   const [soundButton, setSoundButton] = useState(null);
   const [noSoundButton, setNoSoundButton] = useState(null);
-  const { setTransition, transition } = useContext(SceneContext);
+  const { setTransition, transition, setBG_sound, BG_sound } = useContext(SceneContext);
 
   const loadAudio = () => {
     const bg_sound = new Howl({
       src: [`ee01_ow_thss_pl1/audio/Entire_video_song.mp3`],
       loop: true,
-      volume: 0.1,
       autoplay: true
     })
     bg_sound.play()
@@ -80,12 +79,12 @@ function App() {
   const [mute, setmute] = useState(false);
 
 
-  const [BG_sound, setBG_sound] = useState(null);
+
 
   useEffect(() => {
     if (BG_sound !== null) {
       BG_sound?.play()
-      BG_sound.volume(0.1)
+      BG_sound.volume(0.2)
     }
   }, [BG_sound])
 
@@ -104,16 +103,16 @@ function App() {
     navigator.vibrate(100);
   }
 
-  if (Load) return (
-    <div class="ballcontainer">
-      <div class="ball"></div>
-      <div class="ball"></div>
-      <div class="ball"></div>
-      <div class="ball"></div>
-      <div class="ball"></div>
-      <div class="ball"></div>
-    </div>
-  )
+  // if (Load) return (
+  //   <div class="ballcontainer">
+  //     <div class="ball"></div>
+  //     <div class="ball"></div>
+  //     <div class="ball"></div>
+  //     <div class="ball"></div>
+  //     <div class="ball"></div>
+  //     <div class="ball"></div>
+  //   </div>
+  // )
   return (
     <GameContainer>
 

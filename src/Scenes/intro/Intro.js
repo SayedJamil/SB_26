@@ -23,6 +23,7 @@ export default function Intro() {
   const [playSound, setPlaySound] = useState(sound)
 
   useEffect(() => {
+
     playSound.play()
   }, [])
 

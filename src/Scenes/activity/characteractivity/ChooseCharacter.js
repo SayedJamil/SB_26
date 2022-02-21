@@ -11,7 +11,7 @@ import lottie from 'lottie-web';
 import AssetsMap from '../../../Assets';
 function ChooseCharacter() {
     const { Bg, Loading } = useLoadAsset(AssetsMap.chooseCharacter)
-    const { setSceneId, Assets, character, num, charNum, setisLoading } = useContext(SceneContext);
+    const { setSceneId, Assets, character, num, charNum, setisLoading, BG_sound } = useContext(SceneContext);
     const { choosecharacter } = Assets;
     const { Sound, setSound, } = useContext(SoundContext)
     const [correct, setCorrect] = useState(false)

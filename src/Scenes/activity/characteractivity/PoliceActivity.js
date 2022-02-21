@@ -14,7 +14,7 @@ import AssetsMap from '../../../Assets';
 
 function PoliceActivity() {//change here
     const { Bg, Loading } = useLoadAsset(AssetsMap.police)//change here
-    const { SceneId, setSceneId, isLoading, setisLoading, Assets, setAssets, character, setCharacter, setNum, setCharNum, toolNum, setToolNum, stars, setStars } = useContext(SceneContext);
+    const { SceneId, setSceneId, isLoading, setisLoading, Assets, setAssets, character, setCharacter, setNum, setCharNum, toolNum, setToolNum, stars, setStars, BG_sound } = useContext(SceneContext);
     const { policeScene } = Assets;
     const { Sound, setSound, } = useContext(SoundContext)
     const [correct, setCorrect] = useState(false)
@@ -137,7 +137,7 @@ function PoliceActivity() {//change here
                         )
                         )}
                     </div>
-                    <div ref={Ref22} className="doctorSceneIcon" id="characterAnimation"></div>//change here
+                    <div ref={Ref22} className="policeSceneIcon" id="characterAnimation"></div>//change here
 
                 </>
             }

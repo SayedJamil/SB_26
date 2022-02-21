@@ -12,7 +12,7 @@ import AssetsMap from '../../Assets';
 
 function GarbageCollector() {
     const { Bg, Loading } = useLoadAsset(AssetsMap.garbageCollector)
-    const { SceneId, setSceneId, isLoading, setisLoading, Assets, setAssets } = useContext(SceneContext);
+    const { SceneId, setSceneId, isLoading, setisLoading, Assets, setAssets, BG_sound } = useContext(SceneContext);
     const { garbageCollectorScene } = Assets;
     const { Sound, setSound, } = useContext(SoundContext)
     const Ref6 = useRef(null);
@@ -25,8 +25,10 @@ function GarbageCollector() {
     const [playSound, setPlaySound] = useState(sound)
 
     useEffect(() => {
+        BG_sound.volume(0.05)
         playSound.play()
         playSound.on('end', () => {
+            BG_sound.volume(0.2)
             if (!buttonClicked) {
                 setisLoading(true)
             }

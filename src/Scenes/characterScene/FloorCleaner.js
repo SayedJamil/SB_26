@@ -12,7 +12,7 @@ import AssetsMap from '../../Assets';
 
 function FloorCleaner() {
     const { Bg, Loading } = useLoadAsset(AssetsMap.floorCleaner)
-    const { SceneId, setSceneId, isLoading, setisLoading, Assets, setAssets } = useContext(SceneContext);
+    const { SceneId, setSceneId, isLoading, setisLoading, Assets, setAssets, BG_sound } = useContext(SceneContext);
     const { floorCleanerScene } = Assets;
     const { Sound, setSound, } = useContext(SoundContext)
 
@@ -26,8 +26,10 @@ function FloorCleaner() {
     const [playSound, setPlaySound] = useState(sound)
 
     useEffect(() => {
+        BG_sound.volume(0.05)
         playSound.play()
         playSound.on('end', () => {
+            BG_sound.volume(0.2)
             if (!buttonClicked) {
                 setisLoading(true)
             }

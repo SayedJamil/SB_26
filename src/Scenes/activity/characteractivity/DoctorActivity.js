@@ -13,7 +13,7 @@ import AssetsMap from '../../../Assets';
 
 function DoctorActivity() {//change here
     const { Bg, Loading } = useLoadAsset(AssetsMap.doctor)//change here
-    const { setSceneId, isLoading, setisLoading, Assets, setAssets, character, setCharacter, setNum, setCharNum, toolNum, setToolNum, stars, setStars } = useContext(SceneContext);
+    const { setSceneId, isLoading, setisLoading, Assets, setAssets, character, setCharacter, setNum, setCharNum, toolNum, setToolNum, stars, setStars, BG_sound } = useContext(SceneContext);
     const { doctorScene } = Assets;
     const { Sound, setSound, } = useContext(SoundContext)
     const [correct, setCorrect] = useState(false)
@@ -62,7 +62,7 @@ function DoctorActivity() {//change here
                     renderer: "svg",
                     loop: true,
                     autoplay: true,
-                    animationData: doctorScene?.lottie[0],
+                    animationData: doctorScene?.lottie[2],
                 })
             } catch (err) {
                 console.log(err)
@@ -123,13 +123,13 @@ function DoctorActivity() {//change here
             Bg={Bg}
             sprites={
                 <>
-                    <div>
-                        <Image src={doctorScene?.sprites[toolNum]} alt="txt" className={`${position ? "bottomEquipButton" : "topEquipButton"}`} onClick={() => rightAnswerSound()} />{/* changehere */}
-                        {(playAnimation) ? <Image src={doctorScene?.sprites[22]} className={`${position ? "bottomHilightIcon handIconAnimation" : "topHilightIcon handIconAnimation"}`} /> : null}
-                        {(correct) ? <Image src={doctorScene?.sprites[18]} alt="txt" className={`${position ? "bottomHighlightIcon" : "topHighlightIcon"}`} onClick={() => rightAnswerSound()} /> : null}{/* changehere */}
-                    </div>
+                    <Image src={doctorScene?.sprites[toolNum]} alt="txt" className={`${position ? "bottomEquipButton" : "topEquipButton"}`} onClick={() => rightAnswerSound()} />
+                    {(playAnimation) ? <Image src={doctorScene?.sprites[22]} className={`${position ? "bottomHilightIcon handIconAnimation" : "topHilightIcon handIconAnimation"}`} /> : null}
+                    {(correct) ? <Image src={doctorScene?.sprites[18]} alt="txt" className={`${position ? "bottomHighlightIcon" : "topHighlightIcon"}`} onClick={() => rightAnswerSound()} /> : null}
 
-                    <Image src={doctorScene?.sprites[random]} alt="txt" className={`${!position ? "bottomEquipButton" : "topEquipButton"}`} onClick={() => wrongAnswerSound()} />{/* changehere */}
+
+
+                    <Image src={doctorScene?.sprites[random]} alt="txt" className={`${!position ? "bottomEquipButton" : "topEquipButton"}`} onClick={() => wrongAnswerSound()} />
 
                     {(wrong) ? <Image src={doctorScene?.sprites[19]} alt="txt" className={`${!position ? "bottomHighlightIcon" : "topHighlightIcon"}`} onClick={() => wrongAnswerSound()} /> : null}{/* changehere */}
 

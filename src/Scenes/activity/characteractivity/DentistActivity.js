@@ -13,7 +13,7 @@ import AssetsMap from '../../../Assets';
 
 function DentistActivity() {//change here
     const { Bg, Loading } = useLoadAsset(AssetsMap.dentist)//change here
-    const { SceneId, setSceneId, isLoading, setisLoading, Assets, setAssets, character, setCharacter, setNum, setCharNum, toolNum, setToolNum, stars, setStars } = useContext(SceneContext);
+    const { SceneId, setSceneId, isLoading, setisLoading, Assets, setAssets, character, setCharacter, setNum, setCharNum, toolNum, setToolNum, stars, setStars, BG_sound } = useContext(SceneContext);
     const { dentistScene } = Assets;
     const { Sound, setSound, } = useContext(SoundContext)
     const [correct, setCorrect] = useState(false)

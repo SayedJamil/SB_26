@@ -13,7 +13,7 @@ import AssetsMap from '../../../Assets';
 
 function FloorCleanerActivity() {//change here
     const { Bg, Loading } = useLoadAsset(AssetsMap.floorCleaner)//change here
-    const { SceneId, setSceneId, isLoading, setisLoading, Assets, setAssets, character, setCharacter, setNum, setCharNum, toolNum, setToolNum, stars, setStars } = useContext(SceneContext);
+    const { SceneId, setSceneId, isLoading, setisLoading, Assets, setAssets, character, setCharacter, setNum, setCharNum, toolNum, setToolNum, stars, setStars, BG_sound } = useContext(SceneContext);
     const { floorCleanerScene } = Assets;
     const { Sound, setSound, } = useContext(SoundContext)
     const [correct, setCorrect] = useState(false)

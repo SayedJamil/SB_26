@@ -15,7 +15,7 @@ import AssetsMap from '../../Assets';
 
 function ArmyMan() {
     const { Bg, Loading } = useLoadAsset(AssetsMap.armyMan)
-    const { SceneId, setSceneId, isLoading, setisLoading, Assets, setAssets, transition, setTransition } = useContext(SceneContext);
+    const { SceneId, setSceneId, isLoading, setisLoading, Assets, setAssets, transition, setTransition, BG_sound } = useContext(SceneContext);
     const { armyManScene } = Assets;
     const { Sound, setSound, } = useContext(SoundContext)
     const [sceneSound, setSceneSound] = useState(null)
@@ -31,8 +31,11 @@ function ArmyMan() {
     const [playSound, setPlaySound] = useState(sound)
 
     useEffect(() => {
+        BG_sound.volume(0.05)
         playSound.play()
+        BG_sound.volume(0.05)
         playSound.on('end', () => {
+            BG_sound.volume(0.2)
             if (!buttonClicked) {
                 setisLoading(true)
             }

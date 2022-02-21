@@ -12,7 +12,7 @@ import AssetsMap from '../../Assets';
 
 function Police() {
     const { Bg, Loading } = useLoadAsset(AssetsMap.police)
-    const { SceneId, setSceneId, isLoading, setisLoading, Assets, setAssets } = useContext(SceneContext);
+    const { SceneId, setSceneId, isLoading, setisLoading, Assets, setAssets, BG_sound } = useContext(SceneContext);
     const { policeScene } = Assets;
     const { Sound, setSound, } = useContext(SoundContext)
     const Ref9 = useRef(null);
@@ -25,8 +25,10 @@ function Police() {
     const [playSound, setPlaySound] = useState(sound)
 
     useEffect(() => {
+        BG_sound.volume(0.05)
         playSound.play()
         playSound.on('end', () => {
+            BG_sound.volume(0.2)
             if (!buttonClicked) {
                 setisLoading(true)
             }

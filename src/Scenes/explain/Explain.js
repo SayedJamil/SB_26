@@ -12,7 +12,7 @@ import AssetsMap from '../../Assets';
 
 export default function Explain() {
   const { Bg, Loading } = useLoadAsset(AssetsMap.explain)
-  const { SceneId, setSceneId, isLoading, setisLoading, Assets, setAssets } = useContext(SceneContext);
+  const { SceneId, setSceneId, isLoading, setisLoading, Assets, setAssets, BG_sound } = useContext(SceneContext);
   const { explain } = Assets;
   const { Sound, setSound, } = useContext(SoundContext)
   const Ref11 = useRef(null);
@@ -24,12 +24,15 @@ export default function Explain() {
   const [playSound, setPlaySound] = useState(sound)
 
   useEffect(() => {
+    BG_sound.volume(0.05)
     playSound.play()
+    BG_sound.volume(0.05)
+
     playSound.on('end', () => {
+      BG_sound.volume(0.2)
       if (!buttonClicked) {
         setisLoading(true)
       }
-
       setSceneId('/armyman')
     })
   }, [])

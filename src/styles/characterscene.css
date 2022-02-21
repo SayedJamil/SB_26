@@ -94,12 +94,10 @@
   top: 35%;
 }
 .policeSceneIcon {
-  height: 75%;
+  height: 70%;
   position: fixed;
-  left: 35%;
-  -webkit-left: 35%;
-  -moz-left: 35%;
-  top: 25%;
+  left: 20%;
+  top: 17%;
 }
 .teacherSceneIcon {
   height: 70%;
@@ -254,31 +252,13 @@
   animation-fill-mode: both;
 }
 
-.bottomEquipButton {
-  position: fixed;
-  z-index: 999;
-  cursor: pointer;
-  top: 45%;
-  height: 60%;
-  left: 75%;
-}
-
-.topEquipButton {
-  position: fixed;
-  z-index: 999;
-  cursor: pointer;
-  top: 2%;
-  height: 60%;
-  left: 75%;
-}
-
 .bottomHighlightIcon {
   position: fixed;
   z-index: 999;
-  top: 45%;
+  top: 60%;
   cursor: pointer;
-  height: 60%;
-  left: 74.1%;
+  height: 31%;
+  left: 75%;
   -webkit-animation-name: bounceIn;
   animation-name: bounceIn;
   -webkit-animation-duration: 0.75s;
@@ -293,9 +273,9 @@
   position: fixed;
   cursor: pointer;
   z-index: 999;
-  top: 2%;
-  height: 60%;
-  left: 74.1%;
+  top: 20%;
+  height: 31%;
+  left: 75%;
   -webkit-animation-name: bounceIn;
   animation-name: bounceIn;
   -webkit-animation-duration: 0.75s;
@@ -455,3 +435,71 @@
     opacity: 1;
   }
 }
+.bottomEquipButton {
+  position: fixed;
+  z-index: 999;
+  cursor: pointer;
+  top: 60%;
+  height: 30%;
+  left: 75%;
+  width: 15.5%;
+}
+
+.topEquipButton {
+  position: fixed;
+  z-index: 999;
+  cursor: pointer;
+  top: 20%;
+  height: 30%;
+  left: 75%;
+  width: 15.5%;
+}
+
+/* .bottomEquipButton {
+  position: fixed;
+  z-index: 999;
+  top: 45%;
+  height: 60%;
+  left: 75%;
+  margin-top: -5.75%;
+}
+
+.topEquipButton {
+  position: fixed;
+  z-index: 999;
+  top: 2%;
+  height: 60%;
+  left: 75%;
+  margin-top: -5.75%;
+} */
+
+/* .parentTopElement {
+  position: fixed;
+  z-index: 999;
+  cursor: pointer;
+  top: 2%;
+  margin-top: 1.5%;
+  height: 30%;
+  left: 75%;
+  width: 15.5%;
+  background: aliceblue;
+}
+
+.parentBottomElement {
+  position: fixed;
+  z-index: 999;
+  cursor: pointer;
+  top: 45%;
+  margin-top: 1.5%;
+  height: 30%;
+  left: 75%;
+  width: 15.5%;
+  background: aliceblue;
+} */
+
+/*     position: fixed;
+  z-index: 999;
+  cursor: pointer;
+  top: 45%;
+  height: 60%;
+  left: 75%; */

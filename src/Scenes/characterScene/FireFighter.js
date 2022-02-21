@@ -12,7 +12,7 @@ import AssetsMap from '../../Assets';
 
 function FireFighter() {
     const { Bg, Loading } = useLoadAsset(AssetsMap.fireFighter)
-    const { SceneId, setSceneId, isLoading, setisLoading, Assets, setAssets } = useContext(SceneContext);
+    const { SceneId, setSceneId, isLoading, setisLoading, Assets, setAssets, BG_sound } = useContext(SceneContext);
     const { fireFighterScene } = Assets;
     const Ref4 = useRef(null);
     const Ref401 = useRef(null);
@@ -25,8 +25,10 @@ function FireFighter() {
     const [playSound, setPlaySound] = useState(sound)
 
     useEffect(() => {
+        BG_sound.volume(0.05)
         playSound.play()
         playSound.on('end', () => {
+            BG_sound.volume(0.2)
             if (!buttonClicked) {
                 setisLoading(true)
             }

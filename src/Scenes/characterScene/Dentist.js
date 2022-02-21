@@ -12,7 +12,7 @@ import AssetsMap from '../../Assets';
 
 function Dentist() {
     const { Bg, Loading } = useLoadAsset(AssetsMap.dentist)
-    const { SceneId, setSceneId, isLoading, setisLoading, Assets, setAssets } = useContext(SceneContext);
+    const { SceneId, setSceneId, isLoading, setisLoading, Assets, setAssets, BG_sound } = useContext(SceneContext);
     const { dentistScene } = Assets;
     const { Sound, setSound, } = useContext(SoundContext)
     const Ref5 = useRef(null);
@@ -24,9 +24,10 @@ function Dentist() {
     const [playSound, setPlaySound] = useState(sound)
 
     useEffect(() => {
-
+        BG_sound.volume(0.05)
         playSound.play()
         playSound.on('end', () => {
+            BG_sound.volume(0.2)
             if (!buttonClicked) {
                 setisLoading(true)
             }

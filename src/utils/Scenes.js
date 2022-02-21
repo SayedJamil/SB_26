@@ -5,7 +5,7 @@ import "../styles/app.css"
 // import apple from "./Apple.svg"
 
 export default function Scenes({ sprites, Bg = "" }) {
-  const { setSceneId, setisLoading, isLoading, transition, setTransition } = useContext(SceneContext)
+  const { setSceneId, setisLoading, isLoading, transition, setTransition, BG_sound } = useContext(SceneContext)
 
   const containerRef2 = useRef(null);
   useEffect(() => {
@@ -19,7 +19,6 @@ export default function Scenes({ sprites, Bg = "" }) {
         animationData: transition,
       });
     }
-
   }, [transition, isLoading]);
   useEffect(() => {
     if (isLoading) {
@@ -28,6 +27,7 @@ export default function Scenes({ sprites, Bg = "" }) {
       }, 1500)
     }
   }, [isLoading])
+
   return (
     <div id="vision">
       {Bg !== "" && <img

@@ -12,7 +12,7 @@ import lottie from 'lottie-web';
 import AssetsMap from '../../Assets';
 function ActivityExplainScene02() {
     const { Bg, Loading } = useLoadAsset(AssetsMap.activity02)
-    const { SceneId, setSceneId, isLoading, setisLoading, Assets, setAssets, setCharacter, setNum, setCharNum, setToolNum, setStars } = useContext(SceneContext);
+    const { SceneId, setSceneId, isLoading, setisLoading, Assets, setAssets, setCharacter, setNum, setCharNum, setToolNum, setStars, BG_sound } = useContext(SceneContext);
     const { activity02scene } = Assets;
     const { Sound, setSound, } = useContext(SoundContext)
     const Ref12 = useRef(null);
@@ -24,6 +24,7 @@ function ActivityExplainScene02() {
     const [playSound, setPlaySound] = useState(sound)
 
     useEffect(() => {
+        BG_sound.volume(0.05)
         playSound.play()
         playSound.on('end', () => {
             setCharacter('dentist')//change here

@@ -12,7 +12,7 @@ import AssetsMap from '../../Assets';
 
 function Doctor() {
     const { Bg, Loading } = useLoadAsset(AssetsMap.doctor)
-    const { SceneId, setSceneId, isLoading, setisLoading, Assets, setAssets, setTransition, transition } = useContext(SceneContext);
+    const { SceneId, setSceneId, isLoading, setisLoading, Assets, setAssets, setTransition, transition, BG_sound } = useContext(SceneContext);
     const { doctorScene } = Assets;
     const { Sound, setSound, } = useContext(SoundContext)
     const Ref3 = useRef(null);
@@ -26,8 +26,10 @@ function Doctor() {
 
     useEffect(() => {
 
+        BG_sound.volume(0.05)
         playSound.play()
         playSound.on('end', () => {
+            BG_sound.volume(0.2)
             if (!buttonClicked) {
                 setisLoading(true)
             }

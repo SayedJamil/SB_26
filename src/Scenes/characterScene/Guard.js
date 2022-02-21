@@ -12,7 +12,7 @@ import AssetsMap from '../../Assets';
 
 function Guard() {
     const { Bg, Loading } = useLoadAsset(AssetsMap.guard)
-    const { SceneId, setSceneId, isLoading, setisLoading, Assets, setAssets } = useContext(SceneContext);
+    const { SceneId, setSceneId, isLoading, setisLoading, Assets, setAssets, BG_sound } = useContext(SceneContext);
     const { guardScene } = Assets;
     const { Sound, setSound, } = useContext(SoundContext)
     const Ref8 = useRef(null);
@@ -25,8 +25,10 @@ function Guard() {
     const [playSound, setPlaySound] = useState(sound)
 
     useEffect(() => {
+        BG_sound.volume(0.05)
         playSound.play()
         playSound.on('end', () => {
+            BG_sound.volume(0.2)
             if (!buttonClicked) {
                 setisLoading(true)
             }

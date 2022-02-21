@@ -13,7 +13,7 @@ import AssetsMap from '../../Assets';
 function Gardener() {
     const { Bg, Loading } = useLoadAsset(AssetsMap.gardener)
 
-    const { SceneId, setSceneId, isLoading, setisLoading, Assets, setAssets, setTransition, transition } = useContext(SceneContext);
+    const { SceneId, setSceneId, isLoading, setisLoading, Assets, setAssets, setTransition, transition, BG_sound } = useContext(SceneContext);
     const { gardenerScene } = Assets;
     const { Sound, setSound, } = useContext(SoundContext)
     const Ref7 = useRef(null);
@@ -28,8 +28,10 @@ function Gardener() {
 
     useEffect(() => {
 
+        BG_sound.volume(0.05)
         playSound.play()
         playSound.on('end', () => {
+            BG_sound.volume(0.2)
             if (!buttonClicked) {
                 setisLoading(true)
             }

@@ -13,7 +13,7 @@ import AssetsMap from '../../../Assets';
 
 function ArmyManActivity() {//change here
     const { Bg, Loading } = useLoadAsset(AssetsMap.armyMan)//change here
-    const { SceneId, setSceneId, isLoading, setisLoading, Assets, setAssets, character, setCharacter, setNum, setCharNum, toolNum, setToolNum, stars, setStars } = useContext(SceneContext);
+    const { SceneId, setSceneId, isLoading, setisLoading, Assets, setAssets, character, setCharacter, setNum, setCharNum, toolNum, setToolNum, stars, setStars, BG_sound } = useContext(SceneContext);
     const { armyManScene } = Assets;
     const { Sound, setSound, } = useContext(SoundContext)
     const [correct, setCorrect] = useState(false)
@@ -38,7 +38,7 @@ function ArmyManActivity() {//change here
         if (armyManScene?.lottie && Ref24.current && !Loading) {//change here
             try {
                 lottie.loadAnimation({
-                    animationData: armyManScene?.lottie[0],
+                    animationData: armyManScene?.lottie[2],
                     name: "characterAnimation",
                     container: Ref24.current,//change here
                     renderer: "svg",

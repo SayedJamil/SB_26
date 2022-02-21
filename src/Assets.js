@@ -99,6 +99,7 @@ const AssetsMap = {
         lottie: [
             `${lottieUrl}Scene_07/SB_26_Scene_07.json`,
             `${lottieUrl}Scene_07/Scene_07.json`,
+            `${lottieUrl}Scene_07/SB_26_Scene_07__v1.json`,
         ]
     },
     dentist: {
@@ -170,6 +171,7 @@ const AssetsMap = {
         lottie: [
             `${lottieUrl}scene_03/SB_26_SC_03.json`,
             `${lottieUrl}scene_03/Scene_03.json`,
+            `${lottieUrl}scene_03/1.SB_26_SC_03_Doctor.json`,
         ]
     },
     fireFighter: {
@@ -502,7 +504,7 @@ const AssetsMap = {
         sprites: [
             `${icons}SB_26_icon_girl.svg`,
             `${character}SB_26_CE_dentist.svg`,
-            `${button}Buttons-13.svg`, //change here to 16
+            `${button}Buttons-16.svg`, //change here to 16
             `${button}Buttons-22.svg`,
             `${button}Buttons-20.svg`,
             `${button}Buttons-26.svg`,

@@ -68,7 +68,7 @@ function Activity01End() {
                         // setSceneId("/activity02")
                         setisLoading(true)
                     }}>
-                        <Image src={activityend?.sprites[3]} alt="txt" className="next_button" />
+                        <Image src={activityend?.sprites[2]} alt="txt" className="next_button" />
                     </div>
 
 

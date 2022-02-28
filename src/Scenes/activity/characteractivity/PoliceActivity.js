@@ -137,6 +137,7 @@ function PoliceActivity() {//change here
                         )
                         )}
                     </div>
+                    <Image src={policeScene?.sprites[23]} alt="" className="policeShadow" />
                     <div ref={Ref22} className="policeSceneIcon" id="characterAnimation"></div>//change here
 
                 </>

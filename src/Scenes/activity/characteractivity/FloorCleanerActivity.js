@@ -132,6 +132,7 @@ function FloorCleanerActivity() {//change here
                         )
                         )}
                     </div>
+                    <Image src={floorCleanerScene?.sprites[23]} alt="" className="floorCleanerShadow" />
                     <div ref={Ref28} className="floorCleanerSceneIcon" id="characterAnimation"></div>//change here
 
                 </>

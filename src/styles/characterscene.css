@@ -503,3 +503,111 @@
   top: 45%;
   height: 60%;
   left: 75%; */
+
+.armyManShadow {
+  height: 5%;
+  position: absolute;
+  left: 36.5%;
+  -webkit-left: 52%;
+  -moz-left: 52%;
+  -webkit-top: 20%;
+  -moz-top: 20%;
+  top: 88%;
+}
+
+.dentistShadow {
+  height: 5%;
+  position: absolute;
+  left: 36.5%;
+  -webkit-left: 52%;
+  -moz-left: 52%;
+  -webkit-top: 20%;
+  -moz-top: 20%;
+  top: 88%;
+}
+
+.doctorShadow {
+  height: 5%;
+  position: absolute;
+  left: 37.5%;
+  -webkit-left: 52%;
+  -moz-left: 52%;
+  -webkit-top: 20%;
+  -moz-top: 20%;
+  top: 93%;
+}
+
+.fireFighterShadow {
+  height: 5%;
+  position: absolute;
+  left: 36.5%;
+  -webkit-left: 52%;
+  -moz-left: 52%;
+  -webkit-top: 20%;
+  -moz-top: 20%;
+  top: 88%;
+}
+
+.floorCleanerShadow {
+  height: 3%;
+  position: absolute;
+  left: 37.5%;
+  -webkit-left: 52%;
+  -moz-left: 52%;
+  -webkit-top: 20%;
+  -moz-top: 20%;
+  top: 98%;
+}
+
+.garbageCollectorShadow {
+  height: 5%;
+  position: absolute;
+  left: 36.5%;
+  -webkit-left: 52%;
+  -moz-left: 52%;
+  -webkit-top: 20%;
+  -moz-top: 20%;
+  top: 88%;
+}
+
+.guardShadow {
+  height: 4%;
+  position: absolute;
+  left: 37.5%;
+  -webkit-left: 52%;
+  -moz-left: 52%;
+  -webkit-top: 20%;
+  -moz-top: 20%;
+  top: 98%;
+}
+
+.policeShadow {
+  height: 4%;
+  position: absolute;
+  left: 24%;
+  -webkit-left: 52%;
+  -moz-left: 52%;
+  -webkit-top: 20%;
+  -moz-top: 20%;
+  top: 84%;
+}
+.teacherShadow {
+  height: 5%;
+  position: absolute;
+  left: 36.5%;
+  -webkit-left: 52%;
+  -moz-left: 52%;
+  -webkit-top: 20%;
+  -moz-top: 20%;
+  top: 88%;
+}
+.activityShadow {
+  height: 6%;
+  position: absolute;
+  left: 14%;
+  -webkit-left: 52%;
+  -moz-left: 52%;
+  -webkit-top: 20%;
+  -moz-top: 20%;
+  top: 84%;
+}

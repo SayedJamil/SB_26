@@ -95,7 +95,7 @@ function FloorCleaner() {
                         <Image src={floorCleanerScene?.sprites[3]} alt="txt" className="prev_button" />
                     </div>
 
-
+                    <Image src={floorCleanerScene?.sprites[23]} alt="" className="floorCleanerShadow" />
                     <Image src={floorCleanerScene?.sprites[0]} alt="txt" className="iconGirl" />
 
                     <div ref={Ref302} className="iconGirlEyes" id="circleGirl"></div>

@@ -98,7 +98,7 @@ function Doctor() {
                     </div>
 
                     <Image src={doctorScene?.sprites[0]} alt="txt" className="iconGirl" />
-
+                    <Image src={doctorScene?.sprites[23]} alt="" className="doctorShadow" />
                     <div ref={Ref301} className="iconGirlEyes" id="circleGirl"></div>
 
                     <div ref={Ref3} className="doctorSceneIcon" id="doctor"></div>

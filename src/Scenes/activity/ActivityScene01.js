@@ -69,7 +69,7 @@ function ActivityExplainScene01() {
                     </div>
 
 
-
+                    <Image src={activity01scene?.sprites[6]} alt="" className="activityShadow" />
                     <div ref={Ref12} className="activitygirlIcon" id="explaingirl"></div>
                 </>
             }

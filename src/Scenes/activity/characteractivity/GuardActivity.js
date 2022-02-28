@@ -137,6 +137,7 @@ function GuardActivity() {//change here
                         )
                         )}
                     </div>
+                    <Image src={guardScene?.sprites[23]} alt="" className="guardShadow" />
                     <div ref={Ref27} className="guardSceneIcon" id="characterAnimation"></div>//change here
 
                 </>

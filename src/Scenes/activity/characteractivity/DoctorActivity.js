@@ -133,7 +133,7 @@ function DoctorActivity() {//change here
 
                     {(wrong) ? <Image src={doctorScene?.sprites[19]} alt="txt" className={`${!position ? "bottomHighlightIcon" : "topHighlightIcon"}`} onClick={() => wrongAnswerSound()} /> : null}{/* changehere */}
 
-
+                    <Image src={doctorScene?.sprites[23]} alt="" className="doctorShadow" />
                     <Image src={doctorScene?.sprites[20]} alt="" className="progressBar" />
                     <div className='starspos'>
                         {[...Array(stars)].map((elementInArray, index) => (

@@ -71,7 +71,7 @@ function Activity01End() {
                         <Image src={activityend?.sprites[2]} alt="txt" className="next_button" />
                     </div>
 
-
+                  
                     <div ref={Ref30} className="activityEndGirlIcon" id="explaingirl"></div>
                 </>
             }

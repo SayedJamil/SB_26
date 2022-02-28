@@ -93,7 +93,7 @@ function Guard() {
                     </div>
 
                     <Image src={guardScene?.sprites[0]} alt="txt" className="iconGirl" />
-
+                    <Image src={guardScene?.sprites[23]} alt="" className="guardShadow" />
                     <div ref={Ref801} className="iconGirlEyes" id="circleGirl"></div>
                     <div ref={Ref8} className="guardSceneIcon" id="guard"></div>
                 </>

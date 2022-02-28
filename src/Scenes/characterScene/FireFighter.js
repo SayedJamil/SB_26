@@ -84,7 +84,6 @@ function FireFighter() {
 
                     <Image src={fireFighterScene?.sprites[0]} alt="txt" className="iconGirl" />
                     <div ref={Ref401} className="iconGirlEyes" id="circleGirl"></div>
-
                     <div ref={Ref4} className="fireFighterSceneIcon" id="firefighter"></div>
                 </>
             }

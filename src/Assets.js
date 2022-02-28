@@ -36,6 +36,7 @@ const AssetsMap = {
             `${progressBar}SB_26_PROGRESS_BAR.svg`,
             `${progressBar}SB_26_STAR.svg`,
             `${handIcon}SB_26_hand_hilight.svg`,
+            `${character}shadow.svg`,
 
 
         ],
@@ -90,7 +91,7 @@ const AssetsMap = {
             `${progressBar}SB_26_PROGRESS_BAR.svg`,
             `${progressBar}SB_26_STAR.svg`,
             `${handIcon}SB_26_hand_hilight.svg`,
-
+            `${character}shadow.svg`,
 
         ],
         sounds: [
@@ -129,6 +130,7 @@ const AssetsMap = {
             `${progressBar}SB_26_PROGRESS_BAR.svg`,
             `${progressBar}SB_26_STAR.svg`,
             `${handIcon}SB_26_hand_hilight.svg`,
+            `${character}shadow.svg`,
 
 
         ],
@@ -165,7 +167,8 @@ const AssetsMap = {
             `${progressBar}SB_26_PROGRESS_BAR.svg`,
             `${progressBar}SB_26_STAR.svg`,
             `${handIcon}SB_26_hand_hilight.svg`,
-            `${handIcon}SB_26_hand_hilight.svg`,
+            `${character}shadow.svg`,
+
         ],
         sounds: [`${soundUrl}SB_26_Audio_03.mp3`],
         lottie: [
@@ -201,6 +204,7 @@ const AssetsMap = {
             `${progressBar}SB_26_PROGRESS_BAR.svg`,
             `${progressBar}SB_26_STAR.svg`,
             `${handIcon}SB_26_hand_hilight.svg`,
+            `${character}shadow.svg`,
 
         ],
         sounds: [`${soundUrl}SB_26_Audio_27.mp3`],
@@ -236,6 +240,7 @@ const AssetsMap = {
             `${progressBar}SB_26_PROGRESS_BAR.svg`,
             `${progressBar}SB_26_STAR.svg`,
             `${handIcon}SB_26_hand_hilight.svg`,
+            `${character}shadow.svg`,
         ],
         sounds: [`${soundUrl}SB_26_Audio_28.mp3`],
         lottie: [
@@ -270,6 +275,7 @@ const AssetsMap = {
             `${progressBar}SB_26_PROGRESS_BAR.svg`,
             `${progressBar}SB_26_STAR.svg`,
             `${handIcon}SB_26_hand_hilight.svg`,
+            `${character}shadow.svg`,
 
         ],
         sounds: [`${soundUrl}SB_26_Audio_31.mp3`],
@@ -305,6 +311,7 @@ const AssetsMap = {
             `${progressBar}SB_26_PROGRESS_BAR.svg`,
             `${progressBar}SB_26_STAR.svg`,
             `${handIcon}SB_26_hand_hilight.svg`,
+            `${character}shadow.svg`,
 
         ],
         sounds: [`${soundUrl}SB_26_Audio_05.mp3`],
@@ -340,6 +347,7 @@ const AssetsMap = {
             `${progressBar}SB_26_PROGRESS_BAR.svg`,
             `${progressBar}SB_26_STAR.svg`,
             `${handIcon}SB_26_hand_hilight.svg`,
+            `${character}shadow.svg`,
 
         ],
         sounds: [`${soundUrl}SB_26_Audio_30.mp3`],
@@ -375,6 +383,7 @@ const AssetsMap = {
             `${progressBar}SB_26_PROGRESS_BAR.svg`,
             `${progressBar}SB_26_STAR.svg`,
             `${handIcon}SB_26_hand_hilight.svg`,
+            `${character}shadow.svg`,
 
         ],
         sounds: [`${soundUrl}SB_26_Audio_06.mp3`],
@@ -410,6 +419,7 @@ const AssetsMap = {
             `${progressBar}SB_26_PROGRESS_BAR.svg`,
             `${progressBar}SB_26_STAR.svg`,
             `${handIcon}SB_26_hand_hilight.svg`,
+            `${character}shadow.svg`,
 
         ],
         sounds: [`${soundUrl}SB_26_Audio_04.mp3`],
@@ -471,7 +481,7 @@ const AssetsMap = {
             `${button}Buttons-22.svg`,
             `${button}Buttons-20.svg`,
             `${button}Buttons-26.svg`,
-
+            `${character}shadow.svg`,
         ],
         sounds: [
             `${soundUrl}SB_26_Audio_07.mp3`
@@ -490,7 +500,7 @@ const AssetsMap = {
             `${button}Buttons-22.svg`,
             `${button}Buttons-20.svg`,
             `${button}Buttons-26.svg`,
-
+            `${character}shadow.svg`,
 
         ],
         sounds: [`${soundUrl}SB_26_Audio_29.mp3`],
@@ -517,7 +527,35 @@ const AssetsMap = {
             `${lottieUrl}scene_08/1.SB_26_SC_08.json`,
         ]
     },
-
+    commonelements: {
+        id: 'commonElem',
+        Bg: ``,
+        sprites: [
+            `${button}Buttons-16.svg`, //change here to 13
+            `${button}Buttons-22.svg`,
+            `${button}Buttons-20.svg`,
+            `${button}Buttons-26.svg`,
+            `${equipement}SB_26_ICON_book.svg`,//4
+            `${equipement}SB_26_ICON_dustbean.svg`,//5
+            `${equipement}SB_26_ICON_fire_protection.svg`,//6
+            `${equipement}SB_26_ICON_helmet.svg`,//7
+            `${equipement}SB_26_ICON_injuction.svg`,//8
+            `${equipement}SB_26_ICON_mop_stick.svg`,//9
+            `${equipement}SB_26_ICON_mouth_mirror.svg`,//10
+            `${equipement}SB_26_ICON_police_stick.svg`,//11
+            `${equipement}SB_26_ICON_shears.svg`,//12
+            `${equipement}SB_26_ICON_stethoscope.svg`,//13
+            `${equipement}SB_26_ICON_torch.svg`,//14
+            `${equipement}SB_26_ICON_water_can.svg`,//15
+            `${eqhilight}SB_26_GREEN.svg`,
+            `${eqhilight}SB_26_RED.svg`,
+            `${progressBar}SB_26_PROGRESS_BAR.svg`,
+            `${progressBar}SB_26_STAR.svg`,
+            `${handIcon}SB_26_hand_hilight.svg`,
+        ],
+        lottie: [],
+        
+}
 }
 
 export default AssetsMap;

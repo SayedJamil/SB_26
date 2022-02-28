@@ -102,6 +102,7 @@ function ArmyMan() {
 
 
                     <Image src={armyManScene?.sprites[0]} alt="txt" className="iconGirl" />
+                    <Image src={armyManScene?.sprites[23]} alt="" className="armyManShadow" />
 
                     <div ref={Ref101} className="iconGirlEyes" id="circleGirl"></div>
                     <div ref={Ref1} className="armyManSceneIcon" id="armyman"></div>

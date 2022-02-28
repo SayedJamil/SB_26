@@ -88,6 +88,7 @@ function Dentist() {
 
                     <Image src={dentistScene?.sprites[0]} alt="txt" className="iconGirl" />
                     <div ref={Ref501} className="iconGirlEyes" id="circleGirl"></div>
+                
 
                     <div ref={Ref5} className="dentistSceneIcon" id="dentist"></div>
 

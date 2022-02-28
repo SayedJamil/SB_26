@@ -90,7 +90,6 @@ function Teacher() {
                     }}>
                         <Image src={teacherScene?.sprites[3]} alt="txt" className="prev_button" />
                     </div>
-
                     <Image src={teacherScene?.sprites[0]} alt="txt" className="iconGirl" />
                     <div ref={Ref101} className="iconGirlEyes" id="circleGirl"></div>
                     <div ref={Ref10} className="teacherSceneIcon" id="teacher"></div>

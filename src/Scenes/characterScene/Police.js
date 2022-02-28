@@ -92,7 +92,7 @@ function Police() {
                     }}>
                         <Image src={policeScene?.sprites[3]} alt="txt" className="prev_button" />
                     </div>
-
+                    <Image src={policeScene?.sprites[23]} alt="" className="policeShadow" />
                     <Image src={policeScene?.sprites[0]} alt="txt" className="iconGirl" />
                     <div ref={Ref901} className="iconGirlEyes" id="circleGirl"></div>
                     <div ref={Ref9} className="policeSceneIcon" id="police"></div>

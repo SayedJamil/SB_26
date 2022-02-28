@@ -132,7 +132,7 @@ function ArmyManActivity() {//change here
 
                     <Image src={armyManScene?.sprites[random]} alt="txt" className={`${!position ? "bottomEquipButton" : "topEquipButton"}`} onClick={() => wrongAnswerSound()} />//change here
                     {(wrong) ? <Image src={armyManScene?.sprites[19]} alt="txt" className={`${!position ? "bottomHighlightIcon" : "topHighlightIcon"}`} onClick={() => wrongAnswerSound()} /> : null}//change here
-
+                    <Image src={armyManScene?.sprites[23]} alt="" className="armyManShadow" />
                     <Image src={armyManScene?.sprites[20]} alt="" className="progressBar" />
                     <div className='starspos'>
                         {[...Array(stars)].map((elementInArray, index) => (

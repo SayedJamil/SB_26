@@ -26,10 +26,10 @@ function Doctor() {
 
     useEffect(() => {
 
-        BG_sound.volume(0.05)
+
         playSound.play()
         playSound.on('end', () => {
-            BG_sound.volume(0.2)
+
             if (!buttonClicked) {
                 setisLoading(true)
             }

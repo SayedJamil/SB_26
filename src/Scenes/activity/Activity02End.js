@@ -35,11 +35,10 @@ function Activity02End() {
     const [play03Sound, setPlay03Sound] = useState(sound03)
     const [play04Sound, setPlay04Sound] = useState(sound04)
     useEffect(() => {
-        BG_sound.volume(0.05)
+
         playSound.play()
         playSound.on('end', () => {
             play02Sound.play()
-
         })
         play02Sound.on('end', () => {
             play04Sound.play()
@@ -49,9 +48,12 @@ function Activity02End() {
             play03Sound.play()
             lottie.play()
         })
-        play03Sound.on('end', () => {
+        play03Sound.on('start', () => {
             setEnableButton(true)
+        })
+        play03Sound.on('end', () => {
             lottie.stop()
+
         })
     }, [])
     useEffect(() => {

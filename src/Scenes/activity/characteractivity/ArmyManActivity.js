@@ -22,12 +22,15 @@ function ArmyManActivity() {//change here
     const [random, setRandom] = useState()
     const [position, setPosition] = useState(true)
     useEffect(() => {
+
         var sound = new Howl({
             src: [`ee01_ow_thss_pl1/audio/SB_26_Audio_24.mp3`],//change here
         });
         sound.play();
-        sound.on('end', () => {
+
+        sound.on('start', () => {
             setEnableButton(true)
+
         })
         randomize();
     }, [])

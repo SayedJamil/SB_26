@@ -24,7 +24,7 @@ function ActivityExplainScene02() {
     const [playSound, setPlaySound] = useState(sound)
 
     useEffect(() => {
-        BG_sound.volume(0.05)
+
         playSound.play()
         playSound.on('end', () => {
             setCharacter('dentist')//change here

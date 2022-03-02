@@ -16,12 +16,11 @@ export default function SceneContextProvider({ children }) {
   const [stars, setStars] = useState(0)
   const [BG_sound, setBG_sound] = useState(null);
   // loading part
-  useEffect(() => {
-    setTimeout(() => {
-      setisLoading(false)
-    }, 3500)
-
-  }, [isLoading])
+  // useEffect(() => {
+  //   setTimeout(() => {
+  //     setisLoading(false)
+  //   }, 2500)
+  // }, [isLoading])
 
   return (
     <SceneContext.Provider value={{ SceneId, setSceneId, isLoading, setisLoading, Assets, setAssets, character, setCharacter, num, setNum, charNum, setCharNum, toolNum, setToolNum, stars, setStars, transition, setTransition, BG_sound, setBG_sound }}>

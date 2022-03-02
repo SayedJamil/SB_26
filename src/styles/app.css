@@ -65,13 +65,9 @@
   animation-delay: 0.4s;
 }
 
-.transition_style {
-  position: fixed;
-}
-
 .music_button {
   position: fixed;
-  z-index: 999;
+  z-index: 2;
   left: 2%;
   bottom: 50%;
   height: 10%;
@@ -98,7 +94,7 @@
   margin: 10px;
   height: 50px;
   border-radius: 50%;
-  z-index: 999;
+  z-index: 10;
   background-color: silver;
   animation-name: jump;
   animation-duration: 0.6s;

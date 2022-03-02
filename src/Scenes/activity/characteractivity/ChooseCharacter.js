@@ -26,7 +26,7 @@ function ChooseCharacter() {
             src: [`ee01_ow_thss_pl1/audio/SB_26_Audio_${num}.mp3`],
         });
         sound.play();
-        sound.on('end', () => {
+        sound.on('start', () => {
             setEnableButton(true)
         })
         randomize();

@@ -23,11 +23,11 @@ function Activity01End() {
 
     useEffect(() => {
 
-        BG_sound.volume(0.05)
         playSound.play();
         playSound.on('end', () => {
             setisLoading(true)
             setSceneId('/firefighter')
+
 
         })
     }, [])
@@ -71,7 +71,7 @@ function Activity01End() {
                         <Image src={activityend?.sprites[2]} alt="txt" className="next_button" />
                     </div>
 
-                  
+
                     <div ref={Ref30} className="activityEndGirlIcon" id="explaingirl"></div>
                 </>
             }

@@ -31,11 +31,10 @@ function ArmyMan() {
     const [playSound, setPlaySound] = useState(sound)
 
     useEffect(() => {
-        BG_sound.volume(0.05)
         playSound.play()
-        BG_sound.volume(0.05)
+
         playSound.on('end', () => {
-            BG_sound.volume(0.2)
+
             if (!buttonClicked) {
                 setisLoading(true)
             }
@@ -79,6 +78,7 @@ function ArmyMan() {
         }
 
     }, [Assets, Loading])
+
     return (
         <Scenes
             Bg={Bg}

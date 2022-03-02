@@ -27,8 +27,10 @@ function GuardActivity() {//change here
             src: [`ee01_ow_thss_pl1/audio/SB_26_Audio_43.mp3`],//change here
         });
         sound.play();
-        sound.on('end', () => {
+
+        sound.on('start', () => {
             setEnableButton(true)
+
         })
         randomize();
     }, [])

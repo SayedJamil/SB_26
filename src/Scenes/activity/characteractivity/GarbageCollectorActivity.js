@@ -27,8 +27,10 @@ function GarbageCollectorActivity() {//change here
             src: [`ee01_ow_thss_pl1/audio/14-11-2021/SB_26_Audio_03.mp3`],//change here
         });
         sound.play();
-        sound.on('end', () => {
+
+        sound.on('start', () => {
             setEnableButton(true)
+
         })
         randomize();
     }, [])

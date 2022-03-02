@@ -43,9 +43,8 @@ function App() {
     const bg_sound = new Howl({
       src: [`ee01_ow_thss_pl1/audio/Entire_video_song.mp3`],
       loop: true,
-      autoplay: true
+      autoplay: false
     })
-    bg_sound.play()
     setBG_sound(bg_sound)
   }
 
@@ -53,7 +52,7 @@ function App() {
     loadAudio()
     setTimeout(() => {
       setLoad(false)
-      PlayAudio()
+      // PlayAudio()
     }, 4000)
     loadLottie()
     loadBgImage()
@@ -79,12 +78,9 @@ function App() {
   const [mute, setmute] = useState(false);
 
 
-
-
   useEffect(() => {
     if (BG_sound !== null) {
-      BG_sound?.play()
-      BG_sound.volume(0.2)
+      BG_sound.volume(0.05)
     }
   }, [BG_sound])
 

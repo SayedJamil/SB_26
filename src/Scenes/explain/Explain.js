@@ -17,22 +17,20 @@ export default function Explain() {
   const { Sound, setSound, } = useContext(SoundContext)
   const Ref11 = useRef(null);
 
-  const [buttonClicked, setButtonClicked] = useState(false)
+
   const sound = new Howl({
     src: [`ee01_ow_thss_pl1/audio/14-11-2021/SB_26_Audio_01.mp3`],
   });
   const [playSound, setPlaySound] = useState(sound)
 
   useEffect(() => {
-    BG_sound.volume(0.05)
+    var changeClass = document.querySelector('.music_button')
+    changeClass.style.display = 'block'
+
     playSound.play()
-    BG_sound.volume(0.05)
 
     playSound.on('end', () => {
-      BG_sound.volume(0.2)
-      if (!buttonClicked) {
-        setisLoading(true)
-      }
+      setisLoading(true)
       setSceneId('/armyman')
     })
   }, [])
@@ -66,9 +64,9 @@ export default function Explain() {
         <>
           <div onClick={() => {
             playSound.stop()
+            setisLoading(true)
             setSceneId("/armyman")
             // setSceneId("/activity01")
-            setisLoading(true)
           }}>
             <Image src={explain?.sprites[11]} alt="txt" className="next_button" />
           </div>

@@ -11,9 +11,8 @@ import { Howl } from 'howler';
 
 
 export default function Intro() {
-
   const { Bg, Loading } = useLoadAsset(AssetsMap.intro)
-  const { SceneId, setSceneId, isLoading, setisLoading, Assets, setAssets } = useContext(SceneContext);
+  const { SceneId, setSceneId, isLoading, setisLoading, Assets, setAssets, BG_sound } = useContext(SceneContext);
   const { intro } = Assets;
 
   const [buttonClicked, setButtonClicked] = useState(false)
@@ -23,26 +22,28 @@ export default function Intro() {
   const [playSound, setPlaySound] = useState(sound)
 
   useEffect(() => {
-
-    playSound.play()
+    var changeClass = document.querySelector('.music_button')
+    changeClass.style.display = 'none'
   }, [])
-
+  const handlePlayButtonClick = () => {
+    navigator.vibrate(200);
+    playSound.play()
+    BG_sound?.play()
+    playSound.on('end', () => {
+      setisLoading(true)
+      setSceneId('/explain')
+    })
+  }
   return (
     <Scenes
       Bg={Bg}
       sprites={
         <>
-          <div onClick={() => {
-            navigator.vibrate(200);
-            playSound.stop()
-            setSceneId('/explain')
-            setisLoading(true)
-          }}>
-            <Image src={intro?.sprites[2]} alt="" id='' className="play_btn" />
-          </div>
 
-          <Image src={intro?.sprites[0]} alt="txt" className="introIcons" />
-          <Image src={intro?.sprites[1]} alt="txt" className="title" />
+          <Image src={intro?.sprites[2]} alt="" id='' className="play_btn" onClick={() => handlePlayButtonClick()} />
+
+          <Image src={intro?.sprites[0]} alt="txt" className="introIcons noClick" />
+          <Image src={intro?.sprites[1]} alt="txt" className="title noClick" />
 
 
           {/* <div ref={Ref} className="intro_lottie_container"></div> */}

@@ -18,40 +18,34 @@ function DoctorActivity() {//change here
     const { Sound, setSound, } = useContext(SoundContext)
     const [correct, setCorrect] = useState(false)
     const [wrong, setWrong] = useState(false)
-    const [enableButton, setEnableButton] = useState(false)
+    const [enableButton, setEnableButton] = useState(true)
     const [random, setRandom] = useState()
     const [position, setPosition] = useState(true)
 
+    var sound = new Howl({
+        src: [`ee01_ow_thss_pl1/audio/SB_26_Audio_12.mp3`],//change here
+    });
+    const [playSound, setPlaySound] = useState(sound)
     useEffect(() => {
-        var sound = new Howl({
-            src: [`ee01_ow_thss_pl1/audio/SB_26_Audio_12.mp3`],//change here
-        });
-        sound.play();
-
-        sound.on('start', () => {
-            setEnableButton(true)
-
+        playSound.play();
+        playSound.on('end', () => {
+            setTimeout(() => {
+                playSound.play()
+            }, 10000)
+        })
+        playSound.on('mute', () => {
+            setTimeout(() => {
+                playSound.mute(false)
+            }, 2000)
+        })
+        playSound.on('stop', () => {
+            setTimeout(() => {
+                playSound.stop()
+                playSound.mute()
+            }, 2000)
         })
         randomize();
-
     }, [])
-
-    const [isActivity, setIsActivity] = useState(true)
-    const [playAnimation, setPlayAnimation] = useState(false)
-
-    useEffect(() => {
-        if (isActivity) {
-            setTimeout(() => {
-                setIsActivity(false)
-            }, 10000)
-        }
-        if (!isActivity) {
-            setPlayAnimation(true)
-            setTimeout(() => {
-                setPlayAnimation(!playAnimation)
-            }, 4000)
-        }
-    }, [isActivity, playAnimation])
 
     const Ref21 = useRef(null);//change here
 
@@ -72,8 +66,7 @@ function DoctorActivity() {//change here
         }
     }, [Assets, Loading])
     const wrongAnswerSound = () => {
-        setIsActivity(true)
-        setPlayAnimation(false)
+        playSound.mute(true)
         if (enableButton) {
             setEnableButton(false)
             var sound = new Howl({
@@ -89,8 +82,7 @@ function DoctorActivity() {//change here
         }
     }
     const rightAnswerSound = () => {
-        setIsActivity(true)
-        setPlayAnimation(false)
+        playSound.unload()
         if (enableButton) {
             var sound = new Howl({
                 src: [`ee01_ow_thss_pl1/audio/SB_26_Audio_13.mp3`],
@@ -126,7 +118,6 @@ function DoctorActivity() {//change here
             sprites={
                 <>
                     <Image src={doctorScene?.sprites[toolNum]} alt="txt" className={`${position ? "bottomEquipButton" : "topEquipButton"}`} onClick={() => rightAnswerSound()} />
-                    {(playAnimation) ? <Image src={doctorScene?.sprites[22]} className={`${position ? "bottomHilightIcon handIconAnimation" : "topHilightIcon handIconAnimation"}`} /> : null}
                     {(correct) ? <Image src={doctorScene?.sprites[18]} alt="txt" className={`${position ? "bottomHighlightIcon" : "topHighlightIcon"}`} onClick={() => rightAnswerSound()} /> : null}
 
 

@@ -12,7 +12,6 @@ import loadAudio from '../../utils/loadAudio.js'
 import AssetsMap from '../../Assets';
 
 
-
 function ArmyMan() {
     const { Bg, Loading } = useLoadAsset(AssetsMap.armyMan)
     const { SceneId, setSceneId, isLoading, setisLoading, Assets, setAssets, transition, setTransition, BG_sound } = useContext(SceneContext);
@@ -100,10 +99,8 @@ function ArmyMan() {
                         setSceneId("/explain")
                     }} />
 
-
                     <Image src={armyManScene?.sprites[0]} alt="txt" className="iconGirl" />
                     <Image src={armyManScene?.sprites[23]} alt="" className="armyManShadow" />
-
                     <div ref={Ref101} className="iconGirlEyes" id="circleGirl"></div>
                     <div ref={Ref1} className="armyManSceneIcon" id="armyman"></div>
 

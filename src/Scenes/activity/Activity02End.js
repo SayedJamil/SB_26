@@ -16,7 +16,7 @@ function Activity02End() {
     const { activityend } = Assets;
     const { Sound, setSound, } = useContext(SoundContext)
     const Ref30 = useRef(null);
-    const [enableButton, setEnableButton] = useState(false)
+    const [enableButton, setEnableButton] = useState(true)
     const [buttonClicked, setButtonClicked] = useState(false)
     const sound = new Howl({
         src: [`ee01_ow_thss_pl1/audio/SB_26_Audio_48.mp3`],

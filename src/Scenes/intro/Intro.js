@@ -20,12 +20,13 @@ export default function Intro() {
     src: [`ee01_ow_thss_pl1/audio/SB_26_Audio_01.mp3`],
   });
   const [playSound, setPlaySound] = useState(sound)
-
+  const [buttonPressed, setButtonPressed] = useState(false)
   useEffect(() => {
     var changeClass = document.querySelector('.music_button')
     changeClass.style.display = 'none'
   }, [])
   const handlePlayButtonClick = () => {
+    setButtonPressed(true)
     navigator.vibrate(200);
     playSound.play()
     BG_sound?.play()
@@ -40,7 +41,7 @@ export default function Intro() {
       sprites={
         <>
 
-          <Image src={intro?.sprites[2]} alt="" id='' className="play_btn" onClick={() => handlePlayButtonClick()} />
+          <Image src={intro?.sprites[2]} alt="" id='' className={`play_btn ${(buttonPressed) ? 'disappearButton' : null}`} onClick={() => handlePlayButtonClick()} />
 
           <Image src={intro?.sprites[0]} alt="txt" className="introIcons noClick" />
           <Image src={intro?.sprites[1]} alt="txt" className="title noClick" />

@@ -18,19 +18,30 @@ function ArmyManActivity() {//change here
     const { Sound, setSound, } = useContext(SoundContext)
     const [correct, setCorrect] = useState(false)
     const [wrong, setWrong] = useState(false)
-    const [enableButton, setEnableButton] = useState(false)
+    const [enableButton, setEnableButton] = useState(true)
     const [random, setRandom] = useState()
     const [position, setPosition] = useState(true)
+    var sound = new Howl({
+        src: [`ee01_ow_thss_pl1/audio/SB_26_Audio_24.mp3`],//change here
+    });
+    const [playSound, setPlaySound] = useState(sound)
     useEffect(() => {
-
-        var sound = new Howl({
-            src: [`ee01_ow_thss_pl1/audio/SB_26_Audio_24.mp3`],//change here
-        });
-        sound.play();
-
-        sound.on('start', () => {
-            setEnableButton(true)
-
+        playSound.play();
+        playSound.on('end', () => {
+            setTimeout(() => {
+                playSound.play()
+            }, 10000)
+        })
+        playSound.on('mute', () => {
+            setTimeout(() => {
+                playSound.mute(false)
+            }, 2000)
+        })
+        playSound.on('stop', () => {
+            setTimeout(() => {
+                playSound.stop()
+                playSound.mute()
+            }, 2000)
         })
         randomize();
     }, [])
@@ -55,8 +66,7 @@ function ArmyManActivity() {//change here
         }
     }, [Assets, Loading])
     const wrongAnswerSound = () => {
-        setIsActivity(true)
-        setPlayAnimation(false)
+        playSound.mute(true)
         if (enableButton) {
             setEnableButton(false)
             var sound = new Howl({
@@ -72,8 +82,7 @@ function ArmyManActivity() {//change here
         }
     }
     const rightAnswerSound = () => {
-        setIsActivity(true)
-        setPlayAnimation(false)
+        playSound.unload()
         if (enableButton) {
             var sound = new Howl({
                 src: [`ee01_ow_thss_pl1/audio/SB_26_Audio_25.mp3`],//change here
@@ -85,7 +94,7 @@ function ArmyManActivity() {//change here
                 setCharNum(15)//change here from choosecharacterassetmap character icon
                 setToolNum(6)//change here from choosecharacterassetmap character tool
                 setisLoading(true)
-                setSceneId('/activity01end')
+                setSceneId("/activity01end")
             })
             setCorrect(true)
             setStars(stars + 1)
@@ -103,23 +112,7 @@ function ArmyManActivity() {//change here
         var randomPos = Math.random() >= 0.5;
         setPosition(randomPos)
     }
-    const [isActivity, setIsActivity] = useState(true)
-    const [playAnimation, setPlayAnimation] = useState(false)
 
-
-    useEffect(() => {
-        if (isActivity) {
-            setTimeout(() => {
-                setIsActivity(false)
-            }, 10000)
-        }
-        if (!isActivity) {
-            setPlayAnimation(true)
-            setTimeout(() => {
-                setPlayAnimation(!playAnimation)
-            }, 4000)
-        }
-    }, [isActivity, playAnimation])
 
     return (
         <Scenes
@@ -129,7 +122,7 @@ function ArmyManActivity() {//change here
 
                     <div>
                         <Image src={armyManScene?.sprites[toolNum]} alt="txt" className={`${position ? "bottomEquipButton" : "topEquipButton"}`} onClick={() => rightAnswerSound()} />{/* changehere */}
-                        {(playAnimation) ? <Image src={armyManScene?.sprites[22]} className={`${position ? "bottomHilightIcon handIconAnimation" : "topHilightIcon handIconAnimation"}`} /> : null}
+
                         {(correct) ? <Image src={armyManScene?.sprites[18]} alt="txt" className={`${position ? "bottomHighlightIcon" : "topHighlightIcon"}`} onClick={() => rightAnswerSound()} /> : null}{/* changehere */}
                     </div>
 

@@ -16,18 +16,30 @@ function ChooseCharacter() {
     const { Sound, setSound, } = useContext(SoundContext)
     const [correct, setCorrect] = useState(false)
     const [wrong, setWrong] = useState(false)
-    const [enableButton, setEnableButton] = useState(false)
+    const [enableButton, setEnableButton] = useState(true)
     const [random, setRandom] = useState(0)
     const [position, setPosition] = useState(true)
-
+    var sound = new Howl({
+        src: [`ee01_ow_thss_pl1/audio/SB_26_Audio_${num}.mp3`],
+    });
+    const [playSound, setPlaySound] = useState(sound)
     useEffect(() => {
-
-        var sound = new Howl({
-            src: [`ee01_ow_thss_pl1/audio/SB_26_Audio_${num}.mp3`],
-        });
-        sound.play();
-        sound.on('start', () => {
-            setEnableButton(true)
+        playSound.play();
+        playSound.on('end', () => {
+            setTimeout(() => {
+                playSound.play()
+            }, 10000)
+        })
+        playSound.on('mute', () => {
+            setTimeout(() => {
+                playSound.mute(false)
+            }, 2000)
+        })
+        playSound.on('stop', () => {
+            setTimeout(() => {
+                playSound.stop()
+                playSound.mute()
+            }, 2000)
         })
         randomize();
 
@@ -42,29 +54,9 @@ function ChooseCharacter() {
         var randomPos = Math.random() >= 0.5;
         setPosition(randomPos)
     }
-    const [isActivity, setIsActivity] = useState(true)
-    const [playAnimation, setPlayAnimation] = useState(false)
-
-    useEffect(() => {
-        if (isActivity) {
-            setTimeout(() => {
-                setIsActivity(false)
-            }, 10000)
-        }
-        if (!isActivity) {
-            setPlayAnimation(true)
-            setTimeout(() => {
-                setPlayAnimation(!playAnimation)
-            }, 4000)
-        }
-    }, [isActivity, playAnimation])
-
-
 
     const wrongAnswerSound = () => {
-        setIsActivity(true)
-        setPlayAnimation(false)
-        setPlayAnimation(false)
+        playSound.mute(true)
         if (enableButton) {
             setEnableButton(false)
             var sound = new Howl({
@@ -78,9 +70,9 @@ function ChooseCharacter() {
             })
         }
     }
+
     const rightAnswerSound = () => {
-        setIsActivity(true)
-        setPlayAnimation(false)
+        playSound.unload()
         if (enableButton) {
             var sound = new Howl({
                 src: [`ee01_ow_thss_pl1/audio/SB_26_Audio_11.mp3`],
@@ -127,13 +119,14 @@ function ChooseCharacter() {
 
 
 
+
     return (
         <Scenes
             Bg={Bg}
             sprites={
                 <>
                     <Image src={choosecharacter?.sprites[charNum]} alt="" className={`${position ? "leftCharacterIcon" : "rightCharacterIcon"}`} onClick={() => rightAnswerSound()} />
-                    {(playAnimation) ? <Image src={choosecharacter?.sprites[18]} className={`${position ? "leftHilightIcon handIconAnimation" : "rightHilightIcon handIconAnimation"}`} /> : null}
+
                     {(correct) ? <Image src={choosecharacter?.sprites[4]} alt="txt" className={`${position ? "leftHilighterIcon" : "rightHilighterIcon"}`} onClick={() => rightAnswerSound()} /> : null}
 
                     <Image src={choosecharacter?.sprites[random]} alt="txt" className={`${!position ? "leftCharacterIcon" : "rightCharacterIcon"}`} onClick={() => wrongAnswerSound()} />

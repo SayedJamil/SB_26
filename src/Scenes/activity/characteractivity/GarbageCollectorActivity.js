@@ -19,18 +19,30 @@ function GarbageCollectorActivity() {//change here
     const { Sound, setSound, } = useContext(SoundContext)
     const [correct, setCorrect] = useState(false)
     const [wrong, setWrong] = useState(false)
-    const [enableButton, setEnableButton] = useState(false)
+    const [enableButton, setEnableButton] = useState(true)
     const [random, setRandom] = useState()
     const [position, setPosition] = useState(true)
+    var sound = new Howl({
+        src: [`ee01_ow_thss_pl1/audio/14-11-2021/SB_26_Audio_03.mp3`],//change here
+    });
+    const [playSound, setPlaySound] = useState(sound)
     useEffect(() => {
-        var sound = new Howl({
-            src: [`ee01_ow_thss_pl1/audio/14-11-2021/SB_26_Audio_03.mp3`],//change here
-        });
-        sound.play();
-
-        sound.on('start', () => {
-            setEnableButton(true)
-
+        playSound.play();
+        playSound.on('end', () => {
+            setTimeout(() => {
+                playSound.play()
+            }, 10000)
+        })
+        playSound.on('mute', () => {
+            setTimeout(() => {
+                playSound.mute(false)
+            }, 2000)
+        })
+        playSound.on('stop', () => {
+            setTimeout(() => {
+                playSound.stop()
+                playSound.mute()
+            }, 2000)
         })
         randomize();
     }, [])
@@ -54,8 +66,7 @@ function GarbageCollectorActivity() {//change here
         }
     }, [Assets, Loading])
     const wrongAnswerSound = () => {
-        setIsActivity(true)
-        setPlayAnimation(false)
+        playSound.mute(true)
         if (enableButton) {
             setEnableButton(false)
             var sound = new Howl({
@@ -71,8 +82,7 @@ function GarbageCollectorActivity() {//change here
         }
     }
     const rightAnswerSound = () => {
-        setIsActivity(true)
-        setPlayAnimation(false)
+        playSound.unload()
         if (enableButton) {
             var sound = new Howl({
                 src: [`ee01_ow_thss_pl1/audio/14-11-2021/SB_26_Audio_04.mp3`],//change here
@@ -101,22 +111,7 @@ function GarbageCollectorActivity() {//change here
         var randomPos = Math.random() >= 0.5;
         setPosition(randomPos)
     }
-    const [isActivity, setIsActivity] = useState(true)
-    const [playAnimation, setPlayAnimation] = useState(false)
 
-    useEffect(() => {
-        if (isActivity) {
-            setTimeout(() => {
-                setIsActivity(false)
-            }, 10000)
-        }
-        if (!isActivity) {
-            setPlayAnimation(true)
-            setTimeout(() => {
-                setPlayAnimation(!playAnimation)
-            }, 4000)
-        }
-    }, [isActivity, playAnimation])
     return (
         <Scenes
             Bg={Bg}
@@ -125,7 +120,7 @@ function GarbageCollectorActivity() {//change here
 
                     <div>
                         <Image src={garbageCollectorScene?.sprites[toolNum]} alt="txt" className={`${position ? "bottomEquipButton" : "topEquipButton"}`} onClick={() => rightAnswerSound()} />{/* changehere */}
-                        {(playAnimation) ? <Image src={garbageCollectorScene?.sprites[22]} className={`${position ? "bottomHilightIcon handIconAnimation" : "topHilightIcon handIconAnimation"}`} /> : null}
+
                         {(correct) ? <Image src={garbageCollectorScene?.sprites[18]} alt="txt" className={`${position ? "bottomHighlightIcon" : "topHighlightIcon"}`} onClick={() => rightAnswerSound()} /> : null}{/* changehere */}
                     </div>
 

@@ -48,7 +48,7 @@ function Activity02End() {
             play03Sound.play()
             lottie.play()
         })
-        play03Sound.on('start', () => {
+        play03Sound.on('play', () => {
             setEnableButton(true)
         })
         play03Sound.on('end', () => {
@@ -82,7 +82,6 @@ function Activity02End() {
 
                     <Image src={activityend?.sprites[6]} alt="txt" className="replay_btn" onClick={() => {
                         if (enableButton) {
-                            playSound.stop()
                             setisLoading(true)
                             setSceneId('/')
                             setStars(0)
@@ -90,7 +89,11 @@ function Activity02End() {
                             setCharNum(8)
                             setNum('09')
                             setToolNum(15)
-
+                            BG_sound.stop()
+                            play03Sound.unload()
+                            play04Sound.unload()
+                            play02Sound.unload()
+                            playSound.unload()
                         }
                     }} />
                     <div ref={Ref30} className="activityEndGirlIcon" id="explaingirl"></div>

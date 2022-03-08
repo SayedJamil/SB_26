@@ -92,12 +92,7 @@ function ArmyMan() {
                         setSceneId("/doctor")
                     }} />
 
-                    <Image src={armyManScene?.sprites[3]} alt="" className="prev_button" onClick={() => {
-                        playSound.stop()
-                        setButtonClicked(true)
-                        setisLoading(true)
-                        setSceneId("/explain")
-                    }} />
+
 
                     <Image src={armyManScene?.sprites[0]} alt="txt" className="iconGirl" />
                     <Image src={armyManScene?.sprites[23]} alt="" className="armyManShadow" />

@@ -15,7 +15,7 @@ export default function Intro() {
   const { SceneId, setSceneId, isLoading, setisLoading, Assets, setAssets, BG_sound } = useContext(SceneContext);
   const { intro } = Assets;
 
-  const [buttonClicked, setButtonClicked] = useState(false)
+  const [buttonClicked, setButtonClicked] = useState(true)
   const sound = new Howl({
     src: [`ee01_ow_thss_pl1/audio/SB_26_Audio_01.mp3`],
   });
@@ -26,14 +26,17 @@ export default function Intro() {
     changeClass.style.display = 'none'
   }, [])
   const handlePlayButtonClick = () => {
-    setButtonPressed(true)
-    navigator.vibrate(200);
-    playSound.play()
-    BG_sound?.play()
-    playSound.on('end', () => {
-      setisLoading(true)
-      setSceneId('/explain')
-    })
+    if (buttonClicked) {
+      setButtonClicked(false)
+      setButtonPressed(true)
+      navigator.vibrate(200);
+      playSound.play()
+      BG_sound?.play()
+      playSound.on('end', () => {
+        setisLoading(true)
+        setSceneId('/explain')
+      })
+    }
   }
   return (
     <Scenes

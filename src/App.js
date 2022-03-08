@@ -43,11 +43,13 @@ function App() {
     const bg_sound = new Howl({
       src: [`ee01_ow_thss_pl1/audio/Entire_video_song.mp3`],
       loop: true,
-      autoplay: false
+      autoplay: false,
+      volume: 0.03,
     })
     setBG_sound(bg_sound)
-  }
 
+  }
+ 
   useEffect(() => {
     loadAudio()
     setTimeout(() => {
@@ -80,7 +82,7 @@ function App() {
 
   useEffect(() => {
     if (BG_sound !== null) {
-      BG_sound.volume(0.05)
+      BG_sound.volume(0.03)
     }
   }, [BG_sound])
 

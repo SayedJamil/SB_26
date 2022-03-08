@@ -19,7 +19,6 @@ export default function Scenes({ sprites, Bg = "" }) {
       });
       ch.setSpeed(0.75)
       ch.play()
-      console.log(ch.getDuration())
       ch.addEventListener('complete', () => {
         setisLoading(false)
       })

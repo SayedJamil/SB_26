@@ -34,7 +34,6 @@ export default function Explain() {
       setSceneId('/armyman')
     })
   }, [])
-  console.log(explain)
   useEffect(() => {
     if (explain?.lottie && Ref11.current && !Loading) {
       try {

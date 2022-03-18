@@ -22,7 +22,7 @@ function Gardener() {
 
     const [buttonClicked, setButtonClicked] = useState(false)
     const sound = new Howl({
-        src: [`ee01_ow_thss_pl1/audio/SB_26_Audio_05.mp3`],
+        src: [`ee01_ow_thss_pl1/audio/sb_26_audio_05.mp3`],
     });
     const [playSound, setPlaySound] = useState(sound)
 

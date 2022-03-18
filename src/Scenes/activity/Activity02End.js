@@ -19,13 +19,13 @@ function Activity02End() {
     const [enableButton, setEnableButton] = useState(true)
     const [buttonClicked, setButtonClicked] = useState(false)
     const sound = new Howl({
-        src: [`ee01_ow_thss_pl1/audio/SB_26_Audio_48.mp3`],
+        src: [`ee01_ow_thss_pl1/audio/sb_26_audio_48.mp3`],
     });
     const sound02 = new Howl({
-        src: [`ee01_ow_thss_pl1/audio/SB_26_Audio_49.mp3`],
+        src: [`ee01_ow_thss_pl1/audio/sb_26_audio_49.mp3`],
     });
     const sound03 = new Howl({
-        src: [`ee01_ow_thss_pl1/audio/replayAudio.mp3`],
+        src: [`ee01_ow_thss_pl1/audio/replayaudio.mp3`],
     });
     const sound04 = new Howl({
         src: [`ee01_ow_thss_pl1/audio/children_clapping.mp3`],

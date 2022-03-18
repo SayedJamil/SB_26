@@ -20,7 +20,7 @@ function Police() {
 
     const [buttonClicked, setButtonClicked] = useState(false)
     const sound = new Howl({
-        src: [`ee01_ow_thss_pl1/audio/14-11-2021/SB_26_Audio_02.mp3`],
+        src: [`ee01_ow_thss_pl1/audio/14_11_2021/sb_26_audio_02.mp3`],
     });
     const [playSound, setPlaySound] = useState(sound)
 

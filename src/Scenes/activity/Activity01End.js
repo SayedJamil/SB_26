@@ -17,7 +17,7 @@ function Activity01End() {
     const { Sound, setSound, } = useContext(SoundContext)
     const Ref30 = useRef(null);
     const sound = new Howl({
-        src: [`ee01_ow_thss_pl1/audio/SB_26_Audio_26.mp3`],
+        src: [`ee01_ow_thss_pl1/audio/sb_26_audio_26.mp3`],
     });
     const [playSound, setPlaySound] = useState(sound)
 
@@ -41,7 +41,7 @@ function Activity01End() {
                     name: "explaingirl",
                     container: Ref30.current,
                     renderer: "svg",
-                    loop: false,
+                    loop: true,
                     autoplay: true,
                     animationData: activityend?.lottie[0],
                 })

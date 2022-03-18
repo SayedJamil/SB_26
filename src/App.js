@@ -41,7 +41,7 @@ function App() {
 
   const loadAudio = () => {
     const bg_sound = new Howl({
-      src: [`ee01_ow_thss_pl1/audio/Entire_video_song.mp3`],
+      src: [`ee01_ow_thss_pl1/audio/entire_video_song.mp3`],
       loop: true,
       autoplay: false,
       volume: 0.03,
@@ -62,17 +62,18 @@ function App() {
 
   navigator.vibrate = navigator.vibrate || navigator.webkitVibrate || navigator.mozVibrate || navigator.msVibrate;
   const loadBgImage = async () => {
-    const unmute = await LoadImage(`ee01_ow_thss_pl1/button/Buttons-20.svg`);
-    const mute = await LoadImage(`ee01_ow_thss_pl1/button/Buttons-26.svg`);
+    const unmute = await LoadImage(`ee01_ow_thss_pl1/button/buttons_20.svg`);
+    const mute = await LoadImage(`ee01_ow_thss_pl1/button/buttons_26.svg`);
     setSoundButton(unmute);
     setNoSoundButton(mute);
   };
   const loadLottie = async () => {
-    const data = await LoadJson(`ee01_ow_thss_pl1/lottie/Transition_01.json`);
+    const data = await LoadJson(`ee01_ow_thss_pl1/lottie/transition_01.json`);
     setTransition(data);
   };
 
   const LoadJson = async (url) => {
+    
     const data = await fetch(url).then((v) => v.json());
     return data;
   };

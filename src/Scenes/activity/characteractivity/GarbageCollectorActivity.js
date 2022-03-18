@@ -23,7 +23,7 @@ function GarbageCollectorActivity() {//change here
     const [random, setRandom] = useState()
     const [position, setPosition] = useState(true)
     var sound = new Howl({
-        src: [`ee01_ow_thss_pl1/audio/14-11-2021/SB_26_Audio_03.mp3`],//change here
+        src: [`ee01_ow_thss_pl1/audio/14_11_2021/sb_26_audio_03.mp3`],//change here
     });
     const [playSound, setPlaySound] = useState(sound)
     useEffect(() => {
@@ -70,7 +70,7 @@ function GarbageCollectorActivity() {//change here
         if (enableButton) {
             setEnableButton(false)
             var sound = new Howl({
-                src: [`ee01_ow_thss_pl1/audio/SB_26_Audio_10.mp3`],
+                src: [`ee01_ow_thss_pl1/audio/sb_26_audio_10.mp3`],
             });
             sound.play();
             setWrong(true)
@@ -85,7 +85,7 @@ function GarbageCollectorActivity() {//change here
         playSound.unload()
         if (enableButton) {
             var sound = new Howl({
-                src: [`ee01_ow_thss_pl1/audio/14-11-2021/SB_26_Audio_04.mp3`],//change here
+                src: [`ee01_ow_thss_pl1/audio/14_11_2021/sb_26_audio_04.mp3`],//change here
             });
             sound.play();
             sound.on('end', () => {

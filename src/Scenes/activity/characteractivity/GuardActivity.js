@@ -23,7 +23,7 @@ function GuardActivity() {//change here
     const [random, setRandom] = useState()
     const [position, setPosition] = useState(true)
     var sound = new Howl({
-        src: [`ee01_ow_thss_pl1/audio/SB_26_Audio_43.mp3`],//change here
+        src: [`ee01_ow_thss_pl1/audio/sb_26_audio_43.mp3`],//change here
     });
     const [playSound, setPlaySound] = useState(sound)
     useEffect(() => {
@@ -71,7 +71,7 @@ function GuardActivity() {//change here
         if (enableButton) {
             setEnableButton(false)
             var sound = new Howl({
-                src: [`ee01_ow_thss_pl1/audio/SB_26_Audio_10.mp3`],
+                src: [`ee01_ow_thss_pl1/audio/sb_26_audio_10.mp3`],
             });
             sound.play();
             setWrong(true)
@@ -86,7 +86,7 @@ function GuardActivity() {//change here
         playSound.unload()
         if (enableButton) {
             var sound = new Howl({
-                src: [`ee01_ow_thss_pl1/audio/SB_26_Audio_44.mp3`],//change here
+                src: [`ee01_ow_thss_pl1/audio/sb_26_audio_44.mp3`],//change here
             });
             sound.play();
             sound.on('end', () => {

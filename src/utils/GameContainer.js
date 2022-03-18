@@ -28,7 +28,7 @@ export default function GameContainer({ children }) {
 
   const [cursorHand, setCursorHand] = useState(null)
   const loadBgImage = async () => {
-    const handIcon = await LoadImage(`ee01_ow_thss_pl1/icons/HAND/SB_26_hand.svg`);
+    const handIcon = await LoadImage(`ee01_ow_thss_pl1/icons/hand/sb_26_hand.svg`);
     setCursorHand(handIcon);
   };
 

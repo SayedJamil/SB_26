@@ -22,7 +22,7 @@ function FireFighterActivity() {//change here
     const [random, setRandom] = useState()
     const [position, setPosition] = useState(true)
     var sound = new Howl({
-        src: [`ee01_ow_thss_pl1/audio/SB_26_Audio_39.mp3`],//change here
+        src: [`ee01_ow_thss_pl1/audio/sb_26_audio_39.mp3`],//change here
     });
     const [playSound, setPlaySound] = useState(sound)
     useEffect(() => {
@@ -69,7 +69,7 @@ function FireFighterActivity() {//change here
         if (enableButton) {
             setEnableButton(false)
             var sound = new Howl({
-                src: [`ee01_ow_thss_pl1/audio/SB_26_Audio_10.mp3`],
+                src: [`ee01_ow_thss_pl1/audio/sb_26_audio_10.mp3`],
             });
             sound.play();
             setWrong(true)
@@ -84,7 +84,7 @@ function FireFighterActivity() {//change here
         playSound.unload()
         if (enableButton) {
             var sound = new Howl({
-                src: [`ee01_ow_thss_pl1/audio/SB_26_Audio_41.mp3`],//change here
+                src: [`ee01_ow_thss_pl1/audio/sb_26_audio_41.mp3`],//change here
             });
             sound.play();
             sound.on('end', () => {

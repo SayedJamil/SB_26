@@ -20,7 +20,7 @@ function ChooseCharacter() {
     const [random, setRandom] = useState(0)
     const [position, setPosition] = useState(true)
     var sound = new Howl({
-        src: [`ee01_ow_thss_pl1/audio/SB_26_Audio_${num}.mp3`],
+        src: [`ee01_ow_thss_pl1/audio/sb_26_audio_${num}.mp3`],
     });
     const [playSound, setPlaySound] = useState(sound)
     useEffect(() => {
@@ -60,7 +60,7 @@ function ChooseCharacter() {
         if (enableButton) {
             setEnableButton(false)
             var sound = new Howl({
-                src: [`ee01_ow_thss_pl1/audio/SB_26_Audio_10.mp3`],
+                src: [`ee01_ow_thss_pl1/audio/sb_26_audio_10.mp3`],
             });
             sound.play();
             setWrong(true)
@@ -75,7 +75,7 @@ function ChooseCharacter() {
         playSound.unload()
         if (enableButton) {
             var sound = new Howl({
-                src: [`ee01_ow_thss_pl1/audio/SB_26_Audio_11.mp3`],
+                src: [`ee01_ow_thss_pl1/audio/sb_26_audio_11.mp3`],
             });
             sound.play();
             sound.on('end', () => {
